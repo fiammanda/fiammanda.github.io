@@ -1,0 +1,22 @@
+---
+layout: default
+title: Widget
+permalink: /widget/
+---
+
+<h2 class="page-title">Widget</h2>
+<p class="page-subtitle">Collections & Tools</p>
+
+<article>
+
+	<ul>
+{% for datum in site.data.widget %}		<li>
+			{% if datum.type == 'internal' %}<a target="_blank" href="{{ site.baseurl }}{{ datum.link }}">
+			{%- elsif datum.type == 'external' -%}<a target="_blank" href="{{ datum.link }}">
+			{%- elsif datum.link -%}<a target="_blank" rel="noopener noreferrer nofollow" href="{{ datum.link }}">{% endif %}
+				<h3>{{ datum.name }}</h3><p>{{ datum.desc }}</p>
+			</a>
+		</li>
+{% endfor %}	</ul>
+
+</article>

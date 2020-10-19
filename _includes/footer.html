@@ -1,0 +1,14 @@
+<footer role="contentinfo">
+	<p{% if page.layout == 'home' %} aria-hidden{% endif %}>&copy; 2008 - {{ "now" | date: "%Y" }} {{ site.author }}</p>
+	<p{% if page.layout == 'home' %} aria-hidden{% endif %}>Hosted on Github & Generated with Jekyll</p>
+</footer>
+
+</div>
+
+<script src="https://www.googletagmanager.com/gtag/js?id=UA-162600333-1"></script>{% if page.layout == 'weblog' or page.layout == 'works' %}
+<script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>{% endif %}
+<script src="{{ site.baseurl }}/assets/script.common.js"></script>
+<script src="{{ site.baseurl }}/assets/script.data.js"></script>
+
+</body>
+</html>

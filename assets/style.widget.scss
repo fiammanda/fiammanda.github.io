@@ -1,0 +1,89 @@
+
+*, ::before, ::after {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	border: 0;
+	outline: 0;
+	box-shadow: none;
+	box-sizing: border-box;
+}
+html {
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: transparent;
+	cursor: crosshair;
+}
+body {
+	margin: 0;
+	padding: 0;
+	text-align: justify;
+	line-height: 1.5;
+}
+
+footer {
+	position: fixed;
+	bottom: 3rem;
+	right: 2.25rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	z-index: 1;
+	mix-blend-mode: difference;
+	transition: .4s ease-in-out;
+}
+footer:hover {
+	opacity: .75;
+}
+footer svg {
+	width: 1.5rem;
+	height: 1.5rem;
+	fill: #fff;
+}
+
+[aria-expanded] {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	top: 2.4rem;
+	right: 2.4rem;
+	width: 20px;
+	height: 16px;
+	z-index: 1;
+	mix-blend-mode: difference;
+	transition: .4s ease-in-out;
+}
+[aria-expanded]:hover {
+	opacity: .75;
+}
+[aria-expanded] span {
+	content: "";
+	border-bottom: 2px solid #fff;
+	transition: .2s ease-in-out;
+}
+nav.on ~ [aria-expanded] span:first-child {
+	transform: translateY(6px) rotate(135deg);
+}
+nav.on ~ [aria-expanded] span:last-child {
+	transform: translateY(-8px) rotate(-135deg);
+}
+nav.on ~ [aria-expanded] span {
+	transform: scale(0);
+}
+
+a {
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+	[aria-expanded] {
+		top: 1.5rem;
+		right: 1.5rem;
+	}
+	footer {
+		right: 1.25rem;
+	}
+}
