@@ -24,7 +24,7 @@ if (counter) {
 			counter[item.url] = {
 				id: item.objectId,
 				like: item.like,
-				view: item.ov,
+				view: item.pv,
 			};
 		});
 		sessionStorage.setItem('counter', JSON.stringify(counter));
@@ -158,7 +158,7 @@ function leancloud(operation, object) {
 			lcoption = {
 				method: 'POST',
 				headers: lcheader,
-				body: "{\"requests\": [ { \"method\": \"PUT\", \"path\": \"/1.1/classes/Counter/" + siteID + "\", \"body\": { \"ov\": {\"__op\": \"Increment\", \"amount\": 1} } }, { \"method\": \"PUT\", \"path\": \"/1.1/classes/Counter/" + pageID + "\", \"body\": { \"ov\": {\"__op\": \"Increment\", \"amount\": 1} } } ]}"
+				body: "{\"requests\": [ { \"method\": \"PUT\", \"path\": \"/1.1/classes/Counter/" + siteID + "\", \"body\": { \"pv\": {\"__op\": \"Increment\", \"amount\": 1} } }, { \"method\": \"PUT\", \"path\": \"/1.1/classes/Counter/" + pageID + "\", \"body\": { \"pv\": {\"__op\": \"Increment\", \"amount\": 1} } } ]}"
 			}
 			break;
 		case 'counterUV':
@@ -166,7 +166,7 @@ function leancloud(operation, object) {
 			lcoption = {
 				method: 'POST',
 				headers: lcheader,
-				body: "{\"requests\": [ { \"method\": \"PUT\", \"path\": \"/1.1/classes/Counter/" + siteID + "\", \"body\": { \"ov\": {\"__op\": \"Increment\", \"amount\": 1}, \"uv\": {\"__op\": \"Increment\", \"amount\": 1} } }, { \"method\": \"PUT\", \"path\": \"/1.1/classes/Counter/" + pageID + "\", \"body\": { \"ov\": {\"__op\": \"Increment\", \"amount\": 1}, \"uv\": {\"__op\": \"Increment\", \"amount\": 1} } } ]}"
+				body: "{\"requests\": [ { \"method\": \"PUT\", \"path\": \"/1.1/classes/Counter/" + siteID + "\", \"body\": { \"pv\": {\"__op\": \"Increment\", \"amount\": 1}, \"uv\": {\"__op\": \"Increment\", \"amount\": 1} } }, { \"method\": \"PUT\", \"path\": \"/1.1/classes/Counter/" + pageID + "\", \"body\": { \"pv\": {\"__op\": \"Increment\", \"amount\": 1}, \"uv\": {\"__op\": \"Increment\", \"amount\": 1} } } ]}"
 			}
 			break;
 		case 'counterLike':
@@ -190,13 +190,12 @@ function leancloud(operation, object) {
 			lcoption = {
 				method: 'POST',
 				headers: lcheader,
-				body: "{\"url\": \"" + url + "\", \"title\": \"" + title + "\", \"ov\": 1, \"uv\": 1, \"like\": 0}"
+				body: "{\"url\": \"" + url + "\", \"title\": \"" + title + "\", \"pv\": 1, \"uv\": 1, \"like\": 0}"
 			}
 			break;
 		case 'commentNew':
 			break;
 		case 'comment':
-			//lcpath = `classes/Comment?where={"url":"${object}"}&scan_key=time&keys=-createdAt,-updatedAt,-title`;
 			lcpath = `classes/Comment?where={"url":"${object}"}&scan_key=time`;
 			lcoption = {
 				method: 'GET',
