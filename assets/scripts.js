@@ -1,4 +1,8 @@
 
+if (window.location.protocol == 'http:' && window.location.port == 80) {
+	location.replace(window.location.href.replace('http:', 'https:'));
+}
+
 let now = new Date(),
     schemeStore = localStorage.getItem('scheme'),
     schemeMatch = window.matchMedia('(prefers-color-scheme: dark)');

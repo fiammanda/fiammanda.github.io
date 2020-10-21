@@ -1,5 +1,5 @@
-
-let timer = false,
+let now = new Date(),
+    timer = false,
     debounce = function(callback, time) {
     	clearTimeout(timer);
     	timer = setTimeout(callback, time);

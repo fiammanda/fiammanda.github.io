@@ -16,9 +16,9 @@ const math = {
 }
 
 const cursor = $('<div id="cursor" class="hidden" />').appendTo('body');
-$(document)
-	.one('mousemove', function() { new Cursor(); })
-	.one('touchstart', function() { $(document).off('.cursor'); });
+$(window).one('mousemove.cursor', function() { 
+	new Cursor(); 
+})
 
 let expandA = document.querySelectorAll('a[data-expand]'),
     expandH = document.querySelector('header[role]'),
@@ -127,7 +127,7 @@ class Cursor {
 		this.render();
 	}
 	init() {
-		$(document).one('mousemove', e => cursor.css({
+		$(document).one('mousemove.cursor', e => cursor.css({
 			left: e.clientX - 8,
 			top: e.clientY - 8
 		})).on('mousemove.cursor', e => this.pos.curr = {
@@ -147,6 +147,9 @@ class Cursor {
 			cursor.removeClass('hover');
 		}).on('mouseenter.cursor', 'a, .like, .footnotes + .footnotes li[role]', function() {
 			cursor.addClass('hover');
+		}).one('touchstart', function() { 
+			cursor.addClass('hidden');
+			$(document).off('.cursor');
 		});
 	}
 	render() {

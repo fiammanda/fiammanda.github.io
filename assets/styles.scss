@@ -1197,12 +1197,9 @@ main article [itemprop="comment"]::before {
 	transition-property: background;
 }
 main article [itemprop="comment"] form {
-	display: flex;
 	margin: 0 0 2rem;
 }
 main article [itemprop="comment"] form div {
-	order: 1;
-	flex: 1 0 12rem;
 	text-align: right;
 }
 main article [itemprop="comment"] label {
@@ -1210,10 +1207,6 @@ main article [itemprop="comment"] label {
 	display: block;
 	margin: 0 0 .75rem;
 	font-size: .875rem;
-}
-main article [itemprop="comment"] div + label {
-	flex: 1 1 25rem;
-	margin: 0 .75rem 0 0;
 }
 main article [itemprop="comment"] label span {
 	position: absolute;
@@ -1241,7 +1234,8 @@ main article [itemprop="comment"] textarea:focus {
 	background: hsl(0, 0%, var(--bright90));
 }
 main article [itemprop="comment"] textarea {
-	min-height: 100%;
+	height: 100%;
+	min-height: 8em;
 	resize: none;
 }
 main article [itemprop="comment"] input:placeholder-shown + span,
@@ -1252,16 +1246,32 @@ main article [itemprop="comment"] input:placeholder-shown:focus + span,
 main article [itemprop="comment"] textarea:placeholder-shown:focus + span {
 	opacity: 0;
 }
-main article [itemprop="comment"] form a {
-	margin: 1rem 0 0 .5rem;
-	display: inline-block;
+
+main article [itemprop="comment"] a[aria-label] {
+	padding: .25rem 0 0;
 	width: 1.75rem;
 	text-align: center;
 	background: hsl(0, 0%, var(--bright95));
 	border-radius: 2px;
 }
-main article [itemprop="comment"] form a:hover {
+main article [itemprop="comment"] a[aria-label] svg {
+	width: 1rem;
+	height: 1rem;
+	fill: hsl(0, 0%, var(--bright50));
+}
+main article [itemprop="comment"] a[aria-label]:hover,
+main article [itemprop="comment"] a[data-rid]:hover {
 	background: hsl(0, 0%, var(--bright80));
+}
+main article [itemprop="comment"] form a[aria-label] {
+	margin: 0 0 0 .5rem;
+	display: inline-block;
+}
+main article [itemprop="comment"] ul a[aria-label] {
+	position: absolute;
+	right: 0;
+	bottom: 1.125rem;
+	line-height: 1.75;
 }
 
 main article [itemprop="comment"] ul[role] {
@@ -1286,9 +1296,48 @@ main article [itemprop="comment"] li[role] ul[role] {
 	margin: 0 0 0 2rem;
 	border: none;
 }
+main article [itemprop="comment"] li.load > article {
+	opacity: .25;
+}
 main article [itemprop="comment"] article {
 	position: relative;
-	margin: 1rem 0;
+	margin: 0;
+	padding: 1rem 0 1.125rem;
+	transition: opacity .2s ease-in-out;
+}
+main article [itemprop="comment"] article footer {
+	display: flex;
+	margin: 0 0 1rem;
+}
+main article [itemprop="comment"] article time {
+	margin: 0 auto 0 1rem;
+	opacity: .5;
+}
+main article [itemprop="comment"] article a[data-rid] {
+	padding: 0 .25rem;
+	font-size: .875rem;
+	color: hsl(0, 0%, var(--bright50));
+	background: hsl(0, 0%, var(--bright95));
+	border-radius: 2px;
+	transition-property: color, background;
+}
+
+@media only screen and (min-width: 64rem) {
+	main article [itemprop="comment"] form {
+		display: flex;
+	}
+	main article [itemprop="comment"] form div {
+		flex: 1 0 12rem;
+	}
+	main article [itemprop="comment"] form > label {
+		flex: 1 1 25rem;
+		margin: 0 .75rem 0 0;
+	}
+	main article [itemprop="comment"] form a {
+		margin: 1em 0 0 .5rem;
+	}
+}
+@media only screen and (max-width: 63.99rem) {
 }
 
 main nav[data-current] {
@@ -1408,7 +1457,7 @@ footer[role] p:last-child {
 [data-layout="home"] #wrap .page-subtitle[aria-hidden="false"] {
 	opacity: .75;
 }
-[data-layout="home"] header[role] li:first-child {
+[data-layout="home"] header[role] li[role]:first-child {
 	pointer-events: none;
 }
 [data-layout="home"] main svg {
@@ -1868,6 +1917,13 @@ footer[role] p:last-child {
 	color: #90a959;
 }
 
+@keyframes shake {
+	10%, 90% { transform: translateX(-1px); }
+	20%, 80% { transform: translateX(2px); }
+	30%, 50%, 70% { transform: translateX(-4px); }
+	40%, 60% { transform: translateX(4px); }
+}
+
 @font-face {
 	font-family: "Noto Serif SC";
 	font-style: normal;
@@ -1882,7 +1938,7 @@ footer[role] p:last-child {
 	font-weight: 500;
 	font-display: swap;
 	src: url("font.iosevka.woff2") format("woff2");
-	unicode-range: U+00B7, U+00D7, U+2014, U+2022, U+2026, U+2713, U+2717;
+	unicode-range: U+00B7, U+00D7, U+2014, U+2022, U+2026, U+2605, U+2713, U+2717;
 }
 @font-face {
 	font-family: "Playfair Display";
