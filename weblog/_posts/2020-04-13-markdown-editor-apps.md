@@ -2,6 +2,7 @@
 layout: weblog
 title: Markdown Editor 踩坑记录
 tags: [App]
+permalink: /weblog/markdown-editors
 ---
 
 哼，还不都是用 `CodeMirror` 这个轮子造的。<!-- more -->

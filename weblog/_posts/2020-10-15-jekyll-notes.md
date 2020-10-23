@@ -2,6 +2,7 @@
 title: Notes for Jekyll
 tags: [Jekyll]
 excerpt: Jekyll 安装、建站问题记录
+permalink: /weblog/jekyll-notes
 ---
 
 <!-- more -->

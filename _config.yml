@@ -28,7 +28,6 @@ defaults:
     values:
       category: weblog
       layout: weblog
-      permalink: /:categories/:title
 
 markdown: MDP
 sass:
