@@ -7,9 +7,8 @@ let now = new Date(),
     schemeStore = localStorage.getItem('scheme'),
     schemeMatch = window.matchMedia('(prefers-color-scheme: dark)');
 
-if (!sessionStorage.getItem('ip')) {
+if (!sessionStorage.getItem('counter')) {
 	$('html').addClass('load');
-	sessionStorage.setItem('ip', 'visited');
 }
 
 if (schemeStore) {

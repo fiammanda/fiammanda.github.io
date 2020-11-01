@@ -26,7 +26,7 @@
 		<p>{{ page.sourcenote }}译自 
 			{% if page.sourcelink %}<a rel="noopener noreferrer nofollow" target="_blank" href="{{ page.sourcelink }}">
 				<span itemprop="translationOfWork">{{ page.source }}</span>
-				{{ site.data.svg['link'] }}
+				{{ site.data.svg['source'] }}
 			</a>
 			{%- else -%}
 			<span itemprop="translationOfWork">{{ page.source }}</span>{% endif %}

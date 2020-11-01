@@ -220,9 +220,9 @@ body.load a[data-expand="nav"] {
 	pointer-events: none;
 }
 a[data-expand="header"] {
-	top: .5rem;
 	align-items: center;
-	justify-content: space-evenly;
+	top: .5rem;
+	padding: .125rem;
 	border-radius: 50%;
 }
 a[data-expand="header"] span {
@@ -1181,34 +1181,62 @@ main article nav [data-present="bar"].current {
 }
 
 main article [itemprop="comment"] {
+	position: relative;
 	margin: 10rem 0;
 	font-size: .9375rem;
 }
-main article [itemprop="comment"]::before {
-	content: "Comments（还不能用）";
+main article [itemprop="comment"].off {
+	max-height: 4rem;
+	overflow: hidden;
+}
+main article [itemprop="comment"] header {
+	position: absolute;
+	margin: 0;
+	width: 100%;
+	font-size: 1rem;
+	color: hsl(0, 0%, var(--bright40));
+	border-radius: 2px;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity .2s ease-in-out;
+}
+main article [itemprop="comment"].off header {
+	opacity: 1;
+	pointer-events: auto;
+}
+main article [itemprop="comment"] header a {
 	display: block;
-	margin: 4rem 0;
 	text-align: center;
-	line-height: 3;
+	line-height: 4rem;
+}
+main article [itemprop="comment"] form > div:first-child {
 	background: hsl(0, 0%, var(--bright95));
 	border-radius: 2px;
-	opacity: .8;
 	transition: .2s ease-in-out;
 	transition-property: background;
 }
-main article [itemprop="comment"] form {
-	margin: 0 0 2rem;
+main article [itemprop="comment"] form > div:first-child:focus-within {
+	background: hsl(0, 0%, var(--bright90));
 }
-main article [itemprop="comment"] form div {
-	text-align: right;
+main article [itemprop="comment"] form:invalid a[aria-label="enter"] {
+	opacity: .5;
+	pointer-events: none;
+}
+main article [itemprop="comment"] [aria-label="quote"] {
+	display: none;
+}
+main article [itemprop="comment"] fieldset {
+	display: grid;
+	grid-gap: .5em;
+	grid-template-columns: repeat(3, 1fr);
+	padding: 0 .5em .5em;
 }
 main article [itemprop="comment"] label {
 	position: relative;
 	display: block;
-	margin: 0 0 .75rem;
 	font-size: .875rem;
 }
-main article [itemprop="comment"] label span {
+main article [itemprop="comment"] label svg {
 	position: absolute;
 	top: .1rem;
 	left: .46875rem;
@@ -1216,26 +1244,25 @@ main article [itemprop="comment"] label span {
 	pointer-events: none;
 	transition: opacity .2s ease-in-out;
 }
-main article [itemprop="comment"] label span code {
-	background: hsl(0, 0%, var(--bright100));
-}
 main article [itemprop="comment"] input,
 main article [itemprop="comment"] textarea {
 	padding: .3em .5em .2em;
 	width: 100%;
 	font-size: .9375rem;
 	line-height: 1.5;
-	background: hsl(0, 0%, var(--bright95));
+	background: hsla(0, 0%, var(--bright100), .75);
 	border-radius: 2px;
 	transition: background .2s ease-in-out;
 }
-main article [itemprop="comment"] input:focus,
-main article [itemprop="comment"] textarea:focus {
-	background: hsl(0, 0%, var(--bright90));
+main article [itemprop="comment"] input:focus {
+	background: hsl(0, 0%, var(--bright100));
 }
 main article [itemprop="comment"] textarea {
+	padding: 1em;
 	height: 100%;
 	min-height: 8em;
+	background: transparent;
+	overflow: hidden;
 	resize: none;
 }
 main article [itemprop="comment"] input:placeholder-shown + span,
@@ -1296,7 +1323,7 @@ main article [itemprop="comment"] li[role] ul[role] {
 	margin: 0 0 0 2rem;
 	border: none;
 }
-main article [itemprop="comment"] li.load > article {
+main article [itemprop="comment"] li.on > article {
 	opacity: .25;
 }
 main article [itemprop="comment"] article {
@@ -1323,19 +1350,6 @@ main article [itemprop="comment"] article a[data-rid] {
 }
 
 @media only screen and (min-width: 64rem) {
-	main article [itemprop="comment"] form {
-		display: flex;
-	}
-	main article [itemprop="comment"] form div {
-		flex: 1 0 12rem;
-	}
-	main article [itemprop="comment"] form > label {
-		flex: 1 1 25rem;
-		margin: 0 .75rem 0 0;
-	}
-	main article [itemprop="comment"] form a {
-		margin: 1em 0 0 .5rem;
-	}
 }
 @media only screen and (max-width: 63.99rem) {
 }

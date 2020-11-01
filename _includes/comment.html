@@ -1,14 +1,22 @@
-	<section itemprop="comment" data-count="0">
+	<section itemprop="comment" class="off">
+		<header><a data-v="Feed me some comments!">Comments in Construction</a></header>
 		<form>
-			<article></article>
-			<label><textarea required placeholder="　" minlength="8" maxlength="400"></textarea><span>支持 <code>Markdown</code></span></label>
 			<div>
-				<label><input name="name" type="text" placeholder="　" required minlength="4" maxlength="20" /><span>名字 ★</span></label>
-				<label><input name="mail" type="email" placeholder="　" required /><span>邮箱 ★</span></label>
-				<label><input name="link" type="url" placeholder="　" /><span>链接</span></label>
+				<div aria-label="quote"></div>
+				<textarea required minlength="8" maxlength="800"></textarea>
+				<fieldset>
+					<label><input name="name" type="text" placeholder="　" required minlength="4" maxlength="20">{{ site.data.svg['name'] }}</label>
+					<label><input name="mail" type="email" placeholder="　" required>{{ site.data.svg['mail'] }}</label>
+					<label><input name="link" type="url" placeholder="　">{{ site.data.svg['link'] }}</label>
+				</fieldset>
+			</div>
+			<div>
+				<blockquote>
+					<p>姓名、邮箱必填；</p>
+					<p>支持基础 <code>Markdown</code>：</p>
+				</blockquote>
 				<a aria-label="preview">{{ site.data.svg['view'] }}</a>
 				<a aria-label="enter">{{ site.data.svg['enter'] }}</a>
-				<a aria-label="close">{{ site.data.svg['close'] }}</a>
 			</div>
 		</form>
 		<ul role="list"></ul>
