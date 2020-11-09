@@ -1,8 +1,8 @@
-	<section itemprop="comment" class="off">
-		<header><a data-v="Feed me some comments!">Comments in Construction</a></header>
+	<section itemprop="comment" class="o ff">
+		<header><a>Feed me some comments!</a></header>
 		<form>
 			<div>
-				<div aria-label="quote"></div>
+				<div aria-label="quote"><article></article></div>
 				<textarea required minlength="8" maxlength="800"></textarea>
 				<fieldset>
 					<label><input name="name" type="text" placeholder="　" required minlength="4" maxlength="20">{{ site.data.svg['name'] }}</label>
@@ -11,7 +11,7 @@
 				</fieldset>
 			</div>
 			<div>
-				<blockquote>
+				<blockquote aria-label="instruction">
 					<p>姓名、邮箱必填；</p>
 					<p>支持基础 <code>Markdown</code>：</p>
 				</blockquote>
@@ -19,5 +19,5 @@
 				<a aria-label="enter">{{ site.data.svg['enter'] }}</a>
 			</div>
 		</form>
-		<ul role="list"></ul>
+		<ul aria-label="comments"></ul>
 	</section>

@@ -38,7 +38,7 @@ if (counter) {
 	counter = JSON.parse(counter);
 	updateCounter();
 } else {
-	fetch("https://api.fiammanda.workers.dev/").then(res => res.json()).then(res => {
+	fetch('https://api.fiammanda.workers.dev/').then(res => res.json()).then(res => {
 		counter = res;
 		sessionStorage.setItem('counter', JSON.stringify(counter));
 		updateCounter();
@@ -49,7 +49,7 @@ function updateCounter() {
 	let page = counter[url];
 	if (!page) {
 		page = {like: 0, view: 1}
-		fetch("https://api.fiammanda.workers.dev/register", {
+		fetch('https://api.fiammanda.workers.dev/register', {
 			method: 'POST',
 			body: JSON.stringify({
 				url: url, title: title, pv: 1, uv: 1, like: 0
@@ -103,8 +103,10 @@ function updateCounter() {
 		      list = comment.querySelector('ul'),
 		      form = comment.querySelector('form'),
 		      text = form.querySelector('textarea'),
+		     quote = form.querySelector('article'),
 		    height = {old: '8em', new: '8em'},
-		    submit = {};
+		    submit = {title: title, url: url};
+		let comments = [];
 		view.append(page.view).attr({
 			'data-prev': page.view-1,
 			'data-next': page.view,
@@ -138,70 +140,93 @@ function updateCounter() {
 			}
 		});
 		$(text).on('input', function() {
-			this.style.height = 'auto';
-			height.new = this.scrollHeight + 'px';
-			this.style.height = height.old;
-			$(this).animate({
-				height: height.new
-			}, 200);
-			console.log(JSON.stringify(height));
-			height.old = height.new;
+			debounce(() => {
+				this.style.height = 'auto';
+				height.new = this.scrollHeight + 'px';
+				this.style.height = height.old;
+				$(this).animate({ height: height.new }, 200);
+				height.old = height.new;
+			}, 500);
 		});
-		$(comment).on('click', 'header', function() {
-			/*
+			fetch(`https://api.fiammanda.workers.dev/comments${url}`).then(res => res.json()).then(res => {
+				comments = res;
+				comments.forEach(item => updateComment(item));
+			}).catch(error => console.log('[Failed to retreive comments]: ' + error));
+		$(comment).on('click', 'header', function() {/*
 			comment.className = '';
 			text.focus();
 			fetch(`https://api.fiammanda.workers.dev/comments${url}`).then(res => res.json()).then(res => {
 				res.forEach(item => updateComment(item));
 				comment.className = 'on';
-			}).catch(error => console.log('[Failed to retreive comments]: ' + error));
-			*/
-		}).on('click', 'a[data-rid]', function() {
-			let reply = list.querySelector('li[data-id="' + this.dataset.rid + '"]');
-			reply.className = 'on';
-			setTimeout(function() { reply.removeAttribute('class'); }, 250);
-		}).on('click', 'a[aria-label="reply"]', function() {
-			let rid = this.parentNode.parentNode.parentNode.dataset.id,
-			    tid = this.previousSibling.dataset.tid;
+			}).catch(error => console.log('[Failed to retreive comments]: ' + error));*/
+		}).on('click', 'ul a[aria-label="reply"]', function() {
+			let reply = this.parentNode.parentNode,
+			      tid = this.previousSibling.dataset.tid,
+			      rid = reply.parentNode.parentNode.dataset.id;
+			if (submit.rid) {
+				$(quote.parentNode).slideUp(200);
+				setTimeout(function() {
+					quote.innerHTML = reply.innerHTML;
+					$(quote.parentNode).slideDown(200);
+				}, 210);
+			} else {
+				quote.innerHTML = reply.innerHTML;
+				$(quote.parentNode).slideDown(200);
+			}
 			submit.rid = rid;
 			submit.tid = tid ? tid : rid;
-		}).on('click', 'a[aria-label="close"]', function() {
+			text.focus();
+		}).on('click', 'form a[aria-label="reply"]', function() {
 			delete submit.rid;
 			delete submit.tid;
+			$(quote.parentNode).slideUp(200);
 		}).on('click', 'a[aria-label="enter"]', function() {
 			form.className = 'off';
-			submit.title = title;
-			submit.url = url;
 			submit.name = comment.querySelector('input[name="name"]').value;
 			submit.mail = comment.querySelector('input[name="mail"]').value;
 			submit.link = comment.querySelector('input[name="link"]').value;
 			submit.text = convert(text.value);
-			fetch("https://api.fiammanda.workers.dev/comment", {
+			if (!submit.link) {
+				delete submit.link;
+			}
+			console.log(JSON.stringify(submit))
+			fetch('https://api.fiammanda.workers.dev/comment', {
 				method: 'POST',
 				body: JSON.stringify(submit)
-			}).then(res => res.json()).then(() => {
-				text.value = '';
-				updateComment(submit);
+			}).then(res => res.json()).then(res => {
+				//text.value = '';
+				submit.id = res.objectId;
+				comments.push(submit);
+				updateComment(submit, true);
 				form.removeAttribute('class');
+				delete submit.id;
 			}).catch(error => console.log('[Failed to post the comment]: ' + error));
+		}).on('click', 'a[data-rid]', function() {
+			let reply = list.querySelector('li[data-id="' + this.dataset.rid + '"]');
+			reply.className = 'on';
+			setTimeout(function() { reply.removeAttribute('class'); }, 250);
 		});
 
-		function updateComment(item) {
-			let li = `<li role="listitem" data-id="${item.objectId}"><figure>${avatar(item.name)}</figure><article><div>${item.text}</div><footer>`;
+		function updateComment(item, update) {
+			let li = `<li `;
+			if (update) {
+				li += `class="off" `;
+			}
+			li += `itemscope itemtype="https://schema.org/Comment" data-id="${item.objectId}"><article><span role="img">${avatar(item.name)}</span><div>${item.text}<footer><a itemprop="author"`;
 			if (item.link === '/') {
-				li += `<a class="internal" rel="home" href="/">${item.name}</a>`;
+				li += ` class="internal" rel="home" href="/">${item.name}</a>`;
 			} else if (item.link) {
-				li += `<a target="_blank" rel="noopener noreferrer nofollow" href="${item.link}">${item.name} ${svgLink}</a>`;
+				li += ` target="_blank" rel="noopener noreferrer nofollow" href="${item.link}">${item.name}`;
 			} else {
-				li += `${item.name}`;
+				li += `>${item.name}`;
 			}
-			li += `<time>${new Date(item.time).toLocaleString('sv-SE')}</time>`;
+			li += `</a><time>${new Date(item.time).toLocaleString('sv-SE')}</time>`;
 			if (item.tid) {
-				li += `<a data-rid="${item.rid}" data-tid="${item.tid}">@ ${res.find(x => x.objectId == item.rid).name}</a>`;
+				li += `<a data-rid="${item.rid}" data-tid="${item.tid}">@ ${comments.find(x => x.objectId == item.rid).name}</a>`;
 			}
-			li += `<a aria-label="reply">${svgPlus}</a></footer></article><ul role="list"></ul></li>`;
+			li += `<a aria-label="reply">${svgPlus}</a></footer></div></article><ul itemprop="comment"></ul></li>`;
 			if (item.tid) {
-				$(li).appendTo(list.querySelector(`li[data-id="${item.tid}"] ul[role]`));
+				$(li).appendTo(list.querySelector(`li[data-id="${item.tid}"] ul[itemprop]`));
 			} else {
 				$(li).appendTo(list);
 			}

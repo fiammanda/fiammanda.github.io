@@ -2,13 +2,14 @@
 layout: default
 ---
 
+{%- assign pages = site.categories['weblog'] | concat: site.data.weblog | sort: 'date' | reverse -%}
 {%- if page.url contains 'page' -%}
 {%- assign page-no = page.url | slice: -5, 4 | split: '/' | last | minus: 0 -%}
 {%- assign page-offset = page-no | minus: 1 | times: site.page-size -%}
 {%- else -%}
 {%- assign page-no = 0 -%}
 {%- endif -%}
-{%- assign page-total = site.categories['weblog'].size | divided_by: site.page-size-float | ceil -%}
+{%- assign page-total = pages.size | divided_by: site.page-size-float | ceil -%}
 
 <h2 class="page-title">Weblog</h2>
 {% if page-no == 0 %}<p class="page-subtitle">The Full List</p>
@@ -24,7 +25,7 @@ layout: default
 		<a data-count="{{ site.tags[tag] | size }}">{{ tag }}</a>{% endfor %}
 	</nav>
 	<ul>
-		{% for page in site.categories['weblog'] %}{%- unless page.cite -%}
+		{% for page in pages %}{%- unless page.cite -%}
 		<li itemscope itemtype="https://schema.org/CreativeWork" class="{{ page.tags | join: ' ' }}">
 			<a itemprop="name" class="internal" href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a>
 			<hr />
@@ -35,7 +36,7 @@ layout: default
 </article>
 {% else %}<p class="page-subtitle">Page {{ page-no }} of {{ page-total }}</p>
 
-{%- for page in site.categories['weblog'] limit: site.page-size offset: page-offset -%}
+{%- for page in pages limit: site.page-size offset: page-offset -%}
 {% if page.cite %}
 <article data-layout="cite" itemscope itemtype="https://schema.org/BlogPosting">
 	<div itemprop="articleBody">
@@ -60,7 +61,7 @@ layout: default
 		</p>
 	</header>
 	<div itemprop="abstract">
-		{% if page.content contains site.excerpt-separator %}
+		{% if page.excerpt or page.content contains site.excerpt-separator %}
 		{{ page.excerpt | markdownify | replace_first: site.excerpt-separator, '<span data-present="more"></span>' | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer nofollow" href="http' }}
 		{% else %}
 		{{ page.content | remove: ' highlighter-rouge' | remove: '<div class="highlight">' | replace: '</code></pre></div></div>', '</code></pre></div>' | replace: '<table>', '<div class="table"><table>' | replace: '</table>', '</table></div>' | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer nofollow" href="http' }}

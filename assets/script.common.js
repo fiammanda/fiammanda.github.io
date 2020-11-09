@@ -5,6 +5,8 @@ schemeMatch.addListener(function(e) {
 	}
 });
 
+setTimeout(function() { load() }, 10);
+
 let timer = false,
     debounce = function(callback, time) {
     	clearTimeout(timer);
@@ -168,6 +170,10 @@ class Cursor {
 }
 
 $(window).on('pageshow', function() {
+	load();
+});
+
+function load() {
 	$('html, body, a[data-expand]').removeAttr('class');
 	$('.site-title').removeClass('load');
 	if (document.body.dataset.layout == 'home') {
@@ -177,7 +183,7 @@ $(window).on('pageshow', function() {
 			}, 50 * i + 50);
 		});
 	}
-});
+}
 
 function tocHighlight(headings, bar) {
 	if (headings[0].getBoundingClientRect().top >= $(window).height()/1.5) {

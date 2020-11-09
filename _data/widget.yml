@@ -35,12 +35,12 @@
 
 - link: https://flexbox.malven.co/
   name: Flex
-  desc: A simple visual cheatsheet for flex layout
+  desc: A visual cheatsheet for flex layout
   tags: [CSS]
 
 - link: https://grid.malven.co/
   name: Grid
-  desc: A simple visual cheatsheet for grid layout
+  desc: A visual cheatsheet for grid layout
   tags: [CSS]
 
 - link: https://repl.it/languages/ruby

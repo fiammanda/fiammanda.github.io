@@ -1,11 +1,10 @@
 ---
 title: Notes for Jekyll
 tags: [Jekyll]
-excerpt: Jekyll 安装、建站问题记录
+excerpt: Jekyll 安装、建站问题记录。
 permalink: /weblog/jekyll-notes
 ---
 
-<!-- more -->
 ## Installation
 
 以下步骤都在 PowerShell 中进行。
