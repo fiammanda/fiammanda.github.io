@@ -13,7 +13,12 @@
   name: 刀剣乱舞 攻略整理
   desc: Touken Ranbu Strategy
   type: internal
-  
+
+- link: /strategy/komori/
+  name: 小森生活 攻略整理
+  desc: Komori Life Strategy
+  type: internal
+
 - link: https://codepen.io/fiammanda/full/XWbLzQq
   name: 颜色名称速查
   desc: Color Names

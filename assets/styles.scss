@@ -5,6 +5,7 @@
 	--bright100: 100%;
 	--bright95: 95%;
 	--bright90: 90%;
+	--bright85: 85%;
 	--bright80: 80%;
 	--bright70: 70%;
 	--bright50: 50%;
@@ -20,6 +21,7 @@
 	--bright100: 20%;
 	--bright95: 25%;
 	--bright90: 30%;
+	--bright85: 35%;
 	--bright80: 40%;
 	--bright70: 50%;
 	--bright50: 70%;
@@ -934,7 +936,7 @@ main article header span[itemprop="keywords"] {
 	word-spacing: .2rem;
 }
 main article header span[itemprop="keywords"] svg {
-	margin: .125rem .5em 0 .25rem;
+	margin: 0 .5em 0 .25rem;
 }
 main article header span[itemprop="contentRating"] {
 	color: hsl(0, 0%, var(--bright50));
@@ -1185,17 +1187,19 @@ section[itemprop="comment"] header.on a {
 	opacity: 1;
 }
 section[itemprop="comment"] form {
-	position: sticky;
-	top: 0;
-	margin: 0 0 4rem;
+	margin: 0 0 2rem;
 	padding: 1rem 0;
-	background: hsl(0, 0%, var(--bright100));
-	border-bottom: 1px solid hsla(0, 0%, 60%, .5);
-	transition: .2s ease-in-out;
-	transition-property: background, opacity;
+	transition: opacity .2s ease-in-out;
 }
 section[itemprop="comment"].off form {
 	opacity: 0;
+}
+section[itemprop="comment"] form.off {
+	pointer-events: none;
+}
+section[itemprop="comment"] form.off textarea {
+	color: transparent;
+	transition-delay: 0s;
 }
 section[itemprop="comment"] form > div:first-child {
 	background: hsl(0, 0%, var(--bright95));
@@ -1259,7 +1263,7 @@ section[itemprop="comment"] textarea {
 	min-height: 8em;
 	font-size: .9375rem;
 	background: transparent;
-	transition-property: color, height;
+	transition: color .2s .2s ease-in-out, height .2s ease-in-out;
 }
 section[itemprop="comment"] input + svg {
 	fill: hsla(0, 0%, 60%, 0);
@@ -1310,13 +1314,17 @@ section[itemprop="comment"] ul[aria-label] {
 	line-height: 1.5;
 	transition: opacity .2s ease-in-out;
 }
-section[itemprop="comment"].of ul[aria-label] {
+section[itemprop="comment"] ul[aria-label]:empty::before {
+	content: "No comments yet _(:з)∠)_";
+	font-family: "Playfair Display", var(--font);
+}
+section[itemprop="comment"].off ul[aria-label] {
 	opacity: 0;
 }
 section[itemprop="comment"] ul[itemprop] {
 	padding: 0;
 }
-section[itemprop="comment"] ul:empty {
+section[itemprop="comment"] ul[itemprop]:empty {
 	display: none;
 }
 section[itemprop="comment"] li[itemscope] {
@@ -1365,9 +1373,6 @@ section[itemprop="comment"] li ul[itemprop] article div {
 section[itemprop="comment"] li.on > article div {
 	background: hsl(0, 0%, var(--bright80));
 }
-section[itemprop="comment"] li.off {
-	display: none;
-}
 section[itemprop="comment"] footer {
 	flex: 0 0 100%;
 	align-items: center;
@@ -1409,8 +1414,6 @@ section[itemprop="comment"] footer a[aria-label] {
 	background: transparent;
 }
 
-@media only screen and (min-width: 64rem) {
-}
 @media only screen and (max-width: 63.99rem) {
 	section[itemprop="comment"] fieldset {
 		grid-template-columns: 2fr 3fr;
@@ -1603,10 +1606,6 @@ footer[role] p:last-child {
 [data-layout="home"] footer[role] {
 	margin: 5rem 0 0;
 }
-@media only screen and (min-width: 64rem) {
-}
-@media only screen and (max-width: 63.99rem) {
-}
 
 [data-layout="works-page"] article:not([itemscope]) {
 	margin: 0 0 -5rem;
@@ -1772,9 +1771,6 @@ footer[role] p:last-child {
 [data-layout="default"] article {
 	margin: 5rem -.5rem;
 }
-[data-layout="default"] article li h3 {
-	opacity: .99;
-}
 [data-layout="default"] article p {
 	margin: .25rem 0 0;
 	font-size: .875rem;
@@ -1788,10 +1784,20 @@ footer[role] p:last-child {
 }
 [data-layout="default"] article li {
 	flex: 1 1 auto;
+	position: static;
 	margin: .5rem;
-	padding-inline-start: 0;
+	padding: 0;
+	background: hsl(0, 0%, var(--bright90));
 	border-radius: 1px;
 	overflow: hidden;
+	transition: background .2s ease-in-out;
+}
+[data-layout="default"] article li[data-author] {
+	background: hsl(240, 40%, 90%);
+}
+[data-scheme="dark"] [data-layout="default"] article li[data-author] {
+	background: hsl(240, 10%, 35%);
+	filter: grayscale(.6);
 }
 [data-layout="default"] article li::before {
 	content: none;
@@ -1801,29 +1807,11 @@ footer[role] p:last-child {
 	display: block;
 	padding: 1rem;
 	line-height: 1.5;
-	background: hsl(240, 30%, 90%);
 }
-[data-scheme="dark"] [data-layout="default"] article li a {
-	display: block;
-	padding: 1rem;
-	background: hsl(240, 10%, 35%);
-}
-[data-layout="default"] article li a[rel] {
-	background: hsl(0, 0%, var(--bright95));
-}
-[data-layout="default"] article li a::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	transition: background .2s ease-in-out;
-}
-[data-layout="default"] article li a:hover::before {
+[data-layout="default"] article li a:hover {
 	background: hsla(0, 0%, 100%, .4);
 }
-[data-scheme="dark"] [data-layout="default"] article li a:hover::before {
+[data-scheme="dark"] [data-layout="default"] article li a:hover {
 	background: hsla(0, 0%, 100%, .1);
 }
 

@@ -171,6 +171,7 @@ function updateCounter() {
 				comment.firstElementChild.className = 'on';
 			});
 		}).on('click', 'ul a[aria-label="reply"]', function() {
+			$('html, body').animate({ scrollTop: $(form).offset().top }, 200);
 			let reply = this.parentNode.parentNode,
 			      tid = this.previousSibling.dataset.tid,
 			      rid = reply.parentNode.parentNode.dataset.id;
@@ -204,17 +205,19 @@ function updateCounter() {
 				method: 'POST',
 				body: JSON.stringify(submit)
 			}).then(res => res.json()).then(res => {
-				console.log(JSON.stringify(res))
 				submit.objectId = res.objectId;
 				submit.time = res.createdAt;
 				comments.push(submit);
 				updateComment(submit, true);
 				form.removeAttribute('class');
-				text.removeAttribute('style');
 				text.value = '';
 				$(quote.parentNode).slideUp(200);
+				delete submit.objectId;
 				delete submit.time;
-			}).catch(error => console.log('[Failed to post the comment]: ' + error));
+			}).catch(error => {
+				console.log('[Failed to post the comment]: ' + error);
+				form.removeAttribute('class');
+			});
 		}).on('click', 'a[data-rid]', function() {
 			let reply = list.querySelector('li[data-id="' + this.dataset.rid + '"]');
 			reply.className = 'on';
@@ -222,27 +225,35 @@ function updateCounter() {
 		});
 
 		function updateComment(item, update) {
-			let li = `<li `;
+			let html = `<li `;
 			if (update) {
-				li += `class="off" `;
+				html += `style="display: none;" `;
 			}
-			li += `itemscope itemtype="https://schema.org/Comment" data-id="${item.objectId}"><article><span role="img">`;
+			html += `itemscope itemtype="https://schema.org/Comment" data-id="${item.objectId}"><article><span role="img">`;
 			if (item.link === '/') {
-				li += `${avatars[20]}</span><div>${convert(item.text)}<footer><a itemprop="author" class="internal" rel="home" href="/">${item.name}</a>`;
+				html += `${avatars[20]}</span><div>${convert(item.text)}<footer><a itemprop="author" class="internal" rel="home" href="/">${item.name}</a>`;
 			} else if (item.link) {
-				li += `${avatar(item.name)}</span><div>${convert(item.text)}<footer><a itemprop="author" target="_blank" rel="noopener noreferrer nofollow" href="${item.link}">${item.name} ${svg.link}`;
+				html += `${avatar(item.name)}</span><div>${convert(item.text)}<footer><a itemprop="author" target="_blank" rel="noopener noreferrer nofollow" href="${item.link}">${item.name} ${svg.link}`;
 			} else {
-				li += `${avatar(item.name)}</span><div>${convert(item.text)}<footer><a itemprop="author">${item.name}`;
+				html += `${avatar(item.name)}</span><div>${convert(item.text)}<footer><a itemprop="author">${item.name}`;
 			}
-			li += `</a><time>${new Date(item.time).toLocaleString('sv-SE')}</time>`;
+			html += `</a><time>${new Date(item.time).toLocaleString('sv-SE')}</time>`;
 			if (item.tid) {
-				li += `<a data-rid="${item.rid}" data-tid="${item.tid}">@ ${comments.find(x => x.objectId == item.rid).name}</a>`;
+				html += `<a data-rid="${item.rid}" data-tid="${item.tid}">@ ${comments.find(x => x.objectId == item.rid).name}</a>`;
 			}
-			li += `<a aria-label="reply">${svg.plus}</a></footer></div></article><ul itemprop="comment"></ul></li>`;
+			html += `<a aria-label="reply">${svg.plus}</a></footer></div></article><ul itemprop="comment"></ul></li>`;
+			let li = $(html);
 			if (item.tid) {
-				$(li).appendTo(list.querySelector(`li[data-id="${item.tid}"] ul[itemprop]`)).slideDown(200);
+				li.appendTo(list.querySelector(`li[data-id="${item.tid}"] ul[itemprop]`));
 			} else {
-				$(li).appendTo(list).slideDown(200);
+				li.appendTo(list);
+			}
+			if (update) {
+				$('html, body').animate({ scrollTop: li.offset().top }, 200);
+				li.slideDown(200).addClass('on');
+				setTimeout(function() {
+					li.removeAttr('class');
+				}, 400);
 			}
 		}
 		function avatar(name) {

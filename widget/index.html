@@ -9,14 +9,24 @@ permalink: /widget/
 
 <article>
 
-	<ul>
-{% for datum in site.data.widget %}		<li>
-			{% if datum.type == 'internal' %}<a target="_blank" href="{{ site.baseurl }}{{ datum.link }}">
-			{%- elsif datum.type == 'external' -%}<a target="_blank" href="{{ datum.link }}">
-			{%- elsif datum.link -%}<a target="_blank" rel="noopener noreferrer nofollow" href="{{ datum.link }}">{% endif %}
-				<h3>{{ datum.name }}</h3><p>{{ datum.desc }}</p>
+	<ul>{% for datum in site.data.widget %}
+		{% if datum.type %}<li data-author="self">
+			<a target="_blank" href="{{ datum.link }}">
+		{%- elsif datum.link -%}<li>
+			<a target="_blank" rel="noopener noreferrer nofollow" href="{{ datum.link }}">{% endif %}
+				<h3>{{ datum.name }}</h3>
+				<p>{{ datum.desc }}</p>
 			</a>
-		</li>
-{% endfor %}	</ul>
+		</li>{% endfor %}
+	</ul>
 
 </article>
+<script type="text/javascript">
+	function n() {
+		return Math.floor(Math.random()*21);
+	}
+	document.querySelectorAll('article li[data-author]').forEach(li => {
+		li.style.background = `hsl(${230+n()},${25+n()}%,var(--bright85))`;
+	});
+
+</script>
