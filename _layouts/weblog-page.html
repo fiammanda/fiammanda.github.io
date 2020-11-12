@@ -58,10 +58,12 @@ layout: default
 				{{ site.data.svg['tag'] }} 
 				{{ page.tags | join: ' ' }}
 			</span>{% endif %}
+			<span class="view off">{{ site.data.svg['view'] }} </span>
+			<span class="like off">{{ site.data.svg['like'] }} </span>
 		</p>
 	</header>
 	<div itemprop="abstract">
-		{% if page.excerpt or page.content contains site.excerpt-separator %}
+		{% if page.content contains site.excerpt-separator %}
 		{{ page.excerpt | markdownify | replace_first: site.excerpt-separator, '<span data-present="more"></span>' | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer nofollow" href="http' }}
 		{% else %}
 		{{ page.content | remove: ' highlighter-rouge' | remove: '<div class="highlight">' | replace: '</code></pre></div></div>', '</code></pre></div>' | replace: '<table>', '<div class="table"><table>' | replace: '</table>', '</table></div>' | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer nofollow" href="http' }}

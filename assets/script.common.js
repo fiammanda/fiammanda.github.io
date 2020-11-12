@@ -5,8 +5,6 @@ schemeMatch.addListener(function(e) {
 	}
 });
 
-setTimeout(function() { load() }, 10);
-
 let timer = false,
     debounce = function(callback, time) {
     	clearTimeout(timer);
@@ -173,6 +171,8 @@ $(window).on('pageshow', function() {
 	load();
 });
 
+setTimeout(function() { load(); }, 1);
+
 function load() {
 	$('html, body, a[data-expand]').removeAttr('class');
 	$('.site-title').removeClass('load');
@@ -180,7 +180,7 @@ function load() {
 		document.querySelectorAll('#wrap [aria-hidden]').forEach(function(el, i) {
 			setTimeout(function() {
 				el.setAttribute('aria-hidden', 'false');
-			}, 50 * i + 50);
+			}, 100 * i + 100);
 		});
 	}
 }

@@ -1,10 +1,10 @@
 	<header>
 		<p>
 			<time itemprop="datePublished">{{ page.date | date: '%Y-%m-%d' }}</time>
-			<span itemprop="wordCount"{% comment %} data-tooltip="字数统计"{% endcomment %}>
+			<span itemprop="wordCount">
 				{{ site.data.svg['word'] }}
-				{{ page.content | number_of_words: 'cjk' }}
-			</span>{% comment %} Github Actions Needed {% endcomment %}
+				{{ page.content | number_of_words: 'cjk' }}{% comment %} Github Actions Needed {% endcomment %}
+			</span>
 			<span class="view off">{{ site.data.svg['view'] }} </span>
 			<span class="like off">{{ site.data.svg['like'] }} </span>
 		</p>

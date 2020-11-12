@@ -154,9 +154,11 @@ pre code {
 	background: transparent;
 }
 button, input, textarea {
-	font: 1rem/1.75 "Iosevka", var(--font);
+	font: .9375rem/1.5 "Iosevka", var(--font);
 	font-weight: 500;
 	color: hsl(0, 0%, var(--bright20));
+	overflow: hidden;
+	resize: none;
 	transition: .2s ease-in-out;
 	transition-property: color, background;
 }
@@ -529,7 +531,7 @@ header[role] .scheme path:nth-child(7) {
 }
 [data-present="more"]::before {
 	content: "…";
-	padding: 1px .25rem 0;
+	padding: .125rem .25rem 0;
 	background: hsl(180, 50%, 90%);
 	border-radius: 1px;
 	transition: background .2s ease-in-out;
@@ -702,7 +704,7 @@ main article {
 }
 
 main article blockquote {
-	margin: 1.5rem 0 0 .125rem;
+	margin: 1.5rem 0 1.5rem;
 	padding: .25rem 0 .25rem .625rem;
 	color: hsl(0, 0%, var(--bright40));
 	border-left: .25rem solid hsl(0, 0%, var(--bright80));
@@ -923,7 +925,8 @@ main article header span.on::after {
 	opacity: 1;
 	pointer-events: auto;
 }
-[data-layout^="works-"] main article header span[class] {
+[data-layout^="works-"] main article header span[class],
+[data-layout="weblog-page"] main article header span[class] {
 	color: inherit;
 	pointer-events: none;
 }
@@ -931,7 +934,7 @@ main article header span[itemprop="keywords"] {
 	word-spacing: .2rem;
 }
 main article header span[itemprop="keywords"] svg {
-	margin: .125rem .5em 0 0;
+	margin: .125rem .5em 0 .25rem;
 }
 main article header span[itemprop="contentRating"] {
 	color: hsl(0, 0%, var(--bright50));
@@ -1146,29 +1149,40 @@ section[itemprop="comment"] {
 	font-family: var(--font);
 	font-size: .9375rem;
 }
-section[itemprop="comment"].off {
-	max-height: 4rem;
-	overflow: hidden;
-}
 section[itemprop="comment"] header {
 	position: absolute;
-	margin: 0;
+	margin: 1rem 0 0;
 	width: 100%;
+	height: 9.875rem;
+	font-family: "Playfair Display Symbol", "Playfair Display", serif;
 	font-size: 1rem;
 	color: hsl(0, 0%, var(--bright40));
+	background: hsl(0, 0%, var(--bright90));
 	border-radius: 2px;
 	opacity: 0;
 	pointer-events: none;
-	transition: opacity .2s ease-in-out;
+	transition: height .2s ease-in-out, color .2s ease-in-out, background .2s ease-in-out, opacity .2s .2s ease-in-out;
+	z-index: 1;
+}
+section[itemprop="comment"] header.on {
+	height: 3rem;
+	background: hsl(0, 0%, var(--bright95));
+	pointer-events: auto;
+}
+section[itemprop="comment"] header.on:hover {
+	background: hsl(0, 0%, var(--bright90));
 }
 section[itemprop="comment"].off header {
 	opacity: 1;
-	pointer-events: auto;
 }
 section[itemprop="comment"] header a {
 	display: block;
 	text-align: center;
-	line-height: 4rem;
+	line-height: 3rem;
+	opacity: 0;
+}
+section[itemprop="comment"] header.on a {
+	opacity: 1;
 }
 section[itemprop="comment"] form {
 	position: sticky;
@@ -1177,7 +1191,11 @@ section[itemprop="comment"] form {
 	padding: 1rem 0;
 	background: hsl(0, 0%, var(--bright100));
 	border-bottom: 1px solid hsla(0, 0%, 60%, .5);
-	transition: background .2s ease-in-out;
+	transition: .2s ease-in-out;
+	transition-property: background, opacity;
+}
+section[itemprop="comment"].off form {
+	opacity: 0;
 }
 section[itemprop="comment"] form > div:first-child {
 	background: hsl(0, 0%, var(--bright95));
@@ -1193,7 +1211,7 @@ section[itemprop="comment"] form > div:last-child {
 	margin: 1rem 0;
 }
 section[itemprop="comment"] blockquote[aria-label] {
-	flex: 1 1 30rem;
+	flex: 1 1 auto;
 	margin: 0 2rem 0 0;
 	padding: 0;
 	font-size: .875rem;
@@ -1201,8 +1219,10 @@ section[itemprop="comment"] blockquote[aria-label] {
 	border: 0;
 }
 section[itemprop="comment"] form:invalid a[aria-label="enter"] {
-	opacity: .5;
 	pointer-events: none;
+}
+section[itemprop="comment"] form:invalid a[aria-label="enter"] svg {
+	fill: hsl(0, 0%, var(--bright70));
 }
 section[itemprop="comment"] [aria-label="quote"] {
 	display: none;
@@ -1221,25 +1241,15 @@ section[itemprop="comment"] label {
 	display: block;
 	font-size: .875rem;
 }
-section[itemprop="comment"] label svg {
-	position: absolute;
-	top: .1rem;
-	left: .46875rem;
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity .2s ease-in-out;
-}
 section[itemprop="comment"] input,
 section[itemprop="comment"] textarea {
 	width: 100%;
-	line-height: 1.5;
 }
 section[itemprop="comment"] input {
 	padding: .3em .5em .2em;
 	font-size: .875rem;
 	background: hsla(0, 0%, var(--bright100), .75);
 	border-radius: 2px;
-	transition: background .2s ease-in-out;
 }
 section[itemprop="comment"] input:focus {
 	background: hsl(0, 0%, var(--bright100));
@@ -1249,22 +1259,30 @@ section[itemprop="comment"] textarea {
 	min-height: 8em;
 	font-size: .9375rem;
 	background: transparent;
-	overflow: hidden;
-	resize: none;
+	transition-property: color, height;
 }
-section[itemprop="comment"] input:placeholder-shown + span,
-section[itemprop="comment"] textarea:placeholder-shown + span {
-	opacity: .5;
+section[itemprop="comment"] input + svg {
+	fill: hsla(0, 0%, 60%, 0);
+	position: absolute;
+	top: .375rem;
+	right: .375rem;
+	width: 1rem;
+	height: 1rem;
+	pointer-events: none;
 }
-section[itemprop="comment"] input:placeholder-shown:focus + span,
-section[itemprop="comment"] textarea:placeholder-shown:focus + span {
-	opacity: 0;
+section[itemprop="comment"] input:placeholder-shown + svg {
+	fill: hsl(0, 0%, 60%);
+}
+section[itemprop="comment"] input:placeholder-shown:focus + svg {
 }
 
 section[itemprop="comment"] a[aria-label] {
-	padding: .25rem 0 0;
+	display: flex;
+	padding: 0;
 	width: 1.75rem;
-	text-align: center;
+	height: 1.75rem;
+	justify-content: center;
+	align-items: center;
 	background: hsl(0, 0%, var(--bright95));
 	border-radius: 2px;
 }
@@ -1278,16 +1296,22 @@ section[itemprop="comment"] a[data-rid]:hover {
 	background: hsl(0, 0%, var(--bright80));
 }
 section[itemprop="comment"] form a[aria-label] {
+	flex: 0 0 1.75rem;
 	margin: 0 0 0 .5rem;
-	display: inline-block;
 }
 section[itemprop="comment"] form a[aria-label="reply"] svg {
+	width: 1.1rem;
+	height: 1.1rem;
 	transform: rotate(45deg);
 }
 
 section[itemprop="comment"] ul[aria-label] {
 	padding: 0;
 	line-height: 1.5;
+	transition: opacity .2s ease-in-out;
+}
+section[itemprop="comment"].of ul[aria-label] {
+	opacity: 0;
 }
 section[itemprop="comment"] ul[itemprop] {
 	padding: 0;
@@ -1304,10 +1328,11 @@ section[itemprop="comment"] li[itemscope]::before {
 	content: none;
 }
 section[itemprop="comment"] article {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
 	margin: 0;
+}
+section[itemprop="comment"] ul article {
+	display: flex;
+	justify-content: space-between;
 }
 section[itemprop="comment"] article [role="img"] {
 	flex: 0 0 3rem;
@@ -1316,18 +1341,32 @@ section[itemprop="comment"] article [role="img"] svg {
 	fill: hsl(0, 0%, var(--bright20));
 }
 section[itemprop="comment"] article div {
-	flex: 1 1 30rem;
+	flex: 1 1 auto;
 	margin: 0 1rem;
 	padding: 1rem;
+	max-width: calc(100% - 5rem);
 	background: hsl(0, 0%, var(--bright95));
 	border-radius: 2px;
 	transition: background .2s ease-in-out;
+}
+section[itemprop="comment"] article div > :first-child,
+section[itemprop="comment"] form article > :first-child, {
+	margin-top: 0 !important;
+}
+section[itemprop="comment"] article pre {
+	background: hsl(0, 0%, var(--bright100));
+}
+section[itemprop="comment"] article code {
+	color: hsl(0, 0%, var(--bright50));
 }
 section[itemprop="comment"] li ul[itemprop] article div {
 	order: -1;
 }
 section[itemprop="comment"] li.on > article div {
 	background: hsl(0, 0%, var(--bright80));
+}
+section[itemprop="comment"] li.off {
+	display: none;
 }
 section[itemprop="comment"] footer {
 	flex: 0 0 100%;
@@ -1347,8 +1386,12 @@ section[itemprop="comment"] footer a[itemprop] {
 	transition-property: color, background;
 }
 section[itemprop="comment"] footer a[target] {
-	color: hsl(0, 0%, var(--bright20));
 	border: 0;
+}
+section[itemprop="comment"] footer a[target] svg {
+	width: .875rem;
+	height: .875rem;
+	fill: hsl(0, 0%, var(--bright50));
 }
 section[itemprop="comment"] footer a[itemprop]:not([target]) {
 	pointer-events: none;
@@ -1369,6 +1412,17 @@ section[itemprop="comment"] footer a[aria-label] {
 @media only screen and (min-width: 64rem) {
 }
 @media only screen and (max-width: 63.99rem) {
+	section[itemprop="comment"] fieldset {
+		grid-template-columns: 2fr 3fr;
+	}
+	section[itemprop="comment"] fieldset label:last-child {
+		grid-column-start: span 2;
+	}
+	section[itemprop="comment"] footer time {
+		max-width: 5em;
+		white-space: nowrap;
+		overflow: hidden;
+	}
 }
 
 nav[data-current] {
