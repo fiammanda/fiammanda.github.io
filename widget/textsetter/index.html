@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="fiammanda">
+	<meta name="keywords" content="吾不禁英俊地笑了起来">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+	<title>文字排版工具</title>
+	<link rel="mask-icon" href="/favicon.svg" color="#666666">
+	<link rel="stylesheet" href="/source/style.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.2.0/dist/av-min.js"></script>
+	<script type="text/javascript">
+		$.fn.selectText = function(){
+			var doc = document, element = this[0], range, selection;
+			if (doc.body.createTextRange) {
+				range = document.body.createTextRange();
+				range.moveToElementText(element);
+				range.select();
+			} else if (window.getSelection) {
+				selection = window.getSelection();		
+				range = document.createRange();
+				range.selectNodeContents(element);
+				selection.removeAllRanges();
+				selection.addRange(range);
+			}
+		};
+		$(function(){
+			if ($('#input').val()) {
+				$('#input').removeAttr('class');
+			}
+			$('#submit').click(function(){
+				var input = $('#input').val();
+				var output = input.trim().replace(/\n\s+/g, '</p><p>　　').replace(/[\n\r][\n\r][\n\r]+/g, '</p><p>　</p><p>　　').replace(/[\n\r]/g, '</p><p>　　').replace(/<\/p><p>　　<\/p><p>　　/g, '</p><p>　　');
+				$('#output').html('<p>　　' + output + '</p>');
+				$(this).addClass('done');
+				setTimeout(function() { 
+					$('#submit').removeAttr('class');
+				}, 1000);
+			});
+			$('#select').click(function() {
+				$('#output').selectText();
+				$(this).addClass('done');
+				setTimeout(function() { 
+					$('#select').removeAttr('class');
+				}, 1000);
+			});
+			$('#copy').click(function(){
+				document.execCommand('copy'); 
+				$(this).addClass('done');
+				setTimeout(function() { 
+					$('#copy').removeAttr('class');
+				}, 1000);
+			});
+			$('#clear').click(function(){
+				$('#input').val('').attr('class','empty');
+				$('#output').html('');
+				$(this).addClass('done');
+				setTimeout(function() { 
+					$('#clear').removeAttr('class');
+				}, 1000);
+			});
+			$('#input').focusout(function() {
+				if (!$(this).val()) {
+					$(this).attr('class','empty');
+				} else {
+					$(this).removeAttr('class');
+				}
+			});
+			$('#output').on('mouseup', function() {
+				document.execCommand('copy'); 
+				$('#copy').addClass('done');
+				setTimeout(function() { 
+					$('#copy').removeAttr('class');
+				}, 1000);
+			});
+		});
+	</script>
+	<style type="text/css">
+		html {
+			height: 100vh;
+		}
+		body {
+			font-size: 14px;
+			color: #555;
+		}
+		p {
+			margin: 1.5em 0;
+		}
+		p:empty {
+			height: 1.5em;
+		}
+		h1 {
+			margin: 1em 0;
+			font-size: 2em;
+			font-weight: normal;
+		}
+		a {
+			text-decoration: none;
+			color: #e76;
+			transition: color .2s ease-in-out;
+		}
+		a:hover {
+			color: #555;
+		}
+		main {
+			margin: 4vw;
+			max-width: 40em;
+		}
+		section {
+			margin: 2em 0 1em;
+		}
+		a[id] {
+			display: inline-block;
+			position: relative;
+			padding: .5em;
+			background: #fff;
+			border: 1px solid #999;
+			border-radius: 2px;
+			line-height: 1;
+			text-align: center;
+			color: #555;
+			cursor: pointer;
+			transition-property: color, background, border;
+			transition-duration: .2s;
+			transition-timing-function: ease-in-out;
+		}
+		a[id]:hover {
+			color: #fff;
+			border: 1px solid #666;
+			background: #666;
+		}
+		a[id]:after {
+			content: "✓";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			line-height: 2;
+			color: #fff;
+			background: #666;
+			opacity: 0;
+			transition: opacity .2s ease-in-out;
+		}
+		a[id].done:after {
+			opacity: 1;
+		}
+		textarea, article {
+			box-sizing: border-box;
+			width: 100%;
+			height: 12em;
+			margin: 1em 0;
+			padding: .5em;
+			border: 1px solid #999;
+			border-radius: 2px;
+			line-height: 1.5;
+			text-align: justify;
+			text-justify: inter-ideograph;
+			overflow-y: scroll;
+		}
+		textarea {
+			font-size: 14px;
+			color: #555;
+			outline: none;
+			-webkit-appearance: none;
+		}
+		textarea ~ label {
+			display: block;
+			margin: -8em 0 7em;
+			text-align: center;
+			pointer-events: none;
+			opacity: 0;
+			transition: opacity .2s ease-in-out;
+		}
+		textarea.empty + label, article:empty + label {
+			opacity: .5;
+		}
+		textarea.empty:focus + label, article + label {
+			opacity: 0;
+		}
+		article {
+			padding-top: 0;
+			user-select: all;
+		}
+		::selection {
+			color: #fff;
+			background: #666;
+		}
+		::-moz-selection {
+			color: #fff;
+			background: #666;
+		}
+	</style>
+</head>
+
+<body>
+<main>
+
+	<h1>文字排版工具</h1>
+
+	<p><a href="/" target="_blank">©吾不禁英俊地笑了起来</a></p>
+
+	<section>
+		<a id="submit">处理</a>
+		<a id="select">全选</a>
+		<a id="copy">复制</a>
+		<a id="clear">清空</a>
+	</section>
+
+	<textarea id="input" class="empty"></textarea>
+	<label>请将需要处理的内容复制于此处（づ￣3￣）づ</label>
+
+	<article id="output"></article>
+	<label>缩进无空行结果将会出现于此处（づ￣3￣）づ</label>
+
+</main>
+
+<script src="/source/counter.js"></script>
+</body>
+</html>

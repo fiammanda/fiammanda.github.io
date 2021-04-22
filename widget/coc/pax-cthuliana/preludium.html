@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="跑团,TRPG,克苏鲁的召唤,COC,克总盛世,Pax Cthuliana">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+	<title>CG</title>
+	<link rel="mask-icon" href="/favicon.svg" color="#666666">
+	<link rel="stylesheet" href="/source/style.css" />
+	<style type="text/css">
+		body {
+			display: flex;
+			width: 100vw;
+			height: 100vh;
+			font: 500 1.5rem "Noto Serif SC", "华文中宋", serif;
+			letter-spacing: 1px;
+			background: #fff radial-gradient(ellipse at center, rgba(0,50,50,0) 0%, rgba(0,50,50,.2) 100%);
+			overflow: hidden;
+			transition-delay: 4s;
+			transition-duration: 4s;
+			user-select: none;
+		}
+		body.on {
+			background-color: #000;
+		}
+		main {
+			flex-grow: 1;
+			margin: 5vmin;
+		}
+		main section {
+			opacity: 0;
+			pointer-events: none;
+		}
+		main.on section {
+			opacity: 1;
+			pointer-events: auto;
+		}
+		section {
+			position: absolute;
+			width: 18vmin;
+			height: 18vmin;
+			background-size: auto 100%;
+			background-position: bottom center;
+			filter: saturate(.5);
+			transform-origin: 50% 62%;
+			-webkit-clip-path: polygon(50% 5.5%, 1% 90.5%, 99% 90.5%);
+			clip-path: polygon(50% 5.5%, 1% 90.5%, 99% 90.5%);
+			cursor: move;
+			transition: opacity .5s ease-in-out, filter .2s ease-in-out, transform .2s ease-in-out;
+		}
+		section:hover {
+			filter: saturate(1);
+		}
+		section:active {
+			filter: saturate(1.5);
+			z-index: 9;
+		}
+		section:first-child {
+			width: 30vmin;
+			height: 30vmin;
+			background-image: url("source/sigil-0.png");
+			transform-origin: 50% 42.5%;
+			-webkit-clip-path: polygon(20.7% 5.4%, 2.7% 60.7%, 50% 95.1%, 97% 60.6%, 79% 5.4%);
+			clip-path: polygon(20.7% 5.4%, 2.7% 60.7%, 50% 95.1%, 97% 60.6%, 79% 5.4%);
+		}
+		section:first-child div {
+			top: 12.5vmin;
+			left: 14vmin;
+		}
+		section:nth-child(2) {
+			background-image: url("source/sigil-1.png");
+		}
+		section:nth-child(3) {
+			background-image: url("source/sigil-2.png");
+		}
+		section:nth-child(4) {
+			background-image: url("source/sigil-3.png");
+		}
+		section:nth-child(5) {
+			background-image: url("source/sigil-4.png");
+		}
+		section:nth-child(6) {
+			background-image: url("source/sigil-5.png");
+		}
+		div {
+			position: absolute;
+			top: 10vmin;
+			left: 8vmin;
+			width: 2vmin;
+			height: 2vmin;
+			background: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ5MiA0OTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ5MiA0OTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoLTYuMTIzMjNlLTE3LCAxLCAxLCA2LjEyMzIzZS0xNywgMi44NDIxN2UtMTQsIC0yLjg0MjE3ZS0xNCkiPjxnPgoJPGc+CgkJPGc+CgkJCTxwYXRoIGQ9Ik00NjQuOSwyODQuNDA4YzAuMDUzLDAsMC4xMDUsMC4wMDQsMC4xNTcsMC4wMDRoMC4wNTVMNDY0LjksMjg0LjQwOHoiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6I0ZGRkZGRiIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiPjwvcGF0aD4KCQkJPHBhdGggZD0iTTQ4NC4wMDQsMjkyLjQ4Yy01LjA2My01LjA4Ni0xMS44MjEtOC4wMjUtMTguOTQ3LTguMDY4SDMzMC40NjhjLTE0LjgyNCwwLTI2LjY3NiwxMi4zLTI2LjY3NiwyNy4xMnYyMi43OCAgICAgYzAsNy4xNTYsMi43LDEzLjksNy43ODgsMTguOTkyYzUuMDg4LDUuMDkyLDExLjc4NCw3Ljg5NiwxOC45NCw3Ljg5NmwzOS4wNTIsMC4wMDhjLTMyLjA2LDM0LjMzMi03Ni42OCw1My44NjQtMTIzLjY3Miw1My44NjQgICAgIGMtOTMuMjIsMC0xNjkuMDcyLTc1Ljg0NC0xNjkuMDcyLTE2OS4wNzJzNzUuODQtMTY5LjA3MiwxNjkuMDY0LTE2OS4wNzJjNjkuNzk2LDAsMTMzLjMzNiw0My44MiwxNTguMTA4LDEwOS4wNCAgICAgYzUuNjMyLDE0LjgxNiwyMC4wNjgsMjQuNzc2LDM1LjkxNiwyNC43NzZjNC42NiwwLDkuMjQ4LTAuODQ4LDEzLjYzMi0yLjUyYzE5LjgtNy41MTYsMjkuNzg0LTI5Ljc0OCwyMi4yNi00OS41NDQgICAgIEM0MzkuNzcyLDYzLjg0LDM0Ny4zNzYsMC4xMTIsMjQ1Ljg4OCwwLjExMkMxMTAuMzA4LDAuMTEyLDAsMTEwLjQxNiwwLDI0NnMxMTAuMjM2LDI0NS44ODgsMjQ1LjgxNiwyNDUuODg4ICAgICBjNjIuNTg0LDAsMTIzLjI3Mi0yNC42MzIsMTY5LjM2NC02Ny44NzJ2MjEuNzg4YzAsMTQuODI0LDEyLjIwOCwyNi44MTIsMjcuMDMyLDI2LjgxMmgyMi43OCAgICAgYzE0LjgyNCwwLDI3LjAwOC0xMS45ODgsMjcuMDA4LTI2LjgxMnYtMTM0LjE4QzQ5MiwzMDQuNDQ0LDQ4OS4xMTYsMjk3LjU2NCw0ODQuMDA0LDI5Mi40OHoiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6I0ZGRkZGRiIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiPjwvcGF0aD4KCQk8L2c+Cgk8L2c+CjwvZz48L2c+IDwvc3ZnPg==") no-repeat;
+			background-size: 100%;
+			opacity: .25;
+			cursor: pointer;
+		}
+		section:hover div {
+			opacity: .5;
+		}
+		section:hover div:hover {
+			opacity: .75;
+		}
+		div:active {
+			opacity: 1;
+		}
+		p {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 10vmin;
+			margin: 0;
+			color: #566;
+			line-height: 2;
+			text-align: center;
+			opacity: 0;
+			transition: opacity 1s ease-in-out, letter-spacing 5s ease-in-out;
+			pointer-events: none;
+		}
+		p:nth-child(-n+4), p:last-child {
+			top: 50vh;
+			margin: -2vmin 0 0;
+		}
+		p.on {
+			opacity: .8;
+			transition-duration: .5s;
+		}
+		p:last-child.on {
+			font-size: 3vmin;
+			letter-spacing: 10px;
+			color: rgba(0,0,0,.75);
+			transition-duration: 1s, 10s;
+		}
+		aside {
+			position: absolute;
+			top: 45%;
+			left: 48%;
+			width: 4vw;
+			height: 4vw;
+			background: rgba(0,25,25,.5);
+			border-radius: 50%;
+			box-shadow: 0 0 2vmin rgba(0,25,25,.25);
+			opacity: 1;
+			transition: opacity .5s ease-in-out, transform .5s ease-in-out, box-shadow .2s ease-in-out;
+			cursor: pointer;
+		}
+		aside::after {
+			content: "";
+			position: absolute;
+			border: 1vw solid;
+			border-color: transparent transparent transparent rgba(255,255,255,.75);
+			transform: translate(1.6vw,1vw) scaleY(.75);
+		}
+		aside:hover {
+			box-shadow: 0 0 1vmin rgba(0,25,25,.5);
+		}
+		aside::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			border-radius: 50%;
+			box-shadow: 0 0 .2vw -.2vw rgba(0,25,25,.5);
+			transition: box-shadow .5s ease-in-out;
+		}
+		aside.on {
+			opacity: 0;
+			transform: scale(1.25);
+			pointer-events: none;
+		}
+		aside.on::before {
+			box-shadow: 0 0 .2vw 2vw rgba(0,25,25,0);
+		}
+		aside.off {
+			opacity: 0;
+			transform: scale(.9);
+		}
+		footer {
+			position: absolute;
+			bottom: 4vmin;
+			left: 4vmin;
+			width: 3vmin;
+			height: 3vmin;
+			font: 400 1rem sans-serif;
+			font-weight: 400;
+			letter-spacing: 0;
+			opacity: .25;
+		}
+		footer img {
+			width: 3vmin;
+			height: 3vmin;
+		}
+		footer:after {
+			content: "本页由吾不禁英俊地笑了起来手残制作";
+			position: absolute;
+			top: .25vmin;
+			left: 3vmin;
+			padding: 0 0 0 .5vmin;
+			white-space: nowrap;
+			transform: translateX(1vmin);
+			opacity: 0;
+			transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+			pointer-events: none;
+		}
+		footer:hover {
+			opacity: .5;
+		}
+		footer:hover:after {
+			transform: translateX(0);
+			opacity: 1;
+			pointer-events: auto;
+		}
+	</style>
+</head>
+<body>
+<main>
+	<section><div></div></section>
+	<section><div></div></section>
+	<section><div></div></section>
+	<section><div></div></section>
+	<section><div></div></section>
+	<section><div></div></section>
+	<article>
+		<p>时近午夜</p>
+		<p>你和同伴站在伦敦圣保罗大教堂顶上</p>
+		<p>在场的还有一位你们不认识的女性</p>
+		<p>她几乎是歇斯底里地对你们喊：“快！入口就要打开了！只剩两分钟！”</p>
+		<p>一个巨大的明亮圆形突然出现在天顶</p>
+		<p>远处传来人们的尖叫</p>
+		<p>第二个圆出现了</p>
+		<p>第三个</p>
+		<p>你们看到圆形之上仿佛是……另一个空间</p>
+		<p>其中开始涌动水光</p>
+		<p>女子再次喊道：“拼法不对！没时间了！”</p>
+		<p>然后……第一个圆碎了</p>
+		<p>洪流从天而降，发出雷鸣之声，摧毁途经一切</p>
+		<p>无数生命瞬间化为齑粉</p>
+		<p></p>
+		<p>第二个圆也碎了</p>
+		<p>整个伦敦被水淹没</p>
+		<p>似乎只有你们身处的圣保罗拱顶还位于水面以上</p>
+		<p></p>
+		<p>最后一个圆碎了</p>
+		<p>水还在倾泻而下……</p>
+		<p>水位上升得那么快</p>
+		<p>你们已经明白自己的生命只剩下最后几秒</p>
+		<p>你们不认识的女人尖叫着指向北方</p>
+		<p>你们望了过去</p>
+		<p>随着水面上升，北方的大地似乎也在上升</p>
+		<p>不、那不是大地</p>
+		<p>那是活物</p>
+		<p>你们看到庞大的触手破开水面，掀起巨浪</p>
+		<p>当水终于吞没你们的身体</p>
+		<p>你们也陷入了彻底的疯狂——</p>
+		<p>——那是克苏鲁</p>
+		<p>伟大的克苏鲁降临了</p>
+	</article>
+	<audio preload="auto"><source src="source/preludium.mp3" type="audio/mpeg"></audio>
+</main>
+<aside class="off"></aside>
+<footer>
+	<a href="https://afdian.net/@fiammanda" target="_blank"><img src="/favicon.svg" alt="俊" /></a>
+</footer>
+
+<script type="text/javascript">
+	let deg = [], 
+		pos = [0,0,0,0],
+		pieces = document.getElementsByTagName('section'),
+		p = document.getElementsByTagName('p'),
+		m = document.getElementsByTagName('main')[0],
+		n = m.offsetTop,
+		w = m.offsetWidth,
+		h = m.offsetHeight;
+
+	for (let i=0; i<6; i++) {
+		deg.push(Math.floor(Math.random()*10)*12);
+		pieces[i].style.left = (Math.random()*45+20) + '%';
+		pieces[i].style.top = (Math.random()*45+10) + '%';
+		pieces[i].dataset.index = i;
+		pieces[i].firstChild.onclick = function() {
+			deg[this.parentNode.dataset.index] += 12;
+			refresh();
+		};
+		draggable(pieces[i]);
+	}
+	refresh();
+
+	function refresh() {
+		for (let i=0; i<6; i++) {
+			pieces[i].style.transform = 'rotate(' + deg[i] + 'deg)';
+		}
+	}
+	function draggable(piece) {
+		piece.onmousedown = eClick;
+		function eClick(e) {
+			if (e.target == this) {
+				pos[2] = e.clientX;
+				pos[3] = e.clientY;
+				document.onmousemove = eMove;
+				document.onmouseup = eRelease;
+			}
+		}
+		function eMove(e) {
+			e.preventDefault();
+			pos[0] = pos[2] - e.clientX;
+			pos[1] = pos[3] - e.clientY;
+			pos[2] = e.clientX;
+			pos[3] = e.clientY;
+			piece.style.top = (piece.offsetTop - pos[1]) + 'px';
+			piece.style.left = (piece.offsetLeft - pos[0]) + 'px';
+		}
+		function eRelease(e) {
+			document.onmousemove = null;
+			if (piece.offsetLeft < n) {
+				piece.style.left = n + 'px';
+			} else if (piece.offsetLeft > n + w - piece.offsetWidth) {
+				piece.style.left = (n + w - piece.offsetWidth) + 'px';
+			}
+			if (piece.offsetTop < n/2) {
+				piece.style.top = n/2 + 'px';
+			} else if (piece.offsetTop > h - n/2 - piece.offsetHeight) {
+				piece.style.top = (h - n/2 - piece.offsetHeight) + 'px';
+			}
+		}
+	}
+
+	document.querySelector('audio').onplay = function() {
+		for (let i=0; i<4; i++) {
+			setTimeout(function() {
+				p[i].classList.add('on');
+			}, i*5000+1000);
+			setTimeout(function() {
+				p[i].removeAttribute('class');
+			}, i*5000+5000);
+		}
+		setTimeout(function() {
+			m.classList.add('on');
+		}, 21000);
+		for (let i=4; i<11; i++) {
+			setTimeout(function() {
+				p[i].classList.add('on');
+			}, i*5000+11000);
+			setTimeout(function() {
+				p[i].removeAttribute('class');
+			}, i*5000+15000);
+		}
+		for (let i=11; i<32; i++) {
+			setTimeout(function() {
+				p[i].classList.add('on');
+			}, i*4000+39000);
+			setTimeout(function() {
+				p[i].removeAttribute('class');
+			}, i*4000+42000);
+		}
+		setTimeout(function() {
+			m.removeAttribute('class');
+			p[32].classList.add('on');
+			document.body.classList.add('on');
+		}, 167000);
+	};
+
+	document.querySelector('aside').onclick = function() {
+		this.classList.add('on');
+		document.querySelector('audio').play();
+	};
+
+	window.onload = function() {
+		document.querySelector('aside').removeAttribute('class');
+	}
+</script>
+</body>
+</html>
