@@ -65,7 +65,6 @@ html[data-scheme="dark"] {
 }
 body {
 	font: 1rem/1.75 "Playfair Display", var(--font);
-	font-weight: 500;
 	color: hsl(0, 0%, var(--bright20));
 	background: hsl(0, 0%, var(--bright100));
 	overflow: hidden scroll;
@@ -157,7 +156,6 @@ pre code {
 }
 button, input, textarea {
 	font: .9375rem/1.5 "Iosevka", var(--font);
-	font-weight: 500;
 	color: hsl(0, 0%, var(--bright20));
 	overflow: hidden;
 	resize: none;
@@ -188,11 +186,11 @@ tbody tr:nth-child(2n) {
 th, td {
 	box-sizing: content-box;
 	padding: .5em;
-	font-weight: 500;
 }
 th {
-	background: hsl(0, 0%, var(--bright40));
+	font-weight: 500;
 	color: hsl(0, 0%, var(--bright100));
+	background: hsl(0, 0%, var(--bright40));
 	transition: .2s ease-in-out;
 	transition-property: color, background;
 }
@@ -1155,9 +1153,8 @@ section[itemprop="comment"] header {
 	position: absolute;
 	margin: 1rem 0 0;
 	width: 100%;
-	height: 9.875rem;
 	font-family: "Playfair Display Symbol", "Playfair Display", serif;
-	font-size: 1rem;
+	font-size: .9375rem;
 	color: hsl(0, 0%, var(--bright40));
 	background: hsl(0, 0%, var(--bright90));
 	border-radius: 2px;
@@ -2006,7 +2003,7 @@ footer[role] p:last-child {
 @font-face {
 	font-family: "Noto Serif SC";
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 400;
 	font-display: swap;
 	src: url("font.noto.woff2") format("woff2");
 	unicode-range: U+2018-2019;
@@ -2014,7 +2011,7 @@ footer[role] p:last-child {
 @font-face {
 	font-family: "Iosevka";
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 400;
 	font-display: swap;
 	src: url("font.iosevka.woff2") format("woff2");
 	unicode-range: U+00B7, U+00D7, U+2014, U+2022, U+2026, U+2605, U+2713, U+2717;
