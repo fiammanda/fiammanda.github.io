@@ -33,5 +33,5 @@ markdown: MDP
 sass:
   style: compressed
 
-host: 0.0.0.0
+host: 127.0.0.1
 disable_disk_cache: true
