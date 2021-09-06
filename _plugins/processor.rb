@@ -18,6 +18,6 @@ class Jekyll::Converters::Markdown::MDP
       input: "GFM",
       syntax_highlighter: "rouge",
       syntax_highlighter_opts: {}
-    }).to_html.gsub(/<span data-present="space"><\/span> /, ' ')
+    }).to_html.gsub(/<span data-present="space"><\/span> /, ' ').gsub('阴', '&#38452;')
   end
 end
