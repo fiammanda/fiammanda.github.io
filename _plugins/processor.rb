@@ -18,6 +18,6 @@ class Jekyll::Converters::Markdown::MDP
       input: "GFM",
       syntax_highlighter: "rouge",
       syntax_highlighter_opts: {}
-    }).to_html.gsub('<span data-present="space"></span> ', ' ').gsub('</sup><span data-present="space"></span>', '</sup>').gsub('体', '&#20307;')..gsub('性', '&#24615;').gsub('潮', '&#28526;').gsub('阴', '&#38452;')
+    }).to_html.gsub('<span data-present="space"></span> ', ' ').gsub('</sup><span data-present="space"></span>', '</sup>').gsub('体', '&#20307;').gsub('性', '&#24615;').gsub('潮', '&#28526;').gsub('阴', '&#38452;')
   end
 end
