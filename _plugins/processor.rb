@@ -9,7 +9,7 @@ class Jekyll::Converters::Markdown::MDP
   end
 
   def convert(content)
-    content = content.gsub(/([A-Za-z0-9\]]+)([\u4e00-\u9fa5])/, '\1<span data-present="space"></span>\2')
+    content = content.gsub(/([A-Za-z0-9]+)([\u4e00-\u9fa5])/, '\1<span data-present="space"></span>\2')
     content = content.gsub(/([\u4e00-\u9fa5])(\[?[ A-Za-z0-9\#]+)/, '\1<span data-present="space"></span>\2')
     Kramdown::Document.new(content, {
       auto_ids: false,
