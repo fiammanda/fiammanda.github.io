@@ -30,10 +30,3 @@ https://source.unsplash.com/featured/?<keywords>
 ```
 https://source.unsplash.com/<width>x<height>/?<keywords>
 ```
-
-- 指定collection：
-
-```
-https://source.unsplash.com/collection/<collection-id>
-```
-
