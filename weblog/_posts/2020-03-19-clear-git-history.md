@@ -1,6 +1,6 @@
 ---
-layout: weblog
 title: 暴力清理 Git 历史
+permalink: /weblog/clear-git-history
 ---
 
 ```

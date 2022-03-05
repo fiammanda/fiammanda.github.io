@@ -1,5 +1,4 @@
 ---
-layout: weblog
 title: 图片管理
 tags: [App]
 ---

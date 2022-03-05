@@ -2,7 +2,6 @@
 title: 信野全成就通关 w
 tags: [Game]
 excerpt: 想致富多修路！
-permalink: /weblog/nobunagas-yabou-14
 ---
 
 ![](https://pic.downk.cc/item/5f7215fb160a154a6740c989.jpg) <!-- more -->

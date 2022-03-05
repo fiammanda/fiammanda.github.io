@@ -1,5 +1,4 @@
 ---
-layout: weblog
 title: Markdown Editor 踩坑记录
 tags: [App]
 permalink: /weblog/markdown-editors

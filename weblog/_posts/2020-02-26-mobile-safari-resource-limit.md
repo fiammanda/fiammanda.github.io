@@ -1,6 +1,7 @@
 ---
 title: Mobile Safari 资源限制
 tags: [JavaScript]
+permalink: /weblog/mobile-safari-resource-limit
 ---
 
 TL;DR:
