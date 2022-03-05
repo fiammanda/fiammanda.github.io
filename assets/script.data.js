@@ -107,7 +107,7 @@ function updateCounter() {
 		const textarea = document.createElement("textarea");
 		      view = $("article header .view"),
 			  like = $("article header .like"),
-		   comment = document.querySelector("[itemprop="comment"]"),
+		   comment = document.querySelector("[itemprop='comment']"),
 		      list = comment.querySelector("ul"),
 		      form = comment.querySelector("form"),
 		      text = form.querySelector("textarea"),
