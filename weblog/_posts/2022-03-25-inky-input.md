@@ -5,7 +5,7 @@ tag: [Inky, Javascript]
 ---
 
 
-[Inky](https://www.inklestudios.com/ink/)是一种适于编写游戏的脚本语言。以下内容关于如何绕过程序限制，允许玩家在游戏中使用自定义名称。
+[Inky](https://www.inklestudios.com/ink/) 是一种适于编写游戏的脚本语言。以下内容关于如何绕过程序限制，允许玩家在游戏中使用自定义名称。
 
 <!-- more -->
 
@@ -17,15 +17,15 @@ tag: [Inky, Javascript]
 
 ## 具体操作
 
-### `.ink`文件
+### `.ink` 文件
 
-在文件开头开始定义玩家名称变量及默认名称，此处以`player`与`Charname`为例，并在后续代码中通过`{player}`使用此名称。
+在文件开头开始定义玩家名称变量及默认名称，此处以 `player` 与 `Charname` 为例，并在后续代码中通过 `{player}` 使用此名称。
 
 ```
 VAR player = "Charname"
 ```
 
-### `index.html`文件
+### `index.html` 文件
 
 ```html
 <div class="header">
@@ -34,7 +34,7 @@ VAR player = "Charname"
 </div>
 ```
 
-在以上代码后加入输入框。
+在以上代码后加入输入框：
 
 ```html
 <div class="input">
@@ -43,11 +43,11 @@ VAR player = "Charname"
 </div>
 ```
 
-### `style.css`文件
+### `style.css` 文件
 
-根据需要设定样式，可在最后加入如下代码：
+根据需要设定样式，可在最后加入如下示例代码：
 
-```html
+```css
 .input {
 	text-align: center;
 	height: 1.5em;
@@ -66,13 +66,13 @@ input[type="button"] {
 }
 ```
 
-### `main.js`文件
+### `main.js` 文件
 
-如在`.ink`文件中`player`为第一个全局变量，在当前版本`19`下可直接套用如下方案：
+如在 `.ink` 文件中 `player` 为第一个全局变量，在当前版本 `19` 下可直接套用如下方案：
 
-将第一行`(function(storyContent) {`改为`function game(storyContent) {`；
+将第一行 `(function(storyContent) {` 改为 `function game(storyContent) {`；
 
-将最后一行`})(storyContent);`改为`};`；
+将最后一行 `})(storyContent);` 改为 `};`；
 
 在最开始插入：
 

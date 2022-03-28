@@ -853,9 +853,20 @@ main article[data-layout="link"] a div {
 	font-size: 2rem;
 }
 [data-layout="weblog"] main article h2 {
-	max-width: 1.5em;
 	font-family: "Playfair Display Symbol", "Playfair Display", var(--font);
-	border-bottom: 1px solid hsl(0, 0%, 60%);
+	border-bottom: 1px solid ;
+}
+[data-layout="weblog"] main article h2::before {
+	content: "";
+	position: absolute;
+	bottom: ;
+	margin: 2.5rem 0 0;
+	height: 1px;
+	width: 1.5em;
+	background: hsl(0, 0%, 60%);
+}
+[data-layout="weblog"] main article h3 {
+	font-weight: 700;
 }
 [data-layout="weblog"] main article header {
 	margin: .5rem 0 10rem;
@@ -1095,7 +1106,7 @@ main article nav [data-present="bar"].current {
 @media only screen and (min-width: 64rem) {
 	main article nav {
 		position: absolute;
-		top: 12rem;
+		top: 15rem;
 		bottom: 0;
 		left: 38rem;
 		width: 12rem;
