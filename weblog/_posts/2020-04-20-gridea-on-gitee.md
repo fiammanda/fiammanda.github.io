@@ -4,7 +4,9 @@ tags: [Gridea, Web]
 permalink: /weblog/gridea-on-gitee
 ---
 
-部署到 Gitee 需要已经在 Github 上部署好的 Gridea 和一个 Gitee 账号（废话）。 <!-- more -->
+部署到 Gitee 需要已经在 Github 上部署好的 Gridea 和一个 Gitee 账号（废话）。
+
+<!-- more -->
 
 然后必须对站内链接进行处理，不然 Gitee 站内点击都会直接跳转到 Github。存在两种情况：
 

@@ -4,7 +4,9 @@ tags: [App]
 permalink: /weblog/markdown-editors
 ---
 
-哼，还不都是用 `CodeMirror` 这个轮子造的。<!-- more -->
+哼，还不都是用 `CodeMirror` 这个轮子造的。
+
+<!-- more -->
 
 APP | PC | 格式 | 打开同步 | 字数统计 | 中文字数统计 | 备注
 :-- | :-: | --- | --------- | :------: | :----------: | ----
