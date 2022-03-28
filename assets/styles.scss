@@ -854,7 +854,6 @@ main article[data-layout="link"] a div {
 }
 [data-layout="weblog"] main article h2 {
 	font-family: "Playfair Display Symbol", "Playfair Display", var(--font);
-	border-bottom: 1px solid ;
 }
 [data-layout="weblog"] main article h2::before {
 	content: "";
@@ -866,6 +865,9 @@ main article[data-layout="link"] a div {
 }
 [data-layout="weblog"] main article h3 {
 	font-weight: 700;
+}
+[data-layout="weblog"] main article h3 code {
+	font-weight: 500;
 }
 [data-layout="weblog"] main article header {
 	margin: .5rem 0 10rem;
