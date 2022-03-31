@@ -19,14 +19,14 @@
 
 <body class="load" data-layout="{{ page.layout }}">
 
-<a role="button" data-expand="header"><span></span><span></span><span></span></a>{% if page.content contains '<h2>' %}
+<a role="button" data-expand="header"><span></span><span></span><span></span></a>{% if page.layout == "works" and page.content contains "<h2>" %}
 <a role="button" data-expand="nav"></a>{% endif %}
 
 <div id="wrap">
 
 <header role="banner">
 	<ul role="menu">
-		<li role="menuitem"><a class="internal" rel="home" href="{{ site.baseurl }}/">{{ site.data.svg['logo'] }}{{ site.name }}</a></li>
+		<li role="menuitem"><a class="internal" rel="home" href="{{ site.baseurl }}/">{{ site.data.svg["logo"] }}{{ site.name }}</a></li>
 		<li role="menuitem"><a class="internal" href="{{ site.baseurl }}/weblog/">记录<span>/Weblog</span></a></li>
 		<li role="menuitem"><a class="internal" href="{{ site.baseurl }}/widget/">工具<span>/Widget</span></a></li>
 		<li role="menuitem"><a class="internal" href="{{ site.baseurl }}/works/">更新<span>/Works</span></a><ul>
@@ -34,7 +34,7 @@
 			<li><a class="internal" href="{{ site.baseurl }}/works/{{ datum[1].slug }}/">{{ datum[1].orig | default: datum[0] }}</a></li>
 			{%- endif -%}{% endfor %}
 		</ul></li>
-		<li role="menuitem"><a href="/search/" class="internal" rel="search">{{ site.data.svg['search'] }}</a></li>
-		<li role="menuitem"><a class="scheme">{{ site.data.svg['scheme'] }}</a></li>
+		<li role="menuitem"><a href="/search/" class="internal" rel="search">{{ site.data.svg["search"] }}</a></li>
+		<li role="menuitem"><a class="scheme">{{ site.data.svg["scheme"] }}</a></li>
 	</ul>
 </header>
