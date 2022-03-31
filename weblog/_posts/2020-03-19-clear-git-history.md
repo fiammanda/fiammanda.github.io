@@ -3,7 +3,7 @@ title: 暴力清理 Git 历史
 permalink: /weblog/clear-git-history
 ---
 
-```
+``` bash
 git checkout --orphan new
 git add -A
 git commit -am "Fresh commit"

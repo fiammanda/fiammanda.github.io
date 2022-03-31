@@ -10,8 +10,8 @@ permalink: /weblog/leancloud-based-counter
 
 ``` javascript
 AV.init({
-	appId: '',
-	appKey: ''
+	"appId": "",
+	"appKey": ""
 });
 
 let query = new AV.Query("Counter"),

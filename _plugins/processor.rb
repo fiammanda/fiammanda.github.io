@@ -11,6 +11,7 @@ class Jekyll::Converters::Markdown::MDP
   def convert(content)
     content = content.gsub(/([A-Za-z0-9]+)([\u4e00-\u9fa5])/, '\1<span data-present="space"></span>\2')
     content = content.gsub(/([\u4e00-\u9fa5])(\[?[ A-Za-z0-9\#]+)/, '\1<span data-present="space"></span>\2')
+    content = content.gsub('<span data-present="space"></span> ', ' ')
     Kramdown::Document.new(content, {
       auto_ids: false,
       footnote_backlink: "",
@@ -18,6 +19,6 @@ class Jekyll::Converters::Markdown::MDP
       input: "GFM",
       syntax_highlighter: "rouge",
       syntax_highlighter_opts: {}
-    }).to_html.gsub('<span data-present="space"></span> ', ' ')
+    }).to_html.gsub(/~~(.+)~~/, '<del>\1</del>')
   end
 end

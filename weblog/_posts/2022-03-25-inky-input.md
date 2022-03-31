@@ -1,7 +1,7 @@
 ---
 title: Inky 自定义玩家名字
 permalink: /weblog/inky-input
-tag: [Inky, Javascript]
+tag: [Inky, JavaScript]
 ---
 
 
@@ -27,7 +27,7 @@ VAR player = "Charname"
 
 ### `index.html` 文件
 
-```html
+``` html
 <div class="header">
 	<h1>game</h1>
 	<h2 class="byline"></h2>
@@ -36,7 +36,7 @@ VAR player = "Charname"
 
 在以上代码后加入输入框：
 
-```html
+``` html
 <div class="input">
 	<input type="text" placeholder="Name, please." />
 	<input type="button" value="Go!" />
@@ -47,7 +47,7 @@ VAR player = "Charname"
 
 根据需要设定样式，可在最后加入如下示例代码：
 
-```css
+``` css
 .input {
 	text-align: center;
 	height: 1.5em;
@@ -76,7 +76,7 @@ input[type="button"] {
 
 在最开始插入：
 
-```javascript
+``` javascript
 const input = document.querySelector(".input");
 input.lastElementChild.addEventListener("click", () => {
 	storyContent["root"][2]["global decl"][2] = `^${input.firstElementChild.value}`;

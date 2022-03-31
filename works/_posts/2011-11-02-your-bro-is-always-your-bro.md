@@ -438,7 +438,7 @@ Thanks Spard, Capcom decides to release DMC5 which explains everything about Ver
 
 但丁：Dante，大陆正式翻译是但丁，还有包括蛋疼、蛋蛋、蛋叔、老蛋、丁丁、红猫之类的奇怪昵称。
 
-维吉尔：Vergil，大陆正式翻译是维吉尔，我见过最猎奇的翻译是<del>巴基撸</del>巴吉鲁，最猎奇的昵称是蓝兔。
+维吉尔：Vergil，大陆正式翻译是维吉尔，我见过最猎奇的翻译是~~巴基撸~~巴吉鲁，最猎奇的昵称是蓝兔。
 
 蕾蒂：（记：红猫和蓝兔。）
 

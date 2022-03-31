@@ -116,6 +116,9 @@ cite {
 	display: inline-block;
 	margin: 0 0 0 2rem;
 }
+del {
+	text-decoration: line-through;
+}
 sup {
 	font-size: .75rem;
 	vertical-align: 10%;
@@ -740,7 +743,7 @@ main article li {
 main article ul li::before {
 	content: "";
 	position: absolute;
-	top: .9em;
+	top: .8em;
 	left: -.5rem;
 	width: .5rem;
 	height: 0;
@@ -1829,58 +1832,52 @@ footer[role] p:last-child {
 [itemprop="articleBody"] div:not(.language-plaintext) .highlight span {
 	transition: color .2s ease-in-out;
 }
-[itemprop="articleBody"] .highlight, 
+
+[itemprop="articleBody"] .highlight,
 [itemprop="articleBody"] .highlight .w {
 	color: #333;
 }
 [itemprop="articleBody"] .highlight .err {
-	color: #8f3f71;
+	color: #90a959;
 }
 [itemprop="articleBody"] .highlight .c, 
 [itemprop="articleBody"] .highlight .cd, 
 [itemprop="articleBody"] .highlight .cm, 
 [itemprop="articleBody"] .highlight .c1, 
 [itemprop="articleBody"] .highlight .cs {
-	color: #928374;
+	color: #808080;
 }
-[itemprop="articleBody"] .highlight .cp {
-	color: #427b58;
-}
+[itemprop="articleBody"] .highlight .cp,
 [itemprop="articleBody"] .highlight .nt {
-	color: #9d0006;
+	color: #f4bf75;
 }
 [itemprop="articleBody"] .highlight .o, 
 [itemprop="articleBody"] .highlight .ow,
 [itemprop="articleBody"] .highlight .p, 
 [itemprop="articleBody"] .highlight .pi {
-	color: #282828;
+	color: #a0a0a0;
 }
 [itemprop="articleBody"] .highlight .gi {
-	color: #79740e;
-	background-color: #fbf1c7;
+	color: #90a959;
 }
 [itemprop="articleBody"] .highlight .gd {
-	color: #9d0006;
-	background-color: #fbf1c7;
+	color: #ac4142;
 }
 [itemprop="articleBody"] .highlight .gh {
-	color: #79740e;
+	color: #6a9fb5;
+	background-color: #151515;
 }
 [itemprop="articleBody"] .highlight .k, 
 [itemprop="articleBody"] .highlight .kn, 
 [itemprop="articleBody"] .highlight .kp, 
 [itemprop="articleBody"] .highlight .kr, 
 [itemprop="articleBody"] .highlight .kv {
-	color: #9d0006;
+	color: #aa759f;
 }
-[itemprop="articleBody"] .highlight .kc {
-	color: #8f3f71;
-}
-[itemprop="articleBody"] .highlight .kt {
-	color: #b57614;
-}
+[itemprop="articleBody"] .highlight .kc,
+[itemprop="articleBody"] .highlight .kt,
 [itemprop="articleBody"] .highlight .kd {
-	color: #af3a03;
+	color: #d28445;
 }
 [itemprop="articleBody"] .highlight .s, 
 [itemprop="articleBody"] .highlight .sb, 
@@ -1889,23 +1886,23 @@ footer[role] p:last-child {
 [itemprop="articleBody"] .highlight .s2, 
 [itemprop="articleBody"] .highlight .sh, 
 [itemprop="articleBody"] .highlight .sx, 
-[itemprop="articleBody"] .highlight .s1,
-[itemprop="articleBody"] .highlight .si,
-[itemprop="articleBody"] .highlight .sr {
-	color: #79740e;
+[itemprop="articleBody"] .highlight .s1 {
+	color: #90a959;
 }
+[itemprop="articleBody"] .highlight .sr {
+	color: #75b5aa;
+}
+[itemprop="articleBody"] .highlight .si,
 [itemprop="articleBody"] .highlight .se {
-	color: #af3a03;
+	color: #8f5536;
 }
 [itemprop="articleBody"] .highlight .nn,
-[itemprop="articleBody"] .highlight .nc {
-	color: #427b58;
-}
+[itemprop="articleBody"] .highlight .nc,
 [itemprop="articleBody"] .highlight .no {
-	color: #8f3f71;
+	color: #f4bf75;
 }
 [itemprop="articleBody"] .highlight .na {
-	color: #79740e;
+	color: #6a9fb5;
 }
 [itemprop="articleBody"] .highlight .m, 
 [itemprop="articleBody"] .highlight .mf, 
@@ -1914,58 +1911,64 @@ footer[role] p:last-child {
 [itemprop="articleBody"] .highlight .il, 
 [itemprop="articleBody"] .highlight .mo, 
 [itemprop="articleBody"] .highlight .mb, 
-[itemprop="articleBody"] .highlight .mx {
-	color: #8f3f71;
-}
+[itemprop="articleBody"] .highlight .mx,
 [itemprop="articleBody"] .highlight .ss {
-	color: #076678;
+	color: #90a959;
 }
 
-[data-scheme="dark"] [itemprop="articleBody"] .highlight,
+[data-scheme="dark"] [itemprop="articleBody"] .highlight, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .w {
-	color: #d0d0d0;
+	color: #fbf1c7;
 }
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .err {
-	color: #90a959;
+	color: #fb4934;
 }
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .c, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .cd, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .cm, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .c1, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .cs {
-	color: #505050;
+	color: #928374;
 }
-[data-scheme="dark"] [itemprop="articleBody"] .highlight .cp,
+[data-scheme="dark"] [itemprop="articleBody"] .highlight .cp {
+	color: #8ec07c;
+}
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .nt {
-	color: #f4bf75;
+	color: #fb4934;
 }
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .o, 
-[data-scheme="dark"] [itemprop="articleBody"] .highlight .ow,
+[data-scheme="dark"] [itemprop="articleBody"] .highlight .ow {
+	color: #fbf1c7;
+}
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .p, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .pi {
-	color: #d0d0d0;
+	color: #fbf1c7;
 }
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .gi {
-	color: #90a959;
+	color: #b8bb26;
 }
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .gd {
-	color: #ac4142;
+	color: #fb4934;
 }
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .gh {
-	color: #6a9fb5;
-	background-color: #151515;
+	color: #b8bb26;
+	font-weight: bold;
 }
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .k, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .kn, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .kp, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .kr, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .kv {
-	color: #aa759f;
+	color: #fb4934;
 }
-[data-scheme="dark"] [itemprop="articleBody"] .highlight .kc,
-[data-scheme="dark"] [itemprop="articleBody"] .highlight .kt,
+[data-scheme="dark"] [itemprop="articleBody"] .highlight .kc {
+	color: #d3869b;
+}
+[data-scheme="dark"] [itemprop="articleBody"] .highlight .kt {
+	color: #fabd2f;
+}
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .kd {
-	color: #d28445;
+	color: #fe8019;
 }
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .s, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .sb, 
@@ -1975,22 +1978,28 @@ footer[role] p:last-child {
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .sh, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .sx, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .s1 {
-	color: #90a959;
+	color: #b8bb26;
+}
+[data-scheme="dark"] [itemprop="articleBody"] .highlight .si {
+	color: #b8bb26;
 }
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .sr {
-	color: #75b5aa;
+	color: #b8bb26;
 }
-[data-scheme="dark"] [itemprop="articleBody"] .highlight .si,
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .se {
-	color: #8f5536;
+	color: #fe8019;
 }
-[data-scheme="dark"] [itemprop="articleBody"] .highlight .nn,
-[data-scheme="dark"] [itemprop="articleBody"] .highlight .nc,
+[data-scheme="dark"] [itemprop="articleBody"] .highlight .nn {
+	color: #8ec07c;
+}
+[data-scheme="dark"] [itemprop="articleBody"] .highlight .nc {
+	color: #8ec07c;
+}
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .no {
-	color: #f4bf75;
+	color: #d3869b;
 }
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .na {
-	color: #6a9fb5;
+	color: #b8bb26;
 }
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .m, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .mf, 
@@ -1999,9 +2008,11 @@ footer[role] p:last-child {
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .il, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .mo, 
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .mb, 
-[data-scheme="dark"] [itemprop="articleBody"] .highlight .mx,
+[data-scheme="dark"] [itemprop="articleBody"] .highlight .mx {
+	color: #d3869b;
+}
 [data-scheme="dark"] [itemprop="articleBody"] .highlight .ss {
-	color: #90a959;
+	color: #83a598;
 }
 
 @keyframes shake {
