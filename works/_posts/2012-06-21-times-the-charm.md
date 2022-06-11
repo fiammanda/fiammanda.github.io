@@ -1,7 +1,7 @@
 ﻿---
 title: 时光的魔力
 fandom: 网球王子
-characters: 迹部景吾/手冢国光 真田弦一郎/幸村弦一郎
+characters: 迹部景吾/手冢国光 真田弦一郎/幸村精市
 rating: Explicit
 excerpt: 迹部从来不曾想过自己会享受双打，但网球始终拥有让他惊奇的力量。
 source: Time’s The Charm by sirius

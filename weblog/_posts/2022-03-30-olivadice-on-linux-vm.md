@@ -36,6 +36,8 @@ tag: [OlivaDice]
 
 虚拟机创建完成后，在 Overview 页面找到 Public IP address，记录下来 ❷。
 
+（注：此处数字圈圈的意思是在下文使用对应编号处填写/生成的内容，如 ❶ 表示此时填写的 username。）
+
 ## 准备软件
 
 - PuTTY
@@ -62,8 +64,6 @@ tag: [OlivaDice]
 - 选择 Connection > Data 标签，在 Auto-login username 处填入 ❶
 - 选择 Connection > SSH > Auth 标签，在 Private key file for authentication 处选择 ❸
 - 回到 Session 标签，依次点击 Save 和 Open
-
-（注：此处和下文数字圈圈的意思是使用之前对应编号填写/生成的内容，如 ❶ 表示之前填写的 username。）
 
 然后就会弹出一个黑色框框（命令行），显示如下内容：
 
@@ -249,13 +249,15 @@ screen -S go
 cd /home/OlivOS/lib && ./go-cqhttp
 ```
 
+一定要进入目录之后再运行否则会在运行位置生成文件……
+
 第一次登录需要扫码，请提前在手机 QQ 登录机器人账号做好准备。如果二维码太大无法完全显示，请手动拉大 PuTTY 窗口，千万不要直接最大化，图片会直接消失 (ﾟД ﾟ)
 
-登录后就可以按 `Ctrl+a` `d` “最小化” go 窗口了（同时按下 `Ctrl` 和 `a`，然后按住`Ctrl` 松开 `a` 按下 `d`）。再次新建窗口启动 OlivOS：
+登录后就可以按 `Ctrl+a` `d` “最小化” go 窗口了（同时按下 `Ctrl` 和 `a`，然后按住 `Ctrl` 松开 `a` 按下 `d`）。再次新建窗口启动 OlivOS：
 
 ```bash
 screen -S oliv
-python3 /home/OlivOS/main.py
+cd /home/OlivOS && python3 main.py
 ```
 
 复制骰子认主口令（命令行选中即复制），以本人 QQ 发给机器人 QQ（注意删除不必要的空行），认主成功即说明运行正常。
