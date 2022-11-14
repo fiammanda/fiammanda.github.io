@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="跑团,TRPG,克苏鲁的召唤,COC,克总盛世,Pax Cthuliana">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+	<title>★</title>
+	<link rel="mask-icon" href="/favicon.svg" color="#666666">
+	<link rel="stylesheet" href="/source/style.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&display=swap" rel="stylesheet" media="print" onload="this.media='all'"> 
+	<style type="text/css">
+		* {
+			transition: all .2s ease-in-out;
+		}
+		html {
+			height: 100%;
+		}
+		body {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font: 500 1.5rem "Noto Serif SC", "华文中宋", serif;
+			letter-spacing: 2px;
+			background: radial-gradient(ellipse at center, rgba(0,50,50,0) 0%, rgba(0,50,50,.2) 100%) center/100% no-repeat;
+			user-select: none;
+		}
+		main {
+			width: 30vmin;
+			height: 30vmin;
+			background: url("source/sigil-0.png") no-repeat;
+			background-size: 100%;
+			opacity: .5;
+			pointer-events: none;
+		}
+		main.on {
+			opacity: 1;
+			pointer-events: auto;
+		}
+		main::before, main::after {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2.5vmin;
+			text-align: center;
+			color: #688;
+			background: rgba(255,255,255,.9);
+			opacity: 0;
+			z-index: 9;
+			pointer-events: none;
+			transition: opacity .4s ease-in-out;
+		}
+		main::before {
+			content: "正在与其他调查员建立连接……";
+		}
+		main::after {
+			content: "各位得到了正确的魔符！";
+		}
+		main.off::before {
+			opacity: 1;
+		}
+		body.on main::after {
+			opacity: 1;
+		}
+		section {
+			position: absolute;
+			width: 17vmin;
+			height: 17vmin;
+			background-size: auto 100%;
+			background-position: bottom center;
+			filter: saturate(.5);
+			transform: translate(6.6vmin, 5vmin);
+			transform-origin: 50% 62%;
+			-webkit-clip-path: polygon(50% 5.5%, 1% 90.5%, 99% 90.5%);
+			clip-path: polygon(50% 5.5%, 1% 90.5%, 99% 90.5%);
+			cursor: pointer;
+		}
+		section:hover {
+			filter: saturate(1);
+		}
+		section:active {
+			filter: saturate(1.5);
+		}
+		section:nth-child(1) {
+			background-image: url("source/sigil-1.png");
+		}
+		section:nth-child(2) {
+			background-image: url("source/sigil-2.png");
+		}
+		section:nth-child(3) {
+			background-image: url("source/sigil-3.png");
+		}
+		section:nth-child(4) {
+			background-image: url("source/sigil-4.png");
+		}
+		section:nth-child(5) {
+			background-image: url("source/sigil-5.png");
+		}
+		div {
+			position: absolute;
+			width: 4vmin;
+			height: 2vmin;
+			background: #ccc;
+			-webkit-clip-path: polygon(0% 50%, 20% 0%, 20% 30%, 79% 30%, 79% 0%, 99% 50%, 79% 100%, 79% 70%, 20% 70%, 20% 100%);
+			clip-path: polygon(0% 50%, 20% 0%, 20% 30%, 79% 30%, 79% 0%, 99% 50%, 79% 100%, 79% 70%, 20% 70%, 20% 100%);
+			cursor: pointer;
+		}
+		div:hover {
+			background: #7aa;
+		}
+		div:active {
+			background: #6bb;
+		}
+		div:nth-child(6) {
+			transform: translate(0, -5.5vmin) rotate(144deg);
+		}
+		div:nth-child(7) {
+			transform: translate(-8vmin, 19.6vmin) rotate(72deg);
+		}
+		div:nth-child(8) {
+			transform: translate(13vmin, 34vmin);
+		}
+		div:nth-child(9) {
+			transform: translate(34vmin, 19.6vmin) rotate(108deg);
+		}
+		div:nth-child(10) {
+			transform: translate(26vmin, -5.5vmin) rotate(36deg);
+		}
+		footer {
+			position: absolute;
+			bottom: 4vmin;
+			left: 4vmin;
+			width: 3vmin;
+			height: 3vmin;
+			font-size: 1rem;
+			letter-spacing: 0;
+			opacity: .25;
+		}
+		footer img {
+			width: 3vmin;
+			height: 3vmin;
+		}
+		footer:after {
+			content: "本页由吾不禁英俊地笑了起来手残制作";
+			position: absolute;
+			top: .25vmin;
+			left: 3vmin;
+			padding: 0 0 0 .5vmin;
+			white-space: nowrap;
+			transform: translateX(1vmin);
+			opacity: 0;
+			transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+			pointer-events: none;
+		}
+		footer:hover {
+			opacity: .5;
+		}
+		footer:hover:after {
+			transform: translateX(0);
+			opacity: 1;
+			pointer-events: auto;
+		}
+	</style>
+</head>
+<body>
+<main class="off">
+	<section></section>
+	<section></section>
+	<section></section>
+	<section></section>
+	<section></section>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</main>
+<aside></aside>
+<footer>
+	<a href="https://afdian.net/@fiammanda" target="_blank"><img src="/favicon.svg" alt="俊" /></a>
+</footer>
+
+<script src='https://cdn.scaledrone.com/scaledrone-lite.min.js'></script>
+<script type="text/javascript">
+	const drone = new Scaledrone('RhlDABOQlEba6xNp'),
+	      room = drone.subscribe('pax-cthuliana');
+	room.on('open', function(e) {
+		m.classList.remove('off');
+		m.classList.add('on');
+	});
+	room.on('message', function(e) {
+		pos = e.data;
+		render();
+	});
+
+	let pos = [0,1,2,3,4,0,0,0,0,0],
+		ref = [[0, '6.6vmin, -15vmin'], [-72, '-10.8vmin, -2.5vmin'], [-144, '-4.2vmin, 17.8vmin'], [144, '17.3vmin, 17.8vmin'], [72, '23.8vmin, -2.5vmin']],
+		pieces = document.getElementsByTagName('section'),
+		button = document.getElementsByTagName('div'),
+		m = document.querySelector('main');
+
+	for (let i=0; i<5; i++) {
+		pieces[i].dataset.index = i;
+		pieces[i].onclick = function() {
+			m.classList.remove('on');
+			pos[i+5] += 1;
+			update();
+			setTimeout(function() {
+				m.classList.add('on');
+			}, 2000);
+		};
+		button[i].dataset.index = i;
+		button[i].onclick = function() {
+			m.classList.remove('on');
+			let x = pos.findIndex((piece) => piece == i),
+				y = pos.findIndex((piece) => piece == (i==4 ? 0 : i+1));
+			[pos[x], pos[y]] = [pos[y], pos[x]];
+			update();
+			setTimeout(function() {
+				m.classList.add('on');
+			}, 2000);
+		};
+	}
+	function update() {
+		render();
+		drone.publish({
+			room: 'pax-cthuliana',
+			message: pos,
+		});
+	}
+	function render() {
+		let verify = [];
+		for (let i=0; i<5; i++) {
+			pieces[i].style.transform = 'translate(' + ref[pos[i]][1] + ') rotate(' + ref[pos[i]][0] + 'deg) rotate(' + pos[i+5] * 120 + 'deg)';
+			verify[i] = pos[i];
+			verify[i+5] = pos[i+5]%3;
+		}
+		if ( btoa(verify.toString()) == 'NCwyLDMsMCwxLDAsMiwwLDIsMg==' ) {
+			document.body.classList.add('on');
+			setTimeout(function() {
+				document.body.classList.remove('on');
+			}, 5000);
+		}
+	}
+	render();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.2.0/dist/av-min.js"></script>
+<script src="/source/counter.js"></script>
+</body>
+</html>

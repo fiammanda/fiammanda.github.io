@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" />
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="author" content="fiammanda" />
+	<link rel="mask-icon" href="/favicon.svg" color="#666666">
+	<link rel="stylesheet" type="text/css" href="/assets/style.widget.css" />
+	<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+	<meta name="keywords" content="克苏鲁的召唤,COC,COC7">
+	<meta name="description" content="克苏鲁的召唤7版部分规则速查">
+	<title>COC 7 版部分规则速查 | The F Word</title>
+	<style type="text/css">
+		@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap");
+		::selection {
+			color: #444;
+			background: #ddd;
+		}
+		body {
+			font-family: "Iosevka", "等距更纱黑体 T SC", monospace;
+			font-size: 14px;
+			color: #ddd;
+			background: #222;
+		}
+		a {
+			text-decoration: none;
+			transition: background .4s ease-in-out;
+		}
+		h1 {
+			padding: 120px 0 20px;
+			font-family: "IM Fell English", serif;
+			font-size: 24px;
+			font-weight: normal;
+			text-align: center;
+			color: #fff;
+			background: url("/widget/coc/logo.png") no-repeat top center;
+			background-size: 180px 100px;
+		}
+		h2 {
+			position: relative;
+			padding: 10rem 0 2rem .875rem;
+			font-size: 16px;
+			font-weight: normal;
+		}
+		h2:before {
+			content: "#";
+			position: absolute;
+			left: 0;
+			color: transparent;
+			background: #555;
+		}
+		h3 {
+			margin: 0;
+			padding: .3rem 0 .2rem;
+			font-size: 14px;
+			font-weight: normal;
+		}
+		p {
+			margin: .5em 0;
+			transition: background .4s ease-in-out;
+		}
+		table {
+			border-collapse: collapse;
+			word-spacing: -4px;
+		}
+		tr {
+			background: #333;
+			transition: background .4s ease-in-out;
+		}
+		thead tr {
+			background: #444;
+		}
+		thead + tbody tr:nth-child(2n+1) {
+			background: #282828;
+		}
+		tbody tr:hover {
+			background: #3c3c3c !important;
+		}
+		thead {
+			position: sticky;
+			top: 0;
+		}
+		th {
+			font-weight: normal;
+			text-align: left;
+		}
+		th, td {
+			padding: .3rem 1em .2rem;
+		}
+		section {
+			counter-reset: counter;
+			transition: background .4s ease-in-out;
+		}
+		main {
+			padding: 10rem 0;
+			transition: transform .2s ease-in-out;
+		}
+		main > div {
+			margin: 0 auto;
+			max-width: 1400px;
+		}
+		nav {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			padding: 6rem 0 0;
+			width: 6rem;
+			text-align: center;
+			background: #191919;
+			transform: translateX(6rem);
+			transition: transform .2s ease-in-out;
+			z-index: 1;
+		}
+		nav.on {
+			transform: translate(0);
+		}
+		nav::before {
+			content: "目 录";
+			display: block;
+			height: 2.5rem;
+			font-weight: 500;
+		}
+		nav a {
+			display: block;
+			padding: .5em 0;
+			color: #ccc;
+		}
+		nav a.on {
+			background: #444;
+		}
+		nav a:hover {
+			background: #282828;
+		}
+
+		[data-lang="eng"] {
+			display: none;
+		}
+		@media only screen and (max-width: 1024px) {
+			[data-lang="eng"] {
+				display: inline;
+			}
+			[data-lang="chn"] {
+				display: none;
+			}
+			h2:before {
+				background: transparent;
+			}
+		}
+
+		.list {
+			counter-increment: counter;
+			padding: .3rem 1em .2rem;
+			background: #333;
+		}
+		.list:before {
+			content: counter(counter, decimal-leading-zero);
+			 margin: 0 .5em 0 0;
+			width: 1em;
+			text-align: right;
+		}
+		.list:nth-child(2n) {
+			background: #282828;
+		}
+		.list:hover {
+			background: #3c3c3c !important;
+		}
+
+		.list-100 .list:before, .list-120 .list:before {
+			width: 1.5em;
+		}
+		.list-100 .list:not(:nth-child(n+101)):before {
+			content: "0" counter(counter, decimal-leading-zero);
+		}
+		.list-120 .list:not(:nth-child(n+100)):before {
+			content: "0" counter(counter, decimal-leading-zero);
+		}
+
+		.flex {
+			display: flex;
+			margin: 0;
+		}
+		.flex * {
+			flex-shrink: 0;
+		}
+
+		.grid {
+			display: grid;
+		}
+		.grid-gap {
+			grid-gap: 2em 4em;
+		}
+		.grid-col-2 {
+			grid-template-columns: repeat(2, 1fr);
+			align-items: start;
+		}
+		.grid-col-2 h3, .list-120 h3 {
+			position: sticky;
+			top: 0;
+			text-align: center;
+			background: #444;
+		}
+		@media only screen and (max-width: 1024px) {
+			.grid-col-2 {
+				grid-template-columns: 1fr;
+			}
+		}
+		.grid-col-3 {
+			grid-template-columns: 5fr 2fr 4fr 20fr;
+			margin: 0;
+			background: #333;
+		}
+		.grid-col-3:nth-child(2n) {
+			background: #282828;
+		}
+		.grid-col-3:first-child {
+			position: sticky;
+			top: 0;
+			background: #444;
+		}
+		.grid-col-3:not(:first-child):hover {
+			background: #3c3c3c !important;
+		}
+		.grid-col-3 [data-col] {
+			padding: .3rem 1em .2rem;
+		}
+		.grid-col-3 [data-col="2"] {
+			text-align: right;
+		}
+		@media only screen and (max-width: 1280px) {
+			.grid-col-3 {
+				grid-template-columns: 10fr 3fr 5fr;
+			}
+			.grid-col-3 [data-col="2"] {
+				padding: .3rem 0 .2rem;
+			}
+			.grid-col-3 [data-col="4"] {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				padding-top: 0;
+				color: #999;
+			}
+		}
+		.grid-col-4 {
+			grid-template-columns: repeat(4, 1fr);
+		}
+		.grid-col-4 section {
+			padding: .5em 1em 1em;
+			background: #333;
+		}
+		.grid-col-4 section:hover {
+			background: #3c3c3c !important;
+		}
+		.grid-col-4 section:nth-child(2),
+		.grid-col-4 section:nth-child(5),
+		.grid-col-4 section:nth-child(4),
+		.grid-col-4 section:nth-child(7) {
+			background: #282828;
+		}
+		@media only screen and (max-width: 1280px) {
+			.grid-col-4 {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			.grid-col-4 section:nth-child(3),
+			.grid-col-4 section:nth-child(6) {
+				background: #282828;
+			}
+			.grid-col-4 section:nth-child(4),
+			.grid-col-4 section:nth-child(5) {
+				background: #333;
+			}
+		}
+		@media only screen and (max-width: 768px) {
+			table {
+				font-size: 13px;
+				width: 100%;
+			}
+			#伤害加值 + table th, #伤害加值 + table td {
+				padding: .3rem 1.5em .2rem 1em;
+			}
+			#年龄调整 + table td {
+				padding: .3rem .5em .2rem;
+			}
+			.grid-col-4 {
+				grid-template-columns: 1fr;
+			}
+			.grid-col-4 section:nth-child(2n) {
+				background: #282828;
+			}
+			.grid-col-4 section:nth-child(2n+1) {
+				background: #333;
+			}
+		}
+
+		.flex:not(.list) span:first-child {
+			margin: 0 .5em 0 0;
+			width: 1.5em;
+			text-align: right;
+		}
+
+		.note {
+			margin: 0 0 0 .5em;
+			color: #aaa;
+		}
+
+		#伤害加值 + table th, #伤害加值 + table td {
+			text-align: right;
+		}
+		#追加特征 + div .flex span {
+			flex-shrink: 1;
+		}
+
+		@font-face {
+			font-family: "Iosevka";
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local("Iosevka"), local("Iosevka-Regular")z url("/assets/font.iosevka.woff2") format("woff2");
+		}
+	</style>
+</head>
+<body>
+
+<nav></nav>
+
+<main>
+<div>
+
+<h1>7th Ed. Cheatsheet</h1>
+
+<section>
+	<h2 id="基础属性">基础属性</h2>
+	<div class="grid grid-col-4">
+		<section>
+			<h3>力量 STR</h3>
+			<p>3d6×5</p>
+			<p>肌肉能力</p>
+			<p class="flex"><span>0</span> 衰弱：没法起身端一杯茶</p>
+			<p class="flex"><span>15</span> 虚弱</p>
+			<p class="flex"><span>50</span> 普通人类水平</p>
+			<p class="flex"><span>90</span> 你见过的最大力的人</p>
+			<p class="flex"><span>99</span> 世界举重冠军水平，人类极限</p>
+			<p class="flex"><span>140</span> 超越人类之力（如猩猩或马）</p>
+			<p class="flex"><span>200</span> 怪物之力</p>
+		</section>
+		<section>
+			<h3>体质 CON</h3>
+			<p>3d6×5</p>
+			<p>健康､生气和活力</p>
+			<p class="flex"><span>0</span> 死亡</p>
+			<p class="flex"><span>1</span> 体弱多病难愈</p>
+			<p class="flex"><span>15</span> 身体虚弱，易感疼痛</p>
+			<p class="flex"><span>50</span> 普通人类水平</p>
+			<p class="flex"><span>90</span> 不惧寒冷，强壮精神</p>
+			<p class="flex"><span>99</span> 钢铁之躯，承受巨大疼痛，人类极限</p>
+			<p class="flex"><span>140</span> 超越人类之体（如大象）</p>
+			<p class="flex"><span>200</span> 怪物之体，免疫大部分地球疾病</p>
+		</section>
+		<section>
+			<h3>体型 SIZ</h3>
+			<p>(2d6+6)×5</p>
+			<p>身高和体重</p>
+			<p class="flex"><span>1</span> 婴儿（<5kg）</p>
+			<p class="flex"><span>15</span> 孩童或身短体瘦（15kg）</p>
+			<p class="flex"><span>65</span> 普通人类体型（75kg）</p>
+			<p class="flex"><span>80</span> 很高或很胖（110kg）</p>
+			<p class="flex"><span>99</span> 超大号（150kg）</p>
+			<p class="flex"><span>150</span> 马或牛（400kg）</p>
+			<p class="flex"><span>180</span> 记录中最重的人类（600kg）</p>
+			<p class="flex"><span>※</span> 人类体型可以超过99</p>
+		</section>
+		<section>
+			<h3>敏捷 DEX</h3>
+			<p>3d6×5</p>
+			<p>迅捷､灵敏和柔韧</p>
+			<p class="flex"><span>0</span> 没有协助无法移动</p>
+			<p class="flex"><span>15</span> 缓慢笨拙</p>
+			<p class="flex"><span>50</span> 普通人类水平</p>
+			<p class="flex"><span>90</span> 高速灵活，超凡技艺（如杂技演员或舞者）</p>
+			<p class="flex"><span>99</span> 世界级运动员，人类极限</p>
+			<p class="flex"><span>120</span> 超越人类之速（如虎）</p>
+			<p class="flex"><span>200</span> 闪电之速，可在人类反应之前完成各项动作</p>
+		</section>
+		<section>
+			<h3>外貌 APP</h3>
+			<p>3d6×5</p>
+			<p>肉体吸引和人格魅力</p>
+			<p class="flex"><span>0</span> 丑；他人报以恐惧､厌恶和怜悯</p>
+			<p class="flex"><span>15</span> 挫；受伤事故或先天如此</p>
+			<p class="flex"><span>50</span> 普通人类水平</p>
+			<p class="flex"><span>90</span> 你见过的最漂亮的人</p>
+			<p class="flex"><span>99</span> 超级名模或世界影星，人类极限</p>
+			<p class="flex"><span>※</span> 通常只有人类使用且无法超过99</p>
+		</section>
+		<section>
+			<h3>智力 INT</h3>
+			<p>(2d6+6)×5</p>
+			<p>学习､理解､分析和解密能力</p>
+			<p class="flex"><span>0</span> 没有智商，无法理解世界</p>
+			<p class="flex"><span>15</span> 学得很慢，学前教育级别</p>
+			<p class="flex"><span>50</span> 普通人类水平</p>
+			<p class="flex"><span>90</span> 超凡之脑，可以理解多门语言或定理</p>
+			<p class="flex"><span>99</span> 天才（如爱因斯坦､达芬奇），人类极限</p>
+			<p class="flex"><span>140</span> 超越人类之智（如远古者）</p>
+			<p class="flex"><span>210</span> 怪物之智，可以理解并操作多重次元（如克苏鲁）</p>
+		</section>
+		<section>
+			<h3>意志 POW</h3>
+			<p>3d6×5</p>
+			<p>学习和抵抗魔法的资质</p>
+			<p class="flex"><span>0</span> 弱者的心，无意志力，没有魔法潜能</p>
+			<p class="flex"><span>15</span> 意志力弱</p>
+			<p class="flex"><span>50</span> 普通人类水平</p>
+			<p class="flex"><span>90</span> 坚强的心，高魔潜质</p>
+			<p class="flex"><span>100</span> 钢铁之心，灵能链接</p>
+			<p class="flex"><span>140</span> 超越人类，异界存在（如依格）</p>
+			<p class="flex"><span>210</span> 怪物之质，超越凡人的理解力（如克苏鲁）</p>
+			<p class="flex"><span>※</span> 人类意志可以超过99（特例）</p>
+		</section>
+		<section>
+			<h3>教育 EDU</h3>
+			<p>(2d6+6)×5</p>
+			<p>正规知识</p>
+			<p class="flex"><span>0</span> 婴儿</p>
+			<p class="flex"><span>15</span> 未受教育</p>
+			<p class="flex"><span>60</span> 高中毕业</p>
+			<p class="flex"><span>70</span> 本科学位</p>
+			<p class="flex"><span>80</span> 硕士学位</p>
+			<p class="flex"><span>90</span> 博士学位，教授</p>
+			<p class="flex"><span>96</span> 某研究领域的世界级权威</p>
+			<p class="flex"><span>99</span> 人类极限</p>
+		</section>
+	</div>
+</section>
+
+<div class="grid grid-col-2">
+<section>
+	<h2 id="伤害加值">伤害加值</h2>
+	<table>
+		<thead><tr><th>力量＋体型</th><th>伤害加值</th><th>体格</th></tr></thead>
+		<tbody>
+			<tr><td>2- 64</td><td>-2</td><td>-2</td></tr>
+			<tr><td>65- 84</td><td>-1</td><td>-1</td></tr>
+			<tr><td>85-124</td><td>0</td><td>0</td></tr>
+			<tr><td>125-164</td><td>+1d4</td><td>1</td></tr>
+			<tr><td>165-204</td><td>+1d6</td><td>2</td></tr>
+			<tr><td>205-284</td><td>+2d6</td><td>3</td></tr>
+			<tr><td>285-364</td><td>+3d6</td><td>4</td></tr>
+			<tr><td>365-444</td><td>+4d6</td><td>5</td></tr>
+			<tr><td>445-524</td><td>+5d6</td><td>6</td></tr>
+		</tbody>
+	</table>
+</section>
+<section>
+	<h2 id="年龄调整">年龄调整</h2>
+	<table>
+		<thead><tr><th colspan="5">教育增强检定：D100 > EDU → EDU + 1d10</th></tr></thead>
+		<tbody>
+			<tr><th>15-19</th><td><span data-lang="eng">EDU</span><span data-lang="chn">教育</span> -5</td><td><span data-lang="eng">STR+SIZ</span><span data-lang="chn">力量体型</span> -5</td><td colspan="2">幸运奖励骰</td></tr>
+			<tr><th>20-39</th><td><span data-lang="eng">EDU↑</span><span data-lang="chn">教育增强检定</span> ×1</td><td>-</td><td colspan="2">-</td></tr>
+			<tr><th>40-49</th><td><span data-lang="eng">EDU↑</span><span data-lang="chn">教育增强检定</span> ×2</td><td><span data-lang="eng">STR+CON+DEX</span><span data-lang="chn">力量体质敏捷合计</span> -5</td><td><span data-lang="eng">APP</span><span data-lang="chn">外貌 -5</td><td><span data-lang="eng">MOV</span><span data-lang="chn">移动 -1</td></tr>
+			<tr><th>50-59</th><td><span data-lang="eng">EDU↑</span><span data-lang="chn">教育增强检定</span> ×3</td><td><span data-lang="eng">STR+CON+DEX</span><span data-lang="chn">力量体质敏捷合计</span> -10</td><td><span data-lang="eng">APP</span><span data-lang="chn">外貌 -10</td><td><span data-lang="eng">MOV</span><span data-lang="chn">移动 -2</td></tr>
+			<tr><th>60-69</th><td><span data-lang="eng">EDU↑</span><span data-lang="chn">教育增强检定</span> ×4</td><td><span data-lang="eng">STR+CON+DEX</span><span data-lang="chn">力量体质敏捷合计</span> -20</td><td><span data-lang="eng">APP</span><span data-lang="chn">外貌 -15</td><td><span data-lang="eng">MOV</span><span data-lang="chn">移动 -3</td></tr>
+			<tr><th>70-79</th><td><span data-lang="eng">EDU↑</span><span data-lang="chn">教育增强检定</span> ×4</td><td><span data-lang="eng">STR+CON+DEX</span><span data-lang="chn">力量体质敏捷合计</span> -40</td><td><span data-lang="eng">APP</span><span data-lang="chn">外貌 -20</td><td><span data-lang="eng">MOV</span><span data-lang="chn">移动 -4</td></tr>
+			<tr><th>80-89</th><td><span data-lang="eng">EDU↑</span><span data-lang="chn">教育增强检定</span> ×4</td><td><span data-lang="eng">STR+CON+DEX</span><span data-lang="chn">力量体质敏捷合计</span> -80</td><td><span data-lang="eng">APP</span><span data-lang="chn">外貌 -25</td><td><span data-lang="eng">MOV</span><span data-lang="chn">移动 -5</td></tr>
+		</tbody>
+	</table>
+</section>
+</div>
+
+<section>
+	<h2>职业列表</h2>
+	<div>
+		<p class="grid grid-col-3">
+			<span data-col="1">职业</span>
+			<span data-col="2">信誉</span>
+			<span data-col="3">属性</span>
+			<span data-col="4">本职技能</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">会计师</span>
+			<span data-col="2">30-70</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，法律，图书馆，聆听，说服，侦查，任意其他两项个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">杂技演员</span>
+			<span data-col="2">9-20</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">攀爬，闪避，跳跃，投掷，侦查，游泳，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">演员-戏剧演员</span>
+			<span data-col="2">9-40</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">技艺（表演），乔装，格斗，历史，两项社交技能，心理学，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">演员-电影演员</span>
+			<span data-col="2">20-90</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">技艺（表演），乔装，汽车驾驶，两项社交技能，心理学，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">事务所侦探</span>
+			<span data-col="2">20-45</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">一项社交技能，格斗（斗殴），射击，法律，图书馆，心理学，潜行，追踪</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">精神病医生（古典）</span>
+			<span data-col="2">10-60</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">法律，聆听，医学，外语，精神分析，心理学，科学（生物学，化学）</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">动物训练师</span>
+			<span data-col="2">10-40</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span>/<span data-lang="eng">POW</span><span data-lang="chn">意志</span></span>
+			<span data-col="4">跳跃，聆听，博物学，心理学，科学（动物学），潜行，追踪，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">文物学家（原作）</span>
+			<span data-col="2">30-70</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">估价，技艺（任一），历史，图书馆，外语，一项社交技能，侦查，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">古董商</span>
+			<span data-col="2">30-50</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，估价，汽车驾驶，两项社交技能，历史，图书馆，导航</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">考古学家（原作）</span>
+			<span data-col="2">10-40</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">估价，考古，历史，外语，图书馆，侦查，机械维修，导航或科学（任一：如化学､物理､地理等）</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">建筑师</span>
+			<span data-col="2">30-70</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，技艺（技术制图），法律，母语，计算机或图书馆，说服，心理学，科学（数学）</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">艺术家</span>
+			<span data-col="2">9-50</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span>/<span data-lang="eng">POW</span><span data-lang="chn">意志</span></span>
+			<span data-col="4">技艺（任一），历史或博物学，一项社交技能，外语，心理学，侦查，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">精神病院护工</span>
+			<span data-col="2">8-20</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">闪避，格斗（斗殴），急救，两项社交技能，聆听，心理学，潜行</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">运动员</span>
+			<span data-col="2">9-70</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">攀爬，跳跃，格斗（斗殴），骑乘，一项社交技能，游泳，投掷，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">作家（原作）</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">技艺（文学），历史，图书馆，博物学或神秘学，外语，母语，心理学，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">酒保</span>
+			<span data-col="2">8-25</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">会计，两项社交技能，格斗（斗殴），聆听，心理学，侦查，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">猎人</span>
+			<span data-col="2">20-50</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">射击，聆听或侦查，博物学，导航，外语或生存（任一），科学（生物学或植物学），潜行，追踪</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">书商</span>
+			<span data-col="2">20-40</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，估价，汽车驾驶，历史，图书馆，母语，外语，一项社交技能</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">赏金猎人</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">汽车驾驶，电子学或电气维修，格斗或射击，一项社交技能，法律，心理学，追踪，潜行</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">拳击手､摔跤手</span>
+			<span data-col="2">9-60</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span></span>
+			<span data-col="4">闪避，格斗（斗殴），恐吓，跳跃，心理学，侦查，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">管家､男仆､女仆</span>
+			<span data-col="2">9-40</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计或估价，技艺（任一：如烹饪､裁缝､理发），急救，聆听，外语，心理学，侦查，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">神职人员</span>
+			<span data-col="2">9-60</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，历史，图书馆，聆听，外语，一项社交技能，心理学，任意一项其他技能</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">程序员､电子工程师</span>
+			<span data-col="2">10-70</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">计算机，电气维修，电子学､图书馆，科学（数学），侦查，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">黑客/骇客</span>
+			<span data-col="2">10-70</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">计算机，电气维修，电子学，图书馆，侦查，一项社交技能，任意两项其他技能</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">牛仔</span>
+			<span data-col="2">9-20</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">闪避，格斗或射击，急救或博物学，跳跃，骑乘，生存（任一），投掷，追踪</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">工匠</span>
+			<span data-col="2">10-40</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">会计，技艺（任二），机械维修，博物学，侦查，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">罪犯-刺客</span>
+			<span data-col="2">30-60</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">乔装，电气维修，格斗，射击，锁匠，机械维修，潜行，心理学</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">罪犯-银行劫匪</span>
+			<span data-col="2">5-75</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">汽车驾驶，电气维修或机械维修，格斗，射击，恐吓，锁匠，操作重型机械，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">罪犯-打手､暴徒</span>
+			<span data-col="2">5-30</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span></span>
+			<span data-col="4">汽车驾驶，格斗，射击，两项社交技能，心理学，潜行，侦查</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">罪犯-窃贼</span>
+			<span data-col="2">5-40</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">估价，攀爬，电气维修或机械维修，聆听，锁匠，妙手，潜行，侦查</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">罪犯-欺诈师</span>
+			<span data-col="2">10-65</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">估价，技艺（表演），法律或外语，聆听，两项社交技能，心理学，妙手</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">罪犯-独行罪犯</span>
+			<span data-col="2">5-65</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span>/<span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">技艺（表演）或乔装，估价，一项社交技能，格斗或射击，锁匠或机械维修，潜行，心理学，侦查</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">罪犯-女飞贼（古典）</span>
+			<span data-col="2">10-80</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">技艺（任意），两项社交技能，格斗（斗殴）或射击（手枪），汽车驾驶，聆听，潜行，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">罪犯-赃物贩子</span>
+			<span data-col="2">20-40</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">会计，估价，技艺（伪造），历史，一项社交技能，图书馆，侦查，任意一项其他技能</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">罪犯-赝造者</span>
+			<span data-col="2">20-60</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，估价，技艺（伪造），历史，图书馆，侦查，妙手，任意一项其他个人或时代特长（如计算机）</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">罪犯-走私者</span>
+			<span data-col="2">20-60</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span>/<span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">射击，聆听，导航，一项社交技能，汽车驾驶或驾驶（飞行器或船），心理学，妙手，侦查</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">罪犯-混混</span>
+			<span data-col="2">3-10</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">攀爬，一项社交技能，格斗，射击，跳跃，妙手，潜行，投掷</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">教团首领</span>
+			<span data-col="2">30-60</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，两项社交技能，神秘学，心理学，侦查，任意其他两项其他个人特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">除魅师（现代）</span>
+			<span data-col="2">20-50</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">两项社交技能，汽车驾驶，格斗（斗殴）或射击，历史，神秘学，心理学，潜行  <span class="note">经KP允许可用催眠替换一项</span></span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">设计师</span>
+			<span data-col="2">20-60</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，技艺（摄影），技艺（任一），计算机或图书馆，机械维修，心理学，侦查，任意一项其他个人特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">业余艺术爱好者（原作）</span>
+			<span data-col="2">50-99</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">技艺（任一），射击，外语，骑乘，一项社交技能，任意三项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">潜水员</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">潜水，急救，机械维修，驾驶（船），科学（生物），侦查，游泳，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">医生（原作）</span>
+			<span data-col="2">30-80</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">急救､医学､外语（拉丁文）､心理学､科学（生物学，制药），任两种其他学术或个人特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">流浪者</span>
+			<span data-col="2">0- 5</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span>/<span data-lang="eng">STR</span><span data-lang="chn">力量</span></span>
+			<span data-col="4">攀爬，跳跃，聆听，导航，一项社交技能，潜行，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">司机-私人司机</span>
+			<span data-col="2">10-40</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">汽车驾驶，两项社交技能，聆听，机械维修，导航，侦查，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">司机-司机</span>
+			<span data-col="2">9-20</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">会计，汽车驾驶，聆听，一项社交技能，机械维修，导航，心理学，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">司机-出租车司机</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">会计，汽车驾驶，电气维修，话术，机械维修，导航，侦查，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">编辑</span>
+			<span data-col="2">10-30</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，历史，母语，两项社交技能，心理学，侦查，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">政府官员</span>
+			<span data-col="2">50-90</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">魅惑，历史，恐吓，话术，聆听，母语，说服，心理学</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">工程师</span>
+			<span data-col="2">30-60</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">技艺（技术制图），电气维修，图书馆，机械维修，操作重型机械，科学（工程学，物理），任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">艺人</span>
+			<span data-col="2">9-70</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">技艺（表演类，如表演､演唱､喜剧等），乔装，两项社交技能，聆听，心理学，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">探险家（古典）</span>
+			<span data-col="2">55-80</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span>/<span data-lang="eng">STR</span><span data-lang="chn">力量</span></span>
+			<span data-col="4">攀爬或游泳，射击，历史，跳跃，博物学，导航，外语，生存</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">农民</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">技艺（耕作），汽车驾驶（或运货马车），一项社交技能，机械维修，博物学，操作重型机械，追踪，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">司法人员</span>
+			<span data-col="2">20-40</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">汽车驾驶，格斗（斗殴），射击，法律，说服，潜行，侦查，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">消防员</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">攀爬，闪避，汽车驾驶，急救，跳跃，机械维修，操作重型机械，投掷</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">驻外记者</span>
+			<span data-col="2">10-40</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">历史，外语，母语，聆听，两项社交技能，心理学，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">法医</span>
+			<span data-col="2">40-60</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">外语（拉丁文），图书馆，医学，说服，科学（生物学，鉴证，制药），侦查</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">赌徒</span>
+			<span data-col="2">8-50</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span>/<span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">会计，技艺（表演），两项社交技能，聆听，心理学，妙手，侦查</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">黑帮-黑帮老大</span>
+			<span data-col="2">60-95</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">格斗，射击，法律，聆听，两项社交技能，心理学，侦查</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">黑帮-马仔</span>
+			<span data-col="2">9-20</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">汽车驾驶，格斗，射击，两项社交技能，心理学，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">绅士､淑女</span>
+			<span data-col="2">40-90</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">技艺（任一），两项社交技能，射击（步枪/霰弹枪），历史，外语（任一），导航，骑乘</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">游民</span>
+			<span data-col="2">0- 5</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span>/<span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">技艺（任一），攀爬，跳跃，聆听，锁匠或妙手，导航，潜行，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">勤杂护工</span>
+			<span data-col="2">6-15</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span></span>
+			<span data-col="4">电气维修，一项社交技能，格斗（斗殴），急救，聆听，机械维修，心理学，潜行</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">记者（原作）-调查记者</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">技艺（艺术或摄影），一项社交技能，历史，图书馆，母语，心理学，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">记者（原作）-通讯记者</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">技艺（表演），历史，聆听，母语，一项社交技能，心理学，潜行，侦查</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">法官</span>
+			<span data-col="2">50-80</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">历史，恐吓，法律，图书馆，聆听，母语，说服，心理学</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">实验室助理</span>
+			<span data-col="2">10-30</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">计算机或图书馆，电气维修，外语，科学（化学和任意两项），侦查，任意一项其他个人特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">工人-非熟练工人</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">汽车驾驶，电气维修，格斗，急救，机械维修，操作重型机械，投掷，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">工人-伐木工</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">攀爬，闪避，格斗（链锯），急救，跳跃，机械维修，博物学或科学（生物学或植物学），投掷</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">工人-矿工</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">攀爬，科学（地质），跳跃，机械维修，操作重型机械，潜行，侦查，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">律师</span>
+			<span data-col="2">30-80</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，法律，图书馆，两项社交技能，心理学，两项其他技能</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">图书馆管理员（原作）</span>
+			<span data-col="2">9-35</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，图书馆，外语，母语，任意四项其他个人特长或专业书籍主题</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">技师</span>
+			<span data-col="2">9-40</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">技艺（木工､焊接､管道工等），攀爬，汽车驾驶，电气维修，机械维修，操作重型机械，任意两项其他个人或时代或技术特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">军官</span>
+			<span data-col="2">20-70</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">会计，射击，导航，急救，两项社交技能，心理学，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">传教士</span>
+			<span data-col="2">0-30</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">技艺（任一），急救，机械维修，医学，博物学，一项社交技能，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">登山家</span>
+			<span data-col="2">30-60</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">攀爬，急救，跳跃，聆听，导航，外语，生存（阿尔卑斯或类似），追踪</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">博物馆管理员</span>
+			<span data-col="2">10-30</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，估价，考古，历史，图书馆，神秘学，外语，侦查</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">音乐家</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span>/<span data-lang="eng">POW</span><span data-lang="chn">意志</span></span>
+			<span data-col="4">技艺（乐器），一项社交技能，聆听，心理学，四项其他技能</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">护士</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">急救，聆听，医学，一项社交技能，心理学，科学（生物学，化学），侦查</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">神秘学家</span>
+			<span data-col="2">9-65</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">人类学，历史，图书馆，一项社交技能，神秘学，外语，科学（天文），任意一项其他个人或时代特长  <span class="note">经KP允许可含克苏鲁神话</span></span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">旅行家</span>
+			<span data-col="2">5-20</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">射击，急救，聆听，博物学，导航，侦查，生存（任一），追踪</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">超心理学家</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">人类学，技艺（摄影），历史，图书馆，神秘学，外语，心理学，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">药剂师</span>
+			<span data-col="2">35-75</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，急救，外语（拉丁文），图书馆，一项社交技能，心理学，科学（制药，化学）</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">摄影师-摄影师</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">技艺（摄影），一项社交技能，心理学，科学（化学），潜行，侦查，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">摄影师-摄影记者</span>
+			<span data-col="2">10-30</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">技艺（摄影），攀爬，一项社交技能，外语，心理学，科学（化学），任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">飞行员-飞行员</span>
+			<span data-col="2">20-70</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">电气维修，机械维修，导航，操作重型机械，驾驶（飞行器），科学（天文），任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">飞行员-特技飞行员（古典）</span>
+			<span data-col="2">30-60</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，电气维修，聆听，机械维修，导航，驾驶（飞行器），侦查，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">警方（原作）-警探</span>
+			<span data-col="2">20-50</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">技艺（表演）或乔装，射击，法律，聆听，一项社交技能，心理学，侦查，一项其他技能</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">警方（原作）-巡警</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">格斗（斗殴），射击，急救，一项社交技能，法律，心理学，侦查和下面的一种个人特长：汽车驾驶或骑乘</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">私家侦探</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">技艺（摄影），乔装，法律，图书馆，一项社交技能，心理学，侦查，一项其他个人或时代特长（如计算机､锁匠､格斗､射击）</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">教授（原作）</span>
+			<span data-col="2">20-70</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">图书馆，外语，母语，心理学，任意四项其他学术､时代或个人特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">淘金客</span>
+			<span data-col="2">0-10</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">攀爬､急救､历史､机械维修､导航､科学（地质），侦查，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">性工作者</span>
+			<span data-col="2">5-50</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">技艺（任一），两项社交技能，闪避，心理学，妙手，潜行，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">精神病学家</span>
+			<span data-col="2">30-80</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">外语，聆听，医学，说服，精神分析，心理学，科学（生物学，化学）</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">心理学家､精神分析学家</span>
+			<span data-col="2">10-40</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，图书馆，聆听，说服，精神分析，心理学，任意两项其他学术､个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">研究员</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">历史，图书馆，一项社交技能，外语，侦查，任意三项其他学术领域</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">海员-军舰海员</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">电工或机械维修，格斗，射击，急救，导航，驾驶（船），生存（海上），游泳</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">海员-民船海员</span>
+			<span data-col="2">20-40</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">急救，机械维修，博物学，导航，一项社交技能，驾驶（船），侦查，游泳</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">推销员</span>
+			<span data-col="2">9-40</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">会计，两项社交技能，汽车驾驶，聆听，心理学，潜行或妙手，一项其他技能</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">科学家</span>
+			<span data-col="2">9-50</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">任意三项科学专业领域，计算机或图书馆，外语，母语，一项社交技能，侦查</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">秘书</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span>/<span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">会计，技艺（打字或速记），两项社交技能，母语，图书馆或计算机，心理学，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">店老板</span>
+			<span data-col="2">20-40</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span>/<span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">会计，两项社交技能，电气维修，聆听，机械维修，心理学，侦查</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">士兵､海军陆战队士兵</span>
+			<span data-col="2">9-30</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">攀爬或游泳，闪避，格斗，射击，潜行，生存，下面任选两项：急救､机械维修､外语</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">间谍</span>
+			<span data-col="2">20-60</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span>/<span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">技艺（表演）或乔装，射击，聆听，外语，一项社交技能，心理学，妙手，潜行</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">学生､实习生</span>
+			<span data-col="2">5-10</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">语言（母语或外语），图书馆，聆听，三个学习的专业，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">替身演员</span>
+			<span data-col="2">10-50</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">攀爬，闪避，电气维修或机械维修，格斗，急救，跳跃，游泳，下面任选一项：潜水､汽车驾驶､驾驶（任一），骑乘</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">部落成员</span>
+			<span data-col="2">0-15</span>
+			<span data-col="3"><span data-lang="eng">STR</span><span data-lang="chn">力量</span>/<span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span></span>
+			<span data-col="4">攀爬，格斗或投掷，聆听，博物学，神秘学，侦查，游泳，生存（任一）</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">殡葬师</span>
+			<span data-col="2">20-40</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，汽车驾驶，一项社交技能，历史，神秘学，心理学，科学（生物学，化学）</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">工会活动家</span>
+			<span data-col="2">5-50</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，两项社交技能，格斗（斗殴），法律，聆听，操作重型机械，心理学</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">服务生</span>
+			<span data-col="2">9-20</span>
+			<span data-col="3"><span data-lang="eng">DEX</span><span data-lang="chn">敏捷</span>/<span data-lang="eng">APP</span><span data-lang="chn">外貌</span></span>
+			<span data-col="4">会计，技艺（任一），闪避，聆听，两项社交技能，心理学，任意一项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">白领工人-职员､主管</span>
+			<span data-col="2">9-20</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，语言，法律，图书馆或计算机，聆听，一项社交技能，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">白领工人-中高层管理人员</span>
+			<span data-col="2">20-80</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">会计，外语，法律，两项社交技能，心理学，任意两项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">狂热者</span>
+			<span data-col="2">0-30</span>
+			<span data-col="3"><span data-lang="eng">APP</span><span data-lang="chn">外貌</span>/<span data-lang="eng">POW</span><span data-lang="chn">意志</span></span>
+			<span data-col="4">历史，两项社交技能，心理学，潜行，任意三项其他个人或时代特长</span>
+		</p>
+		<p class="grid grid-col-3">
+			<span data-col="1">饲养员</span>
+			<span data-col="2">9-40</span>
+			<span data-col="3"><span data-lang="eng">EDU</span><span data-lang="chn">教育</span></span>
+			<span data-col="4">驯兽，会计，闪避，急救，博物学，医学，科学（制药，动物学）</span>
+		</p>
+	</div>
+</section>
+
+<section>
+	<h2 id="随机背景">随机背景</h2>
+	<div class="grid grid-col-2 grid-gap">
+		<section>
+			<h3>个人特质</h3>
+			<p class="list flex">慷慨大方（如小费大手､及时雨､慈善家）</p>
+			<p class="list flex">善待动物（如爱猫人士､农场出生､与马同舞）</p>
+			<p class="list flex">梦想家（如惯常异想天开､预言家､创造者）</p>
+			<p class="list flex">享乐者（如派对大师､酒吧醉汉､“放纵到死”）</p>
+			<p class="list flex">冒险家（如扑克脸､任何事都来一遍､活在生死边缘）</p>
+			<p class="list flex">好厨艺（如烤得一手好蛋糕､无米之炊都能做好､优雅的食神）</p>
+			<p class="list flex">万人迷（如长袖善舞､甜言蜜语､电眼乱放）</p>
+			<p class="list flex">忠心在我（如背负自己的朋友､从未破誓､为信念而死）</p>
+			<p class="list flex">良好名声（如最好的聊天对象､虔信圣徒､不惧任何危险）</p>
+			<p class="list flex">雄心壮志（如梦想远大､渴求一切､成为BOSS）</p>
+		</section>
+		<section>
+			<h3>思想信念</h3>
+			<p class="list flex">你信仰并祈并一位大能（如毗沙门天､耶稣基督､海尔·塞拉西一世）</p>
+			<p class="list flex">人类无需上帝（如坚定的无神论者､人文主义者､世俗主义者）</p>
+			<p class="list flex">科学万能！科学万岁！你将选择其中之一（如进化论､低温学､太空探索）</p>
+			<p class="list flex">命中注定（如因果报应､种姓系统､超自然存在）</p>
+			<p class="list flex">社团或秘密结社的一员（如共济会､女协､匿名者）</p>
+			<p class="list flex">社会坏掉了，而你将成为正义的伙伴。应斩除之物是？（如毒品､暴力､种族歧视）</p>
+			<p class="list flex">神秘依然在（如占星术､招魂术､塔罗）</p>
+			<p class="list flex">诸君，我喜欢政治（如保守党､共产党､自由党）</p>
+			<p class="list flex">“金钱就是力量，我的朋友，我将竭尽全力获取我能看到的一切。”（如贪婪心､进取心､冷酷心）</p>
+			<p class="list flex">竞选者/激进主义者（如女权运动人､平等主义家､工会权柄）</p>
+		</section>
+		<section>
+			<h3>重要之人</h3>
+			<p class="list flex">父辈（如母亲､父亲､继母）</p>
+			<p class="list flex">祖父辈（如外祖母､祖父）</p>
+			<p class="list flex">兄弟（如妹妹､半血亲妹妹､无血缘妹妹）</p>
+			<p class="list flex">孩子（儿子或女儿）</p>
+			<p class="list flex">另一半（如配偶､未婚夫､爱人）</p>
+			<p class="list flex">那位指引你人生技能的人。指明该技能和该人（如教师､师傅､父亲）</p>
+			<p class="list flex">青梅竹马（如同学､邻居､幼驯染）</p>
+			<p class="list flex">名人､偶像或英雄（如电影明星､政治家､音乐家）</p>
+			<p class="list flex">游戏中一位调查员</p>
+			<p class="list flex">游戏中一位NPC</p>
+		</section>
+		<section>
+			<h3>重要之因</h3>
+			<p class="list flex">你欠了他们人情。（如经济､困难时期的庇护､第一份工作）</p>
+			<p class="list flex">他们教会了你一些东西（如技能､如何去爱､如何成为男子汉）</p>
+			<p class="list flex">他们给了你生命的意义（如你渴望成为他们那样的人､你苦苦追寻着他们､你想让他们高兴）</p>
+			<p class="list flex">你曾害了他们，而现在寻求救赎（如偷窃钱财､举报行踪､拒绝救助）</p>
+			<p class="list flex">同甘共苦（如你们共同经历过困难时期､你们携手成长､共同度过战争）</p>
+			<p class="list flex">你想向他们证明自己（如求职､成就）</p>
+			<p class="list flex">崇拜（如名声､魅力､工作）</p>
+			<p class="list flex">后悔（如你本应死在他们面前､背弃誓言､你在可以助人之时驻足不前）</p>
+			<p class="list flex">你试图证明你比他们更出色。他们的缺点是？（如懒惰､酗酒､冷漠）</p>
+			<p class="list flex">他们扰乱了你的人生，而你寻求复仇。发生了什么？（如复仇､分离）</p>
+		</section>
+		<section>
+			<h3>宝贵之地</h3>
+			<p class="list flex">你最爱的学府（如中学､大学）</p>
+			<p class="list flex">你的故乡（如乡下老家､小村镇､大都市）</p>
+			<p class="list flex">相识初恋之处（如音乐会､度假村､核弹避难所）</p>
+			<p class="list flex">静思之地（如图书馆､你的乡土别墅､钓场）</p>
+			<p class="list flex">社交之地（如绅士俱乐部､地方酒吧､叔叔的家）</p>
+			<p class="list flex">联系你思想/信念的场所（如小教堂､麦加､巨石阵）</p>
+			<p class="list flex">重要之人的坟墓（如另一半､孩子､爱人）</p>
+			<p class="list flex">家族所在（如乡下小屋､租屋､幼年的孤儿院）</p>
+			<p class="list flex">生命中最高兴时的所在（如初吻时坐着的公园长椅､大学）</p>
+			<p class="list flex">工作地点（如办公室､图书馆､银行）</p>
+		</section>
+		<section>
+			<h3>宝贵之物</h3>
+			<p class="list flex">与你得意技相关之物（如华服､假ID卡､青铜指虎）</p>
+			<p class="list flex">职业必需品（如医疗包､汽车､撬锁器）</p>
+			<p class="list flex">童年的遗留物（如漫画书､随身小刀､幸运币）</p>
+			<p class="list flex">逝者遗物（如烛堡､钱包里的遗照､信）</p>
+			<p class="list flex">重要之人给予之物（如戒指､日志､地图）</p>
+			<p class="list flex">收藏品（如撤票､标本､记录）</p>
+			<p class="list flex">你发掘而不知真相的东西（如橱柜里找到的未知语言信件､从父亲继承来的来源不明的风琴､花园里挖出来的奇妙银球）</p>
+			<p class="list flex">体育用品（如球棒､签名棒球､鱼竿）</p>
+			<p class="list flex">武器（如半自动左轮､老旧的猎用来福､靴刃）</p>
+			<p class="list flex">宠物（如狗､猫､乌龟）</p>
+		</section>
+	</div>
+</section>
+
+<section>
+	<h2 id="疯狂症状">疯狂症状</h2>
+	<div class="grid grid-col-2 grid-gap">
+		<section>
+			<h3>临时性疯狂（SAN -≥5，INT检定成功，持续1d10轮）</h3>
+			<p class="list flex">失忆：调查员只记得最后身处的安全地点，却没有任何来到这里的记忆</p>
+			<p class="list flex">残疾：调查员陷入了心理性的失明､失聪或躯体缺失感中</p>
+			<p class="list flex">暴力：调查员陷入了无差别的暴力行为中</p>
+			<p class="list flex">偏执：调查员陷入了严重的偏执妄想中</p>
+			<p class="list flex">依赖：调查员因为一些原因而将他人误认为重要之人</p>
+			<p class="list flex">昏厥：调查员当场昏倒</p>
+			<p class="list flex">逃避：调查员会用任何的手段试图逃离现在所处的位置</p>
+			<p class="list flex">极端：调查员表现出极端情绪</p>
+			<p class="list flex">恐惧：恐惧症状表D100</p>
+			<p class="list flex">躁狂：躁狂症状表D100</p>
+		</section>
+		<section>
+			<h3>不定时疯狂（SAN -≥20%，1d10轮后恢复清醒）</h3>
+			<p class="list flex">失忆：调查员发现自己身处陌生之地，忘了自己是谁</p>
+			<p class="list flex">被窃：调查员发觉自己被窃；如调查员携带着宝贵之物，做幸运检定决定其是否被窃</p>
+			<p class="list flex">受伤：调查员发现自己遍体鳞伤，生命值减少到疯狂前一半</p>
+			<p class="list flex">暴力：调查员陷入强烈的暴力与破坏欲中</p>
+			<p class="list flex">思想信念：调查员会采取极端和疯狂的表现手段展示他们的思想信念</p>
+			<p class="list flex">重要之人：调查员将不顾一切地接近重要之人</p>
+			<p class="list flex">收容：调查员在精神病院病房或警察局牢房中回过神来，可能慢慢回想起导致自己被关在这里的事情</p>
+			<p class="list flex">逃避：调查员发现自己在很远的地方</p>
+			<p class="list flex">恐惧：恐惧症状表D100</p>
+			<p class="list flex">躁狂：躁狂症状表D100</p>
+		</section>
+		<section class="list-100">
+			<h3>恐惧症状</h3>
+			<p class="list flex">洗澡恐惧症 Ablutophobia：对于洗涤或洗澡的恐惧</p>
+			<p class="list flex">恐高症 Acrophobia：对于身处高处的恐惧</p>
+			<p class="list flex">飞行恐惧症 Aerophobia：对飞行的恐惧</p>
+			<p class="list flex">广场恐惧症 Agoraphobia：对于开放､拥挤的公共场所的恐惧</p>
+			<p class="list flex">恐鸡症 Alektorophobia：对鸡的恐惧</p>
+			<p class="list flex">大蒜恐惧症 Alliumphobia：对大蒜的恐惧</p>
+			<p class="list flex">乘车恐惧症 Amaxophobia：对于乘坐地面载具的恐惧</p>
+			<p class="list flex">恐风症 Ancraophobia：对风的恐惧</p>
+			<p class="list flex">男性恐惧症 Androphobia：对于成年男性的恐惧</p>
+			<p class="list flex">恐英症 Anglophobia：对英格兰或英格兰文化的恐惧</p>
+			<p class="list flex">恐花症 Anthophobia：对花的恐惧</p>
+			<p class="list flex">截肢者恐惧症 Apotemnophobia：对截肢者的恐惧</p>
+			<p class="list flex">蜘蛛恐惧症 Arachnophobia：对蜘蛛的恐惧</p>
+			<p class="list flex">闪电恐惧症 Astraphobia：对闪电的恐惧</p>
+			<p class="list flex">废墟恐惧症 Atephobia：对遗迹或残址的恐惧</p>
+			<p class="list flex">长笛恐惧症 Aulophobia：对长笛的恐惧</p>
+			<p class="list flex">细菌恐惧症 Bacteriophobia：对细菌的恐惧</p>
+			<p class="list flex">导弹/子弹恐惧症 Ballistophobia：对导弹或子弹的恐惧</p>
+			<p class="list flex">跌落恐惧症 Basophobia：对于跌倒或摔落的恐惧</p>
+			<p class="list flex">书籍恐惧症 Bibliophobia：对书籍的恐惧</p>
+			<p class="list flex">植物恐惧症 Botanophobia：对植物的恐惧</p>
+			<p class="list flex">美女恐惧症 Caligynephobia：对美貌女性的恐惧</p>
+			<p class="list flex">寒冷恐惧症 Cheimaphobia：对寒冷的恐惧</p>
+			<p class="list flex">恐钟表症 Chronomentrophobia：对于钟表的恐惧</p>
+			<p class="list flex">幽闭恐惧症 Claustrophobia：对于处在封闭的空间中的恐惧</p>
+			<p class="list flex">小丑恐惧症 Coulrophobia：对小丑的恐惧</p>
+			<p class="list flex">恐犬症 Cynophobia：对狗的恐惧</p>
+			<p class="list flex">恶魔恐惧症 Demonophobia：对邪灵或恶魔的恐惧</p>
+			<p class="list flex">人群恐惧症 Demophobia：对人群的恐惧</p>
+			<p class="list flex">牙科恐惧症 Dentophobia：对牙医的恐惧</p>
+			<p class="list flex">丢弃恐惧症 Disposophobia：对于丢弃物件的恐惧</p>
+			<p class="list flex">皮毛恐惧症 Doraphobia：对动物皮毛的恐惧</p>
+			<p class="list flex">过马路恐惧症 Dromophobia：对于过马路的恐惧</p>
+			<p class="list flex">教堂恐惧症 Ecclesiophobia：对教堂的恐惧</p>
+			<p class="list flex">镜子恐惧症 Eisoptrophobia：对镜子的恐惧</p>
+			<p class="list flex">针尖恐惧症 Enetophobia：对针或大头针的恐惧</p>
+			<p class="list flex">昆虫恐惧症 Entomophobia：对昆虫的恐惧</p>
+			<p class="list flex">恐猫症 Felinophobia：对猫的恐惧</p>
+			<p class="list flex">过桥恐惧症 Gephyrophobia：对于过桥的恐惧</p>
+			<p class="list flex">恐老症 Gerontophobia：对于老年人或变老的恐惧</p>
+			<p class="list flex">恐女症 Gynophobia：对女性的恐惧</p>
+			<p class="list flex">恐血症 Haemaphobia：对血的恐惧</p>
+			<p class="list flex">宗教罪行恐惧症 Hamartophobia：对宗教罪行的恐惧</p>
+			<p class="list flex">触摸恐惧症 Haphophobia：对于被触摸的恐惧</p>
+			<p class="list flex">爬虫恐惧症 Herpetophobia：对爬行动物的恐惧</p>
+			<p class="list flex">迷雾恐惧症 Homichlophobia：对雾的恐惧</p>
+			<p class="list flex">火器恐惧症 Hoplophobia：对火器的恐惧</p>
+			<p class="list flex">恐水症 Hydrophobia：对水的恐惧</p>
+			<p class="list flex">睡眠恐惧症 Hypnophobia：对于睡眠的恐惧</p>
+			<p class="list flex">白袍恐惧症 Iatrophobia：对医生的恐惧</p>
+			<p class="list flex">鱼类恐惧症 Ichthyophobia：对鱼的恐惧</p>
+			<p class="list flex">蟑螂恐惧症 Katsaridaphobia：对蟑螂的恐惧</p>
+			<p class="list flex">雷鸣恐惧症 Keraunophobia：对雷声的恐惧</p>
+			<p class="list flex">蔬菜恐惧症 Lachanophobia：对蔬菜的恐惧</p>
+			<p class="list flex">噪音恐惧症 Ligyrophobia：对刺耳噪音的恐惧</p>
+			<p class="list flex">恐湖症 Limnophobia：对湖泊的恐惧</p>
+			<p class="list flex">机械恐惧症 Mechanophobia：对机器或机械的恐惧</p>
+			<p class="list flex">巨物恐惧症 Megalophobia：对于庞大物件的恐惧</p>
+			<p class="list flex">捆绑恐惧症 Merinthophobia：对于被捆绑或紧缚的恐惧</p>
+			<p class="list flex">流星恐惧症 Meteorophobia：对流星或陨石的恐惧</p>
+			<p class="list flex">孤独恐惧症 Monophobia：对于一人独处的恐惧</p>
+			<p class="list flex">不洁恐惧症 Mysophobia：对污垢或污染的恐惧</p>
+			<p class="list flex">黏液恐惧症 Myxophobia：对黏液（史莱姆）的恐惧</p>
+			<p class="list flex">尸体恐惧症 Necrophobia：对尸体的恐惧</p>
+			<p class="list flex">数字8恐惧症 Octophobia：对数字8的恐惧</p>
+			<p class="list flex">恐牙症 Odontophobia：对牙齿的恐惧</p>
+			<p class="list flex">恐梦症 Oneirophobia：对梦境的恐惧</p>
+			<p class="list flex">称呼恐惧症 Onomatophobia：对于特定词语的恐惧</p>
+			<p class="list flex">恐蛇症 Ophidiophobia：对蛇的恐惧</p>
+			<p class="list flex">恐鸟症 Ornithophobia：对鸟的恐惧</p>
+			<p class="list flex">寄生虫恐惧症 Parasitophobia：对寄生虫的恐惧</p>
+			<p class="list flex">人偶恐惧症 Pediophobia：对人偶的恐惧</p>
+			<p class="list flex">吞咽恐惧症 Phagophobia：对于吞咽或被吞咽的恐惧</p>
+			<p class="list flex">药物恐惧症 Pharmacophobia：对药物的恐惧</p>
+			<p class="list flex">幽灵恐惧症 Phasmophobia：对鬼魂的恐惧</p>
+			<p class="list flex">日光恐惧症 Phenogophobia：对日光的恐惧</p>
+			<p class="list flex">胡须恐惧症 Pogonophobia：对胡须的恐惧</p>
+			<p class="list flex">河流恐惧症 Potamophobia：对河流的恐惧</p>
+			<p class="list flex">酒精恐惧症 Potophobia：对酒或酒精的恐惧</p>
+			<p class="list flex">恐火症 Pyrophobia：对火的恐惧</p>
+			<p class="list flex">魔法恐惧症 Rhabdophobia：对魔法的恐惧</p>
+			<p class="list flex">黑暗恐惧症 Scotophobia：对黑暗或夜晚的恐惧</p>
+			<p class="list flex">恐月症 Selenophobia：对月亮的恐惧</p>
+			<p class="list flex">火车恐惧症 Siderodromophobia：对于乘坐火车出行的恐惧</p>
+			<p class="list flex">恐星症 Siderophobia：对星星的恐惧</p>
+			<p class="list flex">狭室恐惧症 Stenophobia：对狭小物件或地点的恐惧</p>
+			<p class="list flex">对称恐惧症 Symmetrophobia：对对称的恐惧</p>
+			<p class="list flex">活埋恐惧症 Taphephobia：对于被活埋或墓地的恐惧</p>
+			<p class="list flex">公牛恐惧症 Taurophobia：对公牛的恐惧</p>
+			<p class="list flex">电话恐惧症 Telephonophobia：对电话的恐惧</p>
+			<p class="list flex">畸胎恐惧症 Teratophobia：对孕育畸胎的恐惧</p>
+			<p class="list flex">深海恐惧症 Thalassophobia：对海洋的恐惧</p>
+			<p class="list flex">手术恐惧症 Tomophobia：对外科手术的恐惧</p>
+			<p class="list flex">十三恐惧症 Triskadekaphobia：对数字13的恐惧症</p>
+			<p class="list flex">衣物恐惧症 Vestiphobia：对衣物的恐惧</p>
+			<p class="list flex">女巫恐惧症 Wiccaphobia：对女巫与巫术的恐惧</p>
+			<p class="list flex">黄色恐惧症 Xanthophobia：对黄色或“黄”字的恐惧</p>
+			<p class="list flex">外语恐惧症 Xenoglossophobia：对外语的恐惧</p>
+			<p class="list flex">异域恐惧症 Xenophobia：对陌生人或外国人的恐惧</p>
+			<p class="list flex">动物恐惧症 Zoophobia：对动物的恐惧</p>
+		</section>
+		<section class="list-100">
+			<h3>躁狂症状</h3>
+			<p class="list flex">沐浴癖 Ablutomania：执着于清洗自己</p>
+			<p class="list flex">犹豫癖 Aboulomania：病态地犹豫不定</p>
+			<p class="list flex">喜暗狂 Achluomania：对黑暗的过度热爱</p>
+			<p class="list flex">喜高狂 Acromaniaheights：狂热迷恋高处</p>
+			<p class="list flex">亲切癖 Agathomania：病态地对他人友好</p>
+			<p class="list flex">喜旷症 Agromania：强烈地倾向于待在开阔空间中</p>
+			<p class="list flex">喜尖狂 Aichmomania：痴迷于尖锐或锋利的物体</p>
+			<p class="list flex">恋猫狂 Ailuromania：近乎病态地对猫友善</p>
+			<p class="list flex">疼痛癖 Algomania：痴迷于疼痛</p>
+			<p class="list flex">喜蒜狂 Alliomania：痴迷于大蒜</p>
+			<p class="list flex">乘车癖 Amaxomania：痴迷于乘坐车辆</p>
+			<p class="list flex">欣快癖 Amenomania：不正常地感到喜悦</p>
+			<p class="list flex">喜花狂 Anthomania：痴迷于花朵</p>
+			<p class="list flex">计算癖 Arithmomania：狂热地痴迷于数字</p>
+			<p class="list flex">消费癖 Asoticamania：鲁莽冲动地消费</p>
+			<p class="list flex">隐居癖 Automania：过度地热爱独自隐居</p>
+			<p class="list flex">芭蕾癖 Balletmania：痴迷于芭蕾舞</p>
+			<p class="list flex">窃书癖 Biliokleptomania：无法克制偷窃书籍的冲动</p>
+			<p class="list flex">恋书狂 Bibliomania：痴迷于书籍和/或阅读</p>
+			<p class="list flex">磨牙癖 Bruxomania：无法克制磨牙的冲动</p>
+			<p class="list flex">灵臆症 Cacodemomania：病态地坚信自己已被一个邪恶的灵体占据</p>
+			<p class="list flex">美貌狂 Callomania：痴迷于自身的美貌</p>
+			<p class="list flex">地图狂 Cartacoethes：在何时何处都无法控制查阅地图的冲动</p>
+			<p class="list flex">跳跃狂 Catapedamania：痴迷于从高处跳下</p>
+			<p class="list flex">喜冷症 Cheimatomania：对寒冷或寒冷的物体的反常喜爱</p>
+			<p class="list flex">舞蹈狂 Choreomania：无法控制地起舞或发颤</p>
+			<p class="list flex">恋床癖 Clinomania：过度地热爱待在床上</p>
+			<p class="list flex">恋墓狂 Coimetormania：痴迷于墓地</p>
+			<p class="list flex">色彩狂 Coloromania：痴迷于某种颜色</p>
+			<p class="list flex">小丑狂 Coulromania：痴迷于小丑</p>
+			<p class="list flex">恐惧狂 Countermania：执着于经历恐怖的场面</p>
+			<p class="list flex">杀戮癖 Dacnomania：痴迷于杀戮</p>
+			<p class="list flex">魔臆症 Demonomania：病态地坚信自己已被恶魔附身</p>
+			<p class="list flex">抓挠癖 Dermatillomania：执着于抓挠自己的皮肤</p>
+			<p class="list flex">正义狂 Dikemania：痴迷于目睹正义被伸张</p>
+			<p class="list flex">嗜酒狂 Dipsomania：反常地渴求酒精</p>
+			<p class="list flex">毛皮狂 Doramania：痴迷于拥有毛皮</p>
+			<p class="list flex">赠物癖 Doromania：痴迷于赠送礼物</p>
+			<p class="list flex">漂泊症 Drapetomania：执着于逃离</p>
+			<p class="list flex">漫游癖 Ecdemiomania：执着于四处漫游</p>
+			<p class="list flex">自恋狂 Egomania：近乎病态地以自我为中心或自我崇拜</p>
+			<p class="list flex">职业狂 Empleomania：对于工作的无尽病态渴求</p>
+			<p class="list flex">臆罪症 Enosimania：病态地坚信自己带有罪孽</p>
+			<p class="list flex">学识狂 Epistemomania：痴迷于获取学识</p>
+			<p class="list flex">静止癖 Eremiomania：执着于保持安静</p>
+			<p class="list flex">乙醚上瘾 Etheromania：渴求乙醚</p>
+			<p class="list flex">求婚狂 Gamomania：痴迷于进行奇特的求婚</p>
+			<p class="list flex">狂笑癖 Geliomania：无法自制地大笑</p>
+			<p class="list flex">巫术狂 Goetomania：痴迷于女巫与巫术</p>
+			<p class="list flex">写作癖 Graphomania：痴迷于将每一件事写下来</p>
+			<p class="list flex">裸体狂 Gymnomania：执着于裸露身体</p>
+			<p class="list flex">妄想狂 Habromania：近乎病态地充满愉快的妄想而不顾现实</p>
+			<p class="list flex">蠕虫狂 Helminthomania：过度地喜爱蠕虫</p>
+			<p class="list flex">枪械狂 Hoplomania：痴迷于火器</p>
+			<p class="list flex">饮水狂 Hydromania：反常地渴求水分</p>
+			<p class="list flex">喜鱼癖 Ichthyomania：痴迷于鱼类</p>
+			<p class="list flex">图标狂 Iconomania：痴迷于图标与肖像</p>
+			<p class="list flex">偶像狂 Idolomania：痴迷于甚至愿献身于某个偶像</p>
+			<p class="list flex">信息狂 Infomania：痴迷于积累各种信息与资讯</p>
+			<p class="list flex">射击狂 Klazomania：反常地执着于射击</p>
+			<p class="list flex">偷窃癖 Kleptomania：反常地执着于偷窃</p>
+			<p class="list flex">噪音癖 Ligyromania：无法自制地执着于制造响亮或刺耳的噪音</p>
+			<p class="list flex">喜线癖 Linonomania：痴迷于线绳</p>
+			<p class="list flex">彩票狂 Lotterymania：极端地执着于购买彩票</p>
+			<p class="list flex">抑郁症 Lypemania：近乎病态的重度抑郁倾向</p>
+			<p class="list flex">巨石狂 Megalithomania：当站在石环中或立起的巨石旁时，就会近乎病态地得到各种奇怪的创意</p>
+			<p class="list flex">旋律狂 Melomania：痴迷于音乐或一段特定的旋律</p>
+			<p class="list flex">作诗癖 Metromania：无法抑制地想要不停作诗</p>
+			<p class="list flex">憎恨癖 Misomania：憎恨一切事物，痴迷于憎恨某个事物或团体</p>
+			<p class="list flex">偏执狂 Monomania：近乎病态地痴迷与专注某个特定的想法或创意</p>
+			<p class="list flex">夸大癖 Mythomania：以一种近乎病态的程度说谎或夸大事物</p>
+			<p class="list flex">臆想症 Nosomania：妄想自己正在被某种臆想出的疾病折磨</p>
+			<p class="list flex">记录癖 Notomania：执着于记录一切事物，如摄影</p>
+			<p class="list flex">恋名狂 Onomamania：痴迷于名字（人物的､地点的､事物的）</p>
+			<p class="list flex">称名癖 Onomatomania：无法抑制地不断重复某个词语的冲动</p>
+			<p class="list flex">剔指癖 Onychotillomania：执着于剔指甲</p>
+			<p class="list flex">恋食癖 Opsomania：对某种食物的病态热爱</p>
+			<p class="list flex">抱怨癖 Paramania：一种在抱怨时产生的近乎病态的愉悦感</p>
+			<p class="list flex">面具狂 Personamania：执着于佩戴面具</p>
+			<p class="list flex">幽灵狂 Phasmomania：痴迷于幽灵</p>
+			<p class="list flex">谋杀癖 Phonomania：病态的谋杀倾向</p>
+			<p class="list flex">渴光癖 Photomania：对光的病态渴求</p>
+			<p class="list flex">背德癖 Planomania：病态地渴求违背社会道德（原文如此，Planomania实为漂泊症）</p>
+			<p class="list flex">求财癖 Plutomania：对财富的强迫性的渴望</p>
+			<p class="list flex">欺骗狂 Pseudomania：无法抑制的执着于撒谎</p>
+			<p class="list flex">纵火狂 Pyromania：执着于纵火</p>
+			<p class="list flex">提问狂 Questiong-Asking Mania：执着于提问</p>
+			<p class="list flex">挖鼻癖 Rhinotillexomania：执着于挖鼻子</p>
+			<p class="list flex">涂鸦癖 Scribbleomania：沉迷于涂鸦</p>
+			<p class="list flex">列车狂 Siderodromomania：认为火车或类似的依靠轨道交通的旅行方式充满魅力</p>
+			<p class="list flex">臆智症 Sophomania：臆想自己拥有难以置信的智慧</p>
+			<p class="list flex">科技狂 Technomania：痴迷于新的科技</p>
+			<p class="list flex">臆咒狂 Thanatomania：坚信自己已被某种死亡魔法所诅咒</p>
+			<p class="list flex">臆神狂 Theomania：坚信自己是一位神灵</p>
+			<p class="list flex">抓挠癖 Titillomaniac：抓挠自己的强迫倾向</p>
+			<p class="list flex">手术狂 Tomomania：对进行手术的不正常爱好</p>
+			<p class="list flex">拔毛癖 Trichotillomania：执着于拔下自己的头发</p>
+			<p class="list flex">臆盲症 Typhlomania：病理性的失明</p>
+			<p class="list flex">嗜外狂 Xenomania：痴迷于异国的事物</p>
+			<p class="list flex">喜兽癖 Zoomania：对待动物的态度近乎疯狂地友好</p>
+		</section>
+	</div>
+</section>
+
+<section>
+	<h2 id="追加特征">追加特征</h2>
+	<div class="list-120">
+		<h3>扩展：煤气灯</h3>
+		<p class="list flex"><span>任意选择一个有（D）记号的特征。</span></p>
+		<p class="list flex"><span>高龄（D） <span class="note">年龄追加(1d3+1)×10岁，超过30岁后开始获得EDU加值，40岁以后开始对于身体属性造成减值。</span></span></p>
+		<p class="list flex"><span>优雅的岁数 <span class="note">40岁开始对身体能力造成减值的规则改为从50岁开始。</span></span></p>
+		<p class="list flex"><span>白化病患者（D） <span class="note">STR､CON､SIZ､DEX､POW､APP中的任意一项减少3点。在明亮阳光下时「观察」技能值减少1d4-1点，长时间受到光照的话会受到1点以上的伤害。白化病人在人群中很显眼并可能被他人用有色目光看待。</span></span></p>
+		<p class="list flex"><span>酒精中毒（D） <span class="note">CON-1。STR､DEX､POW､APP中任意一项减少1点。为了避免陷入酩酊大醉需要通过一个理智判定。陷入发疯的情况下，调查员可能会寻求酒精来逃避现实。</span></span></p>
+		<p class="list flex"><span>警戒 <span class="note">不易被惊吓到。潜伏时一直都保持着能够随时「观察」或者「聆听」的状态。</span></span></p>
+		<p class="list flex"><span>同盟者 <span class="note">投掷1d100来决定同盟的力量/数量和出现的频率（1d100的出点越大可能能够获得越有利的同盟）。用途不限。</span></span></p>
+		<p class="list flex"><span>双手灵活 <span class="note">调查员可以灵活的使用他的任意一只手而不会受到非惯用手的惩罚。</span></span></p>
+		<p class="list flex"><span>讨厌动物（D） <span class="note">技能和动物有关时技能成功率-1d6×5点。</span></span></p>
+		<p class="list flex"><span>艺术天才 <span class="note">音乐､写作之类的艺术技能+INT×5%。</span></span></p>
+		<p class="list flex"><span>运动 <span class="note">运动系技能获得加值=选择一个技能+30%，或者选择两个技能各+20%，或者选择三个技能各+10%。</span></span></p>
+		<p class="list flex"><span>夜视强化 <span class="note">日落西山后视觉相关惩罚只有常人的一半。</span></span></p>
+		<p class="list flex"><span>累赘（D） <span class="note">调查员出生于世家但是却没能达到家人的期待，或者不服管教。对于交涉系技能可能会造成影响-1d3×10%。</span></span></p>
+		<p class="list flex"><span>领导者资质 <span class="note">POW+1d2，交涉系技能+INT×5%。</span></span></p>
+		<p class="list flex"><span>打斗者 <span class="note">「拳头」或「擒拿」+1d4×5%，每回合可以进行两次「拳头」或「擒拿」，攻击成功时+1点伤害。</span></span></p>
+		<p class="list flex"><span>笨拙（D） <span class="note">大失败的几率×2，并且大失败时可能会招致灾难。</span></span></p>
+		<p class="list flex"><span>收藏家 <span class="note">调查员有收集硬币､书､昆虫､艺术作品､宝石､古董之类的爱好。</span></span></p>
+		<p class="list flex"><span>身体障碍（D） <span class="note">失去了身体的一部分。投掷1d6。1~2=脚，3~4=手，5=头部（投掷1d6，1~3=眼睛，4~6=耳朵），6=PL自己选择。失去脚的话DEX-3､STR或CON-1，MOVE只有常人的一半，所有运动系技能-25%。失去手腕的话STR-1､DEX-2，所有的操作系技能-15%，使用武器会受到限制。失去眼睛的话「观察」和火器技能等全部-35%，另外投掷一个「幸运」，失败的话APP-1d2。失去耳朵的话APP-1d3，「聆听」等和耳朵有关的技能全部-30%。</span></span></p>
+		<p class="list flex"><span>再投掷三次，由PL选择其中一个作为特征。</span></p>
+		<p class="list flex"><span>再投掷三次，PL和KP各选择一个特征。</span></p>
+		<p class="list flex"><span>再投掷一次，获得那个特征 <span class="note">特征具有（D）时，PL可以再额外选择一个其他任意特征获得。特征没有（D）时，PL必须再同时选择一个（D）特征。</span></span></p>
+		<p class="list flex"><span>诅咒（D） <span class="note">调查员被吉普赛人､魔女､法师､外国原住民等施予了诅咒，诅咒效果等同「邪眼」咒文或由KP决定。KP也可以决定解除诅咒的条件。</span></span></p>
+		<p class="list flex"><span>黑暗先祖（D） <span class="note">调查员具有邪恶的一族，外国人､食人族､甚至神话生物的血统。投掷1d100，出点愈大，血统也愈恐怖。</span></span></p>
+		<p class="list flex"><span>听觉障碍（D） <span class="note">「聆听」减少1d4×5%。</span></span></p>
+		<p class="list flex"><span>绝症缠身（D） <span class="note">调查员身患绝症（癌症､失明､梅毒､肺结核等），绝症对调查员造成恶劣影响，至少失去1点CON，如果病情继续恶化的话还会继续失去其他能力值。投掷1d100来决定剩余寿命，出点越大寿命越长。</span></span></p>
+		<p class="list flex"><span>钟楼怪人（D） <span class="note">调查员具有巨大的伤痕或者身体变形等特征，APP至少-1d4。对交涉系技能也可能-（失去的APP）×5%。</span></span></p>
+		<p class="list flex"><span>酒豪 <span class="note">不易喝醉。酒精作为毒素处理的情况下， POT值只有他人的一半。</span></span></p>
+		<p class="list flex"><span>鹰眼 <span class="note">「观察」+2d3×5%。</span></span></p>
+		<p class="list flex"><span>敌人（D） <span class="note">有对调查员不利的敌人存在，投掷1d100来决定敌人的力量/数量，数值越大越恶劣。用途不限。</span></span></p>
+		<p class="list flex"><span>擅长武器 <span class="note">火器类射程+50%。近战类武器成功率+5%或者伤害+1d2。并且武器不易被破坏（具有更多的耐久度），或者入手的武器具有比一般的武器更高的品质。</span></span></p>
+		<p class="list flex"><span>传家宝 <span class="note">调查员拥有绘画､书籍､武器､家俱等具有高价值的宝物。也可能是模组中追加的宝物的持有人。</span></span></p>
+		<p class="list flex"><span>俊足 <span class="note">DEX+1。再投掷1d6，1~4时MOV+1，5~6时MOV+2。</span></span></p>
+		<p class="list flex"><span>赌徒（D?） <span class="note">进行一次「幸运」鉴定。成功的话调查员获得（INT+POW）×2%的「赌博」技能。失败的话只有（INT或POW）×1%的技能值，资产减少1d6×10%，并且调查员遇到赌博时需要通过一个理智判定才能克制自己。</span></span></p>
+		<p class="list flex"><span>擅长料理 <span class="note">获得（INTorEDU）×5%的「手工艺（料理）」技能。</span></span></p>
+		<p class="list flex"><span>听力良好 <span class="note">「聆听」+2d3×5%。</span></span></p>
+		<p class="list flex"><span>洞察人心 <span class="note">「心理学」+2d3×5%。</span></span></p>
+		<p class="list flex"><span>反应灵敏 <span class="note">投掷1d6。1~3=DEX+1，4~5=DEX+2，6=DEX+3。</span></span></p>
+		<p class="list flex"><span>驱使动物 <span class="note">技能和动物有关时+(1d6+1)×5，例如骑马､驾驶马车､特定情况的藏匿､潜行等。</span></span></p>
+		<p class="list flex"><span>没有特征但是可以选择任意技能（可多选），获得总计3d20点技能加值。</span></p>
+		<p class="list flex"><span>PL自己选择一个特征。</span></p>
+		<p class="list flex"><span>再投掷三次，PL和KP各选择一个。</span></p>
+		<p class="list flex"><span>贪婪（D） <span class="note">对调查员来说金钱至上。任何状况下都优先考虑金钱。为此欺骗他人也是正常的，欺骗物件也包含其他调查员。</span></span></p>
+		<p class="list flex"><span>悲叹人生 <span class="note">SAN-1d10，PL和KP给调查员设定一个背景（失去爱人､子孙或者其他血亲的悲剧）。</span></span></p>
+		<p class="list flex"><span>憎恶（D） <span class="note">PL和KP商议决定，调查员对于特定的国籍､人种或者宗教具有无理由的反感。调查员接触此类人群时会表现出敌意。</span></span></p>
+		<p class="list flex"><span>比马还要健壮 <span class="note">CON+1d3。</span></span></p>
+		<p class="list flex"><span>快乐主义者 <span class="note">追求个人的喜悦（美食､饮品､性､衣装､音乐､家俱等）。为此浪费了(1d4+2)×10%的资产。通过一个「幸运」判定，失败的话因为这种放纵的生活而失去1点STR､CON､INT､POW､DEX或APP。</span></span></p>
+		<p class="list flex"><span>骑手 <span class="note">「骑马」技能+(1d6+1)×10%。</span></span></p>
+		<p class="list flex"><span>易冲动（D） <span class="note">有不考虑后果轻率的行动的倾向。根据情况可能需要通过一个减半的「灵感」判定来使头脑冷静。</span></span></p>
+		<p class="list flex"><span>巧妙 <span class="note">二选一：「灵感」+10%，获得可以临时组装或者发明一些装置的能力；武器以外的操纵系技能获得加值，只选择一个技能的话+30%，选择2个技能各+20%，3个各+10%。</span></span></p>
+		<p class="list flex"><span>疯狂（D） <span class="note">SAN-1d8。PL和KP商议给予调查员一个精神障碍。</span></span></p>
+		<p class="list flex"><span>土地勘测员 <span class="note">调查员对某一篇地域了解的非常详细（如建筑配置､道路､商业､住民､历史等）。对应的区域应为都市某一块区域或者单个农村之类的较狭小的范围。对于这篇区域的详细情况调查员通过「知识」或「灵感」判定即可知晓。</span></span></p>
+		<p class="list flex"><span>意志顽强 <span class="note">POW+1d3，SAN也获得对应的上升。</span></span></p>
+		<p class="list flex"><span>花花公子 <span class="note">APP+1d3，和异性交往有关的交涉技能+1d3×10%。</span></span></p>
+		<p class="list flex"><span>持有高额财产 <span class="note">调查员拥有某种具有巨大价值的东西（如船只､工厂､房屋､矿山､大块的土地等）。这些东西可能需要调查员花费很大的时间和精力在这里，PL和KP要慎重的决定。</span></span></p>
+		<p class="list flex"><span>语言学家 <span class="note">调查员即使语言不通也有可能和物件成功的交流，增加一个辅助技能「语言学家」，初期技能值为INT或EDU ×1%。</span></span></p>
+		<p class="list flex"><span>家人失踪 <span class="note">调查员有着失踪很久的家人，有可能会在模组中登场（如兄弟/姐妹/或者其他亲人遭遇海难､死在海外､被其他亲戚带走等情况）。</span></span></p>
+		<p class="list flex"><span>忠诚 <span class="note">调查员不会抛弃自己的家人､朋友､伙伴，在力所能及的范围内一定会帮助他们。这种性格也使他和自己周围的人群交涉时成功率+10%。</span></span></p>
+		<p class="list flex"><span>魔法素质 <span class="note">学习咒文时只需要正常的一半时间，成功率也增加INT×1%。</span></span></p>
+		<p class="list flex"><span>虽然没有特征但是职业技能值获得额外的3d20的技能点。</span></p>
+		<p class="list flex"><span>PL自己选择一个特征。</span></p>
+		<p class="list flex"><span>虽然没有特征，但是调查员的持有现金为通常规则的2倍。</span></p>
+		<p class="list flex"><span>魔法道具 <span class="note">KP可以给予调查员一个魔术道具（可以杀伤神话生物的附魔武器､召唤神话生物的专用道具､占卜用品､POW储藏器等等）。调查员如果想要知道这件道具的详细性质需要通过一个POW×1的鉴定。</span></span></p>
+		<p class="list flex"><span>射击名人（手枪､步枪､霰弹枪中择一） <span class="note">选择的这项火器技能+2d3×5%。</span></span></p>
+		<p class="list flex"><span>认错人 <span class="note">调查员被频繁的被误认为其他人，通常都会是些有着恶评的人物（罪犯､身怀丑闻的恶人之类的）。模组中在合适的情况下「幸运」可能会被降为原本的一半（简单来说，调查员因为某些理由获得其他人的犯罪历史､恶名､通过诈骗获得的财富或者权力这样的身份或者特征）。</span></span></p>
+		<p class="list flex"><span>天气预报 <span class="note">通过一个「灵感」判定，调查员就可以得知1d6+1小时里的正确天气情况，有多大的降雨量､下雨的场所､风级､持续时间等等。</span></span></p>
+		<p class="list flex"><span>对外观的强迫观念（D） <span class="note">APP+1，但是调查员为了让自己看起来亮丽动人而花费大量的金钱来购买华贵的服饰和饰物。储蓄和资产减半。</span></span></p>
+		<p class="list flex"><span>古书 <span class="note">调查员拥有和模组有关的重要书籍资料或者它的复印（如杂志､黑魔术书籍､历史书､圣经､魔导书､地图等等）。KP可以决定这件道具的性质和价值。</span></span></p>
+		<p class="list flex"><span>试炼生还者（D） <span class="note">SAN-1d6。调查员拥有从恐怖环境中生还的经验（海难､战争､恐怖分子劫持､地震等等）。因为这个经历可能给调查员带来某种长久的影响（通常程度的恐怖症状，或者其他的精神障碍等）。</span></span></p>
+		<p class="list flex"><span>孤儿 <span class="note">调查员相依为命的家人都不在了，或者不知道自己真正的家人是谁。</span></span></p>
+		<p class="list flex"><span>其他语言 <span class="note">调查员可以追加获得一项其他语言技能，技能值为1d4×INT%。</span></span></p>
+		<p class="list flex"><span>野外活动爱好者 <span class="note">「导航」､「自然科学」､「追踪」各 +(2d3+1)×5%（分别投掷）。</span></span></p>
+		<p class="list flex"><span>寄托爱意 <span class="note">模组中登场的某位角色对调查员怀有憧憬。由KP决定是哪位角色､为什么以及怀有何种程度。</span></span></p>
+		<p class="list flex"><span>身怀爱意（D） <span class="note">调查员对其他角色怀有憧憬。由KP决定喜欢谁､为什么以及何种程度。</span></span></p>
+		<p class="list flex"><span>麻痹（D） <span class="note">调查员因精神､疾病等原因苦于身体抽搐､扭曲等症状。各进行一次「幸运」判定，失败的话DEX-1d2且APP-1。</span></span></p>
+		<p class="list flex"><span>超常现象经历 <span class="note">调查员曾经经历过难以说明的遭遇（幽灵､黑魔法､神话生物､超能力等）。PL和KP讨论决定其内容并失去最多1d6点SAN值。</span></span></p>
+		<p class="list flex"><span>大肚子（D） <span class="note">这位调查员怎么说也太胖了点。进行一次「幸运」判定，失败的话投掷1d6，1~3 CON-1，4~6 APP-1。</span></span></p>
+		<p class="list flex"><span>说服力 <span class="note">「说服」+(2d3+1)×5%。</span></span></p>
+		<p class="list flex"><span>宠物 <span class="note">调查员有养狗､猫或者鸟类。</span></span></p>
+		<p class="list flex"><span>虽然没有特征但是任意技能获得3d20点技能点。</span></p>
+		<p class="list flex"><span>再投掷一次，获得那个特征 <span class="note">特征具有（D）时，PL可以再额外选择一个其他任意特征获得。特征没有（D）时，PL必须再同时选择一个（D）特征。</span></span></p>
+		<p class="list flex"><span>虽然没有特征但是职业技能值额外获得3d20点技能点。</span></p>
+		<p class="list flex"><span>恐怖症/疯狂（D） <span class="note">调查员身患恐怖症状或者疯狂症状。参考6版标准规则随机决定症状，或者选择想要的症状。遭遇到自身症状根源的恐怖或者物品时，如果理智判定失败，那么调查员将无法抑制自己的恐怖或者被魅惑。</span></span></p>
+		<p class="list flex"><span>权力/阶级/企业地位 <span class="note">调查员在政治，经济或者甚至军事环境里持有某种程度的权力。投掷1d100，出点越大权力越大。企业地位影响融资，政治地位可能所属某种政府机关，军队地位远超本身拥有的军衔也说不定。「信誉度」+25%。详细的情况和KP商议决定。</span></span></p>
+		<p class="list flex"><span>以前的经验 <span class="note">PL可以选择获得×5%的职业/兴趣技能点数。</span></span></p>
+		<p class="list flex"><span>预知梦 <span class="note">由KP决定，游戏中PL会做一个预言未来的梦，这会需要一个POW×3的判定。梦境没有必须符合现实的必要，如果梦境中见到的景象十分恐怖的话那么会失去一些SAN值（现实中见到相同景象失去SAN值的10%左右）。鉴定失败的话PL会获得错误的预言。</span></span></p>
+		<p class="list flex"><span>繁荣 <span class="note">调查员的年收入和资产变成2倍。「信誉度」+1d4×5%。调查员的事业很成功，或者调查员给富翁､持有权力的人做事或者与他们共事。</span></span></p>
+		<p class="list flex"><span>心理测量 <span class="note">接触某些物体时（或者抵达某个地方时），通过一个POW×1的判定，成功的话可以窥视到这个物品/地方的过去。这个能力的正确度由KP决定。这个能力消耗1d6点MP。因为幻觉也可能失去SAN值（和上述的「预知梦」类似，损失通常的10%左右）。</span></span></p>
+		<p class="list flex"><span>健谈者 <span class="note">「话术」+2d4×5%。调查员有着非常厉害的语言术，可以通过讲故事获得朋友的信任､降低敌人的敌意､赚到一顿免费的餐点也是可能的。</span></span></p>
+		<p class="list flex"><span>罕见的技能 <span class="note">调查员通过一个INT×4的判定的话，可能会持有一些生活中完全不常见，或一般来说不会有的技能。罕见的语言､格斗技､驾驶热气球之类，和KP商议决定。</span></span></p>
+		<p class="list flex"><span>红发 <span class="note">调查员有着一头好像燃烧着一般的红发，非常显眼（没有其他效果）。</span></span></p>
+		<p class="list flex"><span>评价（D?） <span class="note">进行一次「幸运」判定，成功的话调查员被人尊敬（设定其理由），调查员在自家所在的村子/都市中所有的交涉系技能获得15%的加值。「幸运」判定失败的话调查员获得极坏的评价，所有的交涉系技能-15%。KP也可以决定通过良好的业绩来抵消这个恶评。</span></span></p>
+		<p class="list flex"><span>报复追求者 <span class="note">调查员相信自己受到了不公正的待遇并且对导致自己受到这种恶意的物件进行报复行为。PL和KP讨论决定敌人的真身。投掷1d100来决定敌人的强度和调查员受到这种不公正的程度。</span></span></p>
+		<p class="list flex"><span>伤痕 <span class="note">进行一次「幸运」判定。成功的话伤痕没有影响调查员的外观，甚至彰显其英勇也说不定。失败的话APP-1d3，交涉系技能-1d3×5%。</span></span></p>
+		<p class="list flex"><span>科学的精神 <span class="note">「灵感」+5%。并且选择一个思考类技能+30%并再选择2个思考系技能+20%或者所有其他思考系技能+10%。</span></span></p>
+		<p class="list flex"><span>秘密（D?） <span class="note">调查员有着决不能告诉别人的秘密。调查员的邻居可能会有些线索也说不定。调查员可能是个罪犯､间谍，或者卖国贼之类的也说不定。内容由PL和KP商议决定。</span></span></p>
+		<p class="list flex"><span>秘密结社 <span class="note">调查员所属于秘密主义的团体，可能会是共济会､蔷薇十字团､神志主义者､炼金术师结社､光明会之类团体的一员。或者是地下医学研究者之类的犯罪/阴谋组织的一员。</span></span></p>
+		<p class="list flex"><span>自学 <span class="note">EDU+1d3，并增加因此获得的技能值。</span></span></p>
+		<p class="list flex"><span>可疑的过去/绯闻（D） <span class="note">调查员过去曾经做过一些惹人怀疑的事情（卖淫､偷人等），或者曾经犯下过某些重大罪行。所有的交涉系技能-1d3×10%。</span></span></p>
+		<p class="list flex"><span>再投掷一次，获得那个特征 <span class="note">特征具有（D）时，PL可以再额外选择一个其他任意特征获得。特征没有（D）时，PL必须再同时选择一个（D）特征。</span></span></p>
+		<p class="list flex"><span>再投掷两次并获得那两个特征。</span></p>
+		<p class="list flex"><span>投掷三次，PL和KP各选择一个特征。</span></p>
+		<p class="list flex"><span>病弱（D） <span class="note">CON-1d3。</span></span></p>
+		<p class="list flex"><span>巧妙的手法 <span class="note">「开锁」技能+DEX×5%，可以在偷窃或者魔术的时候使用。</span></span></p>
+		<p class="list flex"><span>迟缓（D） <span class="note">MOV-1。</span></span></p>
+		<p class="list flex"><span>失去名誉（D） <span class="note">探索者因为国籍､性别､人种､宗教或者过去的犯罪记录等原因失去了社会上的名誉地位。作为其影响，调查员可能减少自由活动时间甚至所有的交涉系技能-1d4×10%甚至更多。具体的影响PL和KP商议决定。</span></span></p>
+		<p class="list flex"><span>退役军人 <span class="note">调查员获得INT×5点的技能点加到士兵的职业技能上。</span></span></p>
+		<p class="list flex"><span>咒文知识 <span class="note">由KP决定，调查员最多可以获知1d3种咒文，SAN-1d6。</span></span></p>
+		<p class="list flex"><span>胆小（D） <span class="note">调查员见到血液或者流血就会感觉到身体不适，失去更多的SAN值。也可能因为疾病的原因无法靠近或通过流血现场。</span></span></p>
+		<p class="list flex"><span>坚毅 <span class="note">调查员不受到现实中的血迹或者流血的影响。遭遇血迹和流血时SAN损失为最小值，即使见到最残虐的场合（大量被撕裂的人､被猎奇杀死的尸体等）也最多只减少通常的一半。</span></span></p>
+		<p class="list flex"><span>比公牛还要强韧 <span class="note">STR+1d3。</span></span></p>
+		<p class="list flex"><span>迷信（D） <span class="note">调查员迷信不疑，依赖着护身符､仪式或者愚蠢的信念。遭遇超自然现象的时候比通常多损失1点SAN值，即使原本不损失的情况下可能变成损失1点。</span></span></p>
+		<p class="list flex"><span>同情心 <span class="note">调查员选择一个交涉系技能+30%或者选择两个各+20%，然后额外再选择一个+10%。</span></span></p>
+		<p class="list flex"><span>意外的帮手 <span class="note">调查员因为一些缘由拥有一个对自己忠实并帮助自己的协助者。KP来决定这个协助者的真身和影响（依旧可以1d100来决定）。并且1d100也决定其频率。</span></span></p>
+		<p class="list flex"><span>看不见的财产 <span class="note">调查员有一笔自己不知道的财产。这可能是亲人遗赠的或者理事会之类授予的。这可能会是一块土地､房屋或者事业。这依旧可以用1d100来决定其价值程度。</span></span></p>
+		<p class="list flex"><span>虚弱（D） <span class="note">STR-1d3。</span></span></p>
+		<p class="list flex"><span>戴眼镜（D） <span class="note">调查员要看清东西必须戴眼镜，不戴眼镜的话和视觉相关的技能-1d3×10%。进行一个「幸运」判定，成功的话眼镜只在读书或者进行精细工作的时候才需要。失败的话会在激烈运动等情况时会感觉到不能自由行动。</span></span></p>
+		<p class="list flex"><span>彬彬有礼 <span class="note">调查员的「信誉度」+10%，真是个有礼貌的绅士（淑女）。</span></span></p>
+		<p class="list flex"><span>孩子（D） <span class="note">调查员的年龄变成10+2d3岁。最大EDU变成（年龄的0.5+2），DEX+1，STR､CON､APP中任一项+1。PL和KP商议决定，调查员大概和家人住在一起，职业等也需要重新修正。</span></span></p>
+		<p class="list flex"><span>任意选择一项特征。</span></p>
+		<p class="list flex"><span>投掷两次，PL任意选择其中一项特征。</span></p>
+	</div>
+</section>
+
+</div>
+</main>
+
+
+<footer><a href="/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><path d="M248.6,17.7c1.3,0.4,2.7,0.7,3,0.3c0.2-0.2,1.1,0.2,1.8,1.1c0.8,0.9,2.1,1.3,3,1c2.6-0.9,9.1,2.7,11.8,6.7c1.5,1.9,2.9,3.8,3.3,4.1c0.9,0.7,9.8,13.8,9.9,14.6c0,0.3,0.7,2,1.3,3.9c1.9,5.2,1.5,14.9-1.1,22.3c-1.2,3.7-2.2,6.7-2.2,6.8c0,0.6,6.3-0.1,7.4-0.8c0.7-0.4,1.6-0.6,2-0.1c0.7,0.8,8.3,1.5,14.6,1.5c1.8,0,6.8-0.9,11.2-1.9c4.4-1,9-1.9,10.2-1.9c1.2-0.1,2.9-0.6,3.7-1c0.9-0.7,4.9,2.7,12.1,10c15.3,15.5,18.8,21.3,18.6,29.5c-0.3,7.5-3.9,11.9-10.7,12.9c-1,0.1-2.1,0.6-2.5,0.9c-1,1-9.9-0.2-16.3-2.5c-3.4-1.1-9.1-2.9-12.6-3.9c-3.5-1.1-6.6-2.6-7-3.4c-0.2-0.8-2.5-1.8-4.8-2.2c-2.4-0.6-5-1.1-5.9-1.3c-0.9-0.3-2.8-0.6-4.1-0.7c-1.5,0-2.6-0.7-2.6-1.3c0-0.6-0.6-0.3-1.1,0.6c-0.7,1-1.1,1.1-1.1,0.3c0-0.7-0.9-1.3-1.9-1.3c-1.1-0.1-5-0.3-8.7-0.6c-6.5-0.3-10.2,0.8-8.9,2.8c0.3,0.6,0,1-0.7,1c-0.8,0-5.2,3.8-9.8,8.4c-4.7,4.6-9.1,8.3-9.8,8.2c-1.7-0.3-12.9,8.3-12.9,10c-0.1,0.8-0.6,1.5-1.1,1.5c-0.7,0-4.1,2.5-7.9,5.6c-3.7,3-7.2,5.6-7.6,5.6c-0.4,0-0.1-0.6,0.8-1.1c1-0.7,1.1-1.1,0.3-1.1c-0.8,0-1.9,0.9-2.5,1.9c-1.1,1.9-1.1,1.9-1.2,0c0-1.1,0.8-2.2,1.7-2.6c0.9-0.4,1.3-1.1,1-1.7c-0.3-0.6-1.1-0.4-1.9,0.1c-5.5,4.7-7,5.6-8.9,5.6c-1.1,0-2,0.4-2,1.1c0,0.6-0.7,1.1-1.6,1.1c-0.9,0-2.4,1-3.1,2.1c-0.8,1.1-2.8,2.4-4.3,2.5c-1.6,0.2-3.5,1.2-4.3,2.1c-1.1,1.3-1.2,1.1-0.7-1.7c0.4-1.9,1-3.9,1.5-4.5c0.3-0.7,0.8-2.1,0.9-3.4c0.2-1.2,2-6.3,4.1-11.2c2.1-4.9,4.7-10.9,5.6-13.2c0.9-2.2,2.2-4.1,2.9-4.1c0.7,0,0.9,0.6,0.4,1.3c-1,1.6-1.5,5.4-0.8,5.4c0.2,0,1-1.6,1.6-3.4c0.7-1.9,1.7-3.4,2.2-3.4s1-0.9,1-2.1c0-1.1,0.8-3.9,1.7-6.1c0.9-2.2,1.5-4.7,1.3-5.5c-0.2-0.8-0.2-1.1,0-0.7c0.3,0.6,1,0.9,1.7,0.9c0.8,0,0.8-0.6-0.1-1.5c-0.7-0.9-0.9-1.9-0.4-2.4c0.4-0.4-0.1-0.4-1.2,0c-1.7,0.7-1.9,0.4-1.2-0.8s0.6-1.3-0.7-0.2c-1.7,1.7-3.7,1.9-2.8,0.4c0.4-0.6-1-0.7-3.3-0.1c-2.1,0.4-4,0.7-4.3,0.3c-0.3-0.2-0.8,0.4-1.2,1.5c-0.6,1.5-0.2,1.7,2,1.1c1.5-0.3,3.6-1,4.7-1.5c1.3-0.6,1.7-0.3,1,0.7c-0.7,1.1-0.3,1.2,1.6,0.2c1.5-0.8,2.4-0.9,2.4-0.2c0,1.3-6.2,2.7-15.5,3.4c-0.8,0.1-1.2,0.6-0.9,1c0.2,0.4-0.8,0.9-2.5,1c-1.7,0-4.3,0.4-5.8,0.9c-1.6,0.3-4,0.9-5.5,1.1c-1.5,0.2-3.1,1.1-3.6,1.9c-0.8,1.1-1,1.1-1,0c0-0.7-0.6-1.3-1.2-1.3c-0.6,0-0.9,0.4-0.6,1c0.3,0.4-0.7,0.8-2.1,0.6c-1.6-0.1-2.8,0.2-2.8,0.9s-0.7,0.6-1.7-0.2c-1.3-1.1-1.7-1-1.7,0.7c0,1.2-0.3,1.7-0.9,1c-1-1.5-5.6-1.2-7.1,0.2c-1.1,1.1,0.8,7.1,2.4,7.1c0.4,0,0.8,0.7,0.8,1.5c0,2.5,4,13.1,5,13.1c0.4,0,0.9,1,0.9,2.2s0.6,2.2,1.3,2.2c0.7,0,1,0.3,0.7,0.7c-0.4,0.3,0,2.2,0.8,4.3c1.3,3.3,1.3,4-0.3,6.4c-1,1.5-1.8,2.9-1.6,3.3c1.6,3.7-10.3,8.7-19.4,8.3c-3-0.1-5.6-0.3-5.6-0.4c0-0.2-1.2-0.4-2.8-0.6c-1.5-0.1-2.9-0.9-3.1-1.6c-0.8-2.5-7.5-8-9.6-8c-1.6,0-5.2-5.7-5.2-8.1c0-0.7-1-2.6-2.4-4.4c-1.2-1.8-2-3.3-1.6-3.3c0.3,0-0.2-1.3-1.3-3.1c-1-1.7-2-3.1-2.1-3.4c-0.1-0.1-5.2,2.1-11.2,5c-6.2,2.9-12.6,5.4-14.5,5.4c-1.8,0.1-5.6,0.7-8.4,1.1c-5.6,1-9.3,1.1-13.5,0.2c-1.6-0.3-3.8-0.9-5-1.1c-4.4-1-11.2-4.7-14-7.6c-4.4-4.6-6.7-7.6-6.7-8.9c0-0.6-0.9-1.7-1.9-2.5c-1.1-0.8-2.1-2-2.2-2.6c-0.1-0.7-0.4-2.5-0.9-4c-0.7-2.6-0.2-3.1,2.7-4.1c1.9-0.7,3.8-2,4.1-3c0.3-0.9,1.3-1.7,2.2-1.7c0.9,0,1.6-0.4,1.6-1.1c0-0.6-0.8-0.7-1.9-0.3c-1.1,0.4-1.6,0.2-1-0.6c0.3-0.7,2.1-1,3.8-0.9c1.7,0.2,3.9-0.1,5-0.7c2.6-1.3,14.1-4.5,16.8-4.7c1,0,1.9-0.3,1.9-0.8c0-0.3,1.1-0.7,2.6-0.6c1.6,0.1,2.4-0.4,2.1-1.5c-0.3-1.3,0-1.3,1.3-0.2c0.9,0.8,1.9,0.9,2.2,0.3c0.3-0.7,2.5-1,4.6-0.9s3.9-0.3,3.9-0.9c0-0.7,0.6-0.6,1.2,0.1c0.9,0.9,2.8,0.8,7-0.3c3.3-0.8,7.5-1.8,9.6-2.1c4.1-0.7,8-2.5,8.1-3.7c0-0.4,0.2-1.8,0.4-3c1-5.4,1.3-21.9,0.4-21.9c-0.6,0-1,1-1,2.1c0,1.2-0.4,2.5-0.9,2.8c-0.4,0.2-0.9-3.7-0.8-9c0-5.2,0.3-9.4,0.8-9.4c0.6,0,0.8-0.3,0.7-0.9c-0.6-2.8,1.9-9.3,4.3-10.8c4.3-2.9,9-1.8,8.4,1.8c0,0.6,0.6,0.9,1.5,0.9c1.6,0,6.3,9.6,6.3,12.8c0,0.9,1,4.3,2.2,7.4c1.2,3,1.9,5.6,1.6,5.6c-0.3,0-0.2,0.7,0.3,1.3c0.4,0.8,0.9,2.4,1,3.4c0.1,1.1,0.3,2.2,0.4,2.6s0.3,1,0.4,1.6c0,0.6,0.4,1.5,1,1.9c0.4,0.4,0.8,1.8,0.8,2.9c0,1.1,0.6,2,1.1,2.1c3.5,0.4,5.7,0.2,12.1-1.1c3.9-0.8,7.4-1.1,7.7-0.8c0.3,0.3,1.5,0.1,2.5-0.3c2.6-1.5,10.7-2.7,26.5-4c3.7-0.3,9.5-0.9,12.9-1.3c3.4-0.6,9.1-0.9,12.7-0.9c5.8,0,6.5-0.2,7.2-2.5c0.3-1.5,0.9-2.6,1.3-2.6s1-2.4,1.1-5.4c0.2-2.9,0.4-6.5,0.6-8.1c0.2-1.6-0.1-4.4-0.7-6.3c-0.4-1.9-1.1-7-1.5-11.2c-1-14-1.5-17.4-2.9-19.1c-1.8-2.2-1.2-2.6,6.7-4c4.1-0.8,8-2.2,9.4-3.7C245.6,17.6,247,17.2,248.6,17.7z M220.8,89.2c-3.4,0.7-2.2,2,1.9,2.1c2.1,0.1,3.9-0.3,3.9-0.8C226.7,89.4,223.3,88.6,220.8,89.2z M200.5,109.7c-0.1,0.1-1.1,0.3-2.1,0.7c-2.5,0.6-2.7,2.2-0.3,2.2c0.9,0,1.7-0.4,1.7-1c0-0.6,0.6-0.7,1.3-0.2c0.8,0.4,0.9,0.3,0.4-0.4C201.1,110.1,200.6,109.7,200.5,109.7z"/><path d="M266.5,147.3c3.1,1.9,13.2,1.7,12.4-0.3c-0.4-1-0.1-1.1,1.3-0.4c1,0.7,4.1,1.6,6.7,2.1c4,0.9,5.6,0.8,8.4-0.8c4.3-2.2,11.6-2.5,11.1-0.3c-0.1,0.8,0.4,2.2,1.5,3.1c0.9,1,1.7,1.5,1.7,1c0-0.3,0.7,0,1.6,0.8s1.3,1.7,1.1,1.9c-0.2,0.2,0.7,1.8,1.9,3.6c2.4,3.3,5.7,4.9,9.4,4.6c2.9-0.2,6.2,2.2,6.7,5.3c0.2,1.2,1.5,3.4,2.7,4.8c1.3,1.3,2.4,3.6,2.4,4.9s0.7,2.7,1.5,3c1.2,0.4,1.3,2.1,0.7,7.2c-0.4,3.6-1.1,10.5-1.5,15.5c-1,12.1-5.5,29.7-7.6,29.7c-0.4,0-0.9,1.2-0.9,2.7c0,1.6-0.8,3.5-1.7,4.4c-1.5,1.5-1.5,1.8,0,2.4c1.8,0.7,1.1,4-0.8,4c-0.7,0-0.4-0.8,0.3-1.9c1.3-1.6,1.3-1.8,0-1.3c-0.9,0.3-2,1.7-2.6,3.1c-0.8,2.2-0.6,2.5,1,1.9c1.8-0.6,1.7-0.4-0.1,1c-1.5,1-2.2,3.3-2.4,6.4c-0.2,2.7-0.4,4.8-0.6,4.8c-0.1,0-0.4,1.5-0.7,3.1c-0.3,1.9-0.1,2.9,0.6,2.6c1.2-0.8,2.8-6.8,2.7-10.4c0-1.3,0.3-2.2,0.8-2c0.4,0.3,0.7,1.9,0.4,3.6c-0.2,1.8-0.6,4.1-0.8,5.4c-0.1,1.2-1.1,3-2.1,3.9c-2.9,2.6-3.1,10.1-0.3,10.1c0.9,0,1.7,0.4,1.7,1.1c0,0.6-0.8,0.8-1.7,0.4c-1-0.4-1.7,0-1.7,1c0,1.2,0.8,1.6,2.6,1.1c2.5-0.6,2.5-0.6,0.2,1.2c-1.2,1.1-1.7,1.7-1,1.3c1.7-0.8,1.5,2.9-0.3,4.4c-0.7,0.6-1.6,3.3-2,5.8c-0.6,3.8-0.3,4.8,1.3,5.9c1.8,1.1,1.8,1.2,0.1,0.7c-1.1-0.3-2-0.1-2,0.4c0,2.2-0.2,2.8-1.3,4.3c-0.9,1-0.8,1.2,0.7,0.7c2.5-0.9,2.2,0.1-0.6,2.8c-1.6,1.5-1.9,2.4-1,2.9c0.8,0.4,0.8,1.2,0.2,2c-0.9,1.2-3.4,9.4-3.9,13.1c-0.2,0.9-0.7,2.4-1.2,3.1c-0.4,0.9-1,3.7-1.1,6.3c-0.1,4.5-3.5,13.1-5.4,13.9c-0.6,0.2-0.9,1.2-0.9,2.4c0,1-0.6,2.5-1.3,3.3c-0.8,0.8-0.9,1.3-0.4,1.3c0.6,0,0.3,0.8-0.4,1.7c-0.8,0.9-1.1,1.7-0.8,1.7c0.4,0-0.6,1.9-2.1,4.1c-1.6,2.4-3.1,5.6-3.5,7.2c-1.2,6.2-7.6,11-14,10.5c-1.8-0.1-3.1,0.1-3.1,0.4c0,0.9-9.2,0.6-13.1-0.4c-2.6-0.6-10.4-7.5-10.4-9.2c0-0.3-0.9-1.5-1.9-2.5c-1.1-1-2.1-3-2.4-4.6c-0.1-1.6-1.5-3.8-3-5.2c-2.6-2-2.8-2.9-2.6-9.3l0.3-7.1l-5.2-2.8c-4.7-2.6-8.5-6.6-7.4-7.7c0.3-0.3,3.9,0.6,8,1.9c5.2,1.6,8.7,2.1,11.4,1.6c2.7-0.4,3.8-0.3,3.4,0.4c-1.2,1.9,6.1,0.4,8.4-1.7c1.2-1.1,1.9-2.7,1.7-3.5c-0.3-0.8-0.1-1.5,0.6-1.5c0.7,0,0.9-0.9,0.6-1.9c-0.4-1.1-0.4-1.6,0-1.1c0.4,0.3,1.9-1.6,3.4-4.5c2.8-5.4,2.2-8.2-1.5-8.2c-5.5,0-21.8-11.2-33.4-23.1c-12.9-13.1-15.6-16.4-15.8-19.7c-0.1-1.8-0.6-4.6-1.1-6.3c-1.1-4-0.7-5.9,2-8.9c1.9-2,2.8-2.2,5.3-1.3c5.9,2.2,13,5.9,20.2,10.8c4,2.6,8,4.8,8.6,4.8c0.6,0,3.4,1.1,6.1,2.4c2.7,1.3,5.5,2.5,6.1,2.7c0.7,0.1,2.7,0.8,4.5,1.6c1.8,0.7,4.3,1,5.5,0.6c1.2-0.3,1.9-0.2,1.6,0.3c-0.3,0.6,0.2,1,1.3,1.1s2-0.4,2.1-1.1c0.9-9.9,0.9-21,0.1-21c-0.9,0-1.6,4.3-1.1,7c0,0.6-0.6,0.9-1.3,0.9c-1,0-1.3-3.1-1.1-13.2c0.4-20.4,1-29.9,1.6-31.1c0.6-1,0.4-10.2-0.1-20.2c-0.3-5.9-2.1-11.7-4.6-15.3c-1.9-2.7-2.6-2.9-5.9-2.1c-2.8,0.6-5.2,0.3-8.4-1.2c-2.6-1.1-4.6-1.8-4.6-1.6c0,0.9-9.2-2.8-12.2-4.9c-1.7-1.2-3.3-3-3.4-3.9c-0.1-1-0.2-2.8-0.3-4s-1.2-2.6-2.4-2.9c-1.8-0.6-1.9-0.9-0.7-1.7c0.9-0.4,1.6-1.3,1.6-1.8c0-1.6,4.3-5.8,5.3-5.3c0.4,0.3,0.9,0.1,0.9-0.4c0-1.5,5.3-7,6.7-7c0.6,0,1.1-0.4,1.1-1s1.9-1.5,4.3-2C261.1,144.7,262.8,144.9,266.5,147.3z M283.4,236.6c-0.4-0.6-0.8-0.4-0.6,0.2c0.1,0.6-0.1,2.9-0.4,5c-1.3,6.7-1.3,12.9-0.2,13.5c0.7,0.3,1.1-0.7,1.2-2.2c0.1-1.6,0.3-5.7,0.4-9.2C284.1,240.3,283.9,237.1,283.4,236.6z M296.2,258.7c-1,0.7-1.1,1.1-0.3,1.1c0.7,0,1.7-0.6,2-1.1C298.8,257.4,298.3,257.4,296.2,258.7z M297.1,261c-0.4,0-0.9,0.7-1,1.3c0,0.8-0.2,2.6-0.3,3.9c-0.2,1.5,0.1,2.6,0.6,2.6s1-1.8,1.2-3.9C297.8,262.8,297.5,261,297.1,261z M286.1,267.8c-1.2-2.1-1.3-1.8-1.6,7.4c-0.1,3.9,0.2,7.1,0.7,7.1c0.4,0,0.9-0.9,1-2c0-1,0.2-3.9,0.4-6.3C286.9,271.6,286.7,268.8,286.1,267.8z M295.1,274.3c0,2.6,0.4,4.5,1,4.1c0.4-0.3,0.9-2.1,0.8-3.9C296.6,269.3,295.1,269.1,295.1,274.3z M295,280c-0.8,0-1,0.3-0.7,0.8c0.4,0.3,0.2,1.3-0.4,2.2c-1,1-0.9,1.5,0,1.5c0.7,0,1.2-0.2,1.2-0.4c0-0.2,0.3-1.2,0.7-2.2C296.2,280.7,295.9,280,295,280z M317.8,282.2c0.1,1.2,0.8,2.6,1.6,2.9c1.2,0.4,1.2,0,0.2-2C317.8,279.6,317.6,279.5,317.8,282.2z M276,319.3c-0.6,0-1.1,0.8-1.1,1.8c0,0.9,0.6,1.3,1.1,1c0.7-0.3,1.1-1.1,1.1-1.8C277.1,319.7,276.7,319.3,276,319.3z M274.5,324.6c-0.2-0.8-0.8-0.1-1.3,1.5c-0.4,1.6-1.3,3.1-2,3.5c-0.6,0.4-0.8,1.5-0.6,2.2c0.3,1,1.2,0.1,2.5-2.1C274.1,327.6,274.8,325.2,274.5,324.6z"/><path d="M162.5,181c5.7,2.7,10.8,4.7,11.3,4.3c0.6-0.3,2.1,0.8,3.5,2.5c1.3,1.8,2.7,2.9,2.9,2.6c1.1-1.5,7.2,6.2,8,9.9c1.6,8.2,1,9.5-5.2,12.1c-2.1,0.9-4.9,2.5-6.1,3.6c-1.2,1-3.5,1.7-5.3,1.6c-1.7-0.2-3.5,0.1-3.9,0.8c-1.1,2-2.8,10.2-3,15.5c-0.1,2-0.6,3.4-1,3c-0.4-0.2-1.2,1.3-1.6,3.7c-0.4,2.4-2.2,6.4-4.1,9c-1.8,2.7-2.9,5.3-2.6,5.9c0.3,0.6,0.1,1.1-0.6,1.1s-0.9,0.6-0.6,1.1c0.3,0.7-0.1,1.5-1.1,1.8c-1,0.4-1.5,1.5-1.1,2.6c0.2,1-0.1,3.1-1,4.8c-1.3,2.6-1.3,3,0.3,3.5c2.8,1,8.4,4.6,9.4,6.1c0.4,0.8,1.6,1.5,2.4,1.5c2.2,0,5.3,3.9,6.3,8.3c0.7,3.3,0.4,4.3-1.7,6.1c-4.8,4.3-13.5,5.4-21.9,3c-1.6-0.4-4.5-1.1-6.5-1.3c-2.4-0.4-5.5-2.4-8.5-5.3c-2.7-2.6-6.2-5.3-7.9-6.1c-1.6-0.7-2.9-1.7-2.9-2.1c0-0.6-4-1-9-1.2c-7.3-0.2-9,0.1-9.1,1.5c-0.1,0.9-0.3,2.1-0.4,2.8c-0.1,0.6-0.3,1.7-0.4,2.4c0,0.6-2.4,3.4-5,5.9c-4.4,4.4-5.4,4.8-9.2,4.4c-2.5-0.2-5.3-0.3-6.5-0.4c-3.3,0-15.3-7.6-15.3-9.8c0-0.7-0.7-1.3-1.5-1.3c-1.1,0-6.6-10-6.4-11.8c0-0.3-0.8-2.2-1.9-4.3c-1-1.9-1.8-4.1-1.6-4.7c0.2-0.7,0.4-2.9,0.7-5.2c0.1-2.1,0.6-4.6,1-5.4c0.6-0.8,0.6-1.7,0.2-2c-0.3-0.4,0-1.5,0.9-2.5c0.9-1,2.9-8.1,4.5-15.8c4.9-24,4.6-22.7,8.6-30.6c1.9-3.5,3.1-6.8,2.8-7.4c-0.4-0.6,0.3-0.8,1.5-0.4c1.9,0.4,4.4,5.9,3.7,8.4c-0.6,2.4,4.8,1.7,11.6-1.5c7.9-3.6,9.1-4.4,13-8.3c2-2,2-2.2,0.2-2.9c-1.8-0.6,0.1-1.5,5.9-2.8c6.3-1.2,15.5-4.6,20.1-7.2c3.5-2,7.9-3.4,11.6-3.7c3.3-0.3,6.2-0.8,6.5-1.1C147.6,174.4,152,176,162.5,181z M108,206.8c-10.2-0.3-12.4,0-17.9,2.2c-3.6,1.5-7.5,3.1-8.9,3.7c-2.1,0.9-2.5,1.7-2,5.3c1.7,14,5.6,18.3,11.1,12.3c2.8-3,8.2-3.1,14.6-0.3c2.4,1,4.6,1.7,4.9,1.3s1.1-0.2,1.8,0.3c0.7,0.6,5.4,1.3,10.5,1.7c5.2,0.3,10,1,10.7,1.5c3.3,2,4.3,1.3,3.5-2.8c-2.2-13.6-7.5-23.3-13-24.3C121.2,207.4,114.3,206.9,108,206.8z M101.8,244.8c-14.1-0.3-15,0.3-11,8.2c2.8,5.5,4.9,10.5,5,11.9c0.2,2.1,6.3,1.9,9.4-0.3c3.1-2.2,6.1-3.4,11.1-4.3c1.7-0.3,3.6-1,4.3-1.5c1-0.9,6.2-0.9,11.2,0c1.3,0.3,2.4-0.2,2.6-1.6c0.3-1.5-0.3-1.9-2.8-2c-3.1,0-6.8-0.6-11-1.5c-1.2-0.2-2.6-0.6-3-0.6c-0.6-0.1-0.8-0.6-0.6-1c0.1-0.6-1.5-2.4-3.5-4.1C110.4,245.4,108.9,244.9,101.8,244.8z M141,257.6c-0.3,0-0.3,0.8,0,1.7c0.4,0.9,1.5,1.7,2.4,1.7c1.3,0,1.3-0.2-0.1-1.7C142.3,258.4,141.3,257.6,141,257.6z M141.1,261.3c-2.6-2.7-3.5,1.6-1.1,5.2l2,2.9l0.3-3.3C142.5,264.3,142,262.2,141.1,261.3z M146,265.6c-0.7-1.1-1.1-1-1.7,0.6c-0.9,2.2-0.4,2.8,1.2,1.8C146.4,267.5,146.6,266.5,146,265.6z"/><path d="M204.1,176c1.6,0.2,3.6,1.2,4.4,2.2c0.8,1.1,2,2,2.7,2c1.1,0,6.3,3.8,10.1,7.4c2.9,2.8,4,10.3,2.5,15.8c-1.3,4.5-1.2,5.3,1,4.9c0.4,0,0.8,0.3,0.8,0.9c0,1.1,1.6,1,4.5-0.2c2.6-1.1,12-2.1,20.2-2.1c5.4-0.1,8.7,0.6,12.9,2.5c3.1,1.5,5.9,2.6,6.3,2.5c0.4-0.1,2.4,2.8,4.3,6.4c3.1,5.9,3.3,6.8,2,10.3c-1.6,4.3-2.2,5.5-6.7,10.2c-2.6,2.8-3.6,3.3-6.2,2.6c-1.7-0.4-4.5-1-6.3-1.3c-1.8-0.3-4.5-1.2-5.8-2.2c-1.5-0.9-3-1.7-3.5-1.7c-2.8-0.1-6.2-2.4-7.2-4.7c-0.9-1.8-4.3-4.3-9.6-6.8c-8.4-4.3-11.6-4.5-11.6-0.8c0,1.1-0.6,2.6-1.3,3.4c-0.8,0.8-1,1.3-0.7,1.3c1.3,0-3.4,12.8-4.8,13.3c-1.2,0.3-1.2,0,0.1-1.7c1.6-1.9,1.6-2-0.1-0.7c-1,0.8-2.5,3.8-3.3,6.7c-0.7,2.9-1.8,5.8-2.5,6.6c-0.9,1-0.8,1.5,0.3,1.5c1.2,0,1.2,0.2-0.1,1.1c-1,0.7-2.1,0.6-3.3-0.3c-1.3-1.1-1.3-0.9,0.1,1.5c1.8,3,1.9,4.3,0.6,6.4c-0.6,0.8-0.6,1.9-0.2,2.6c0.3,0.6,0,1.1-0.9,1.1c-1.6,0-1.9-3.8-0.4-5.2c1.5-1.6,0.8-2.9-0.8-1.7c-0.9,0.8-1.7,2.2-1.6,3.3c0,3.5-3.3,11.9-4.8,12.4c-1.3,0.3-1.3,0.2-0.1-1.2c0.9-1.1,1-2.1,0.3-2.5c-0.7-0.4-0.7-1.8-0.1-3.8c0.6-1.7,1.3-5,1.6-7.5c0.3-2.5,0.6-4.5,0.7-4.5c0.2,0,0.6-2.4,1.6-13.3c0.4-4.3,0.9-8.1,1.1-8.4c2.4-4,2.5-40,0.2-43.6c-0.3-0.7-0.2-1.5,0.2-1.8c0.6-0.3,0.9-3.4,0.8-6.8C201.1,175.7,201.2,175.6,204.1,176z"/><path d="M280.5,266.6c0.8,0,1,0.8,0.7,1.8s-0.7,2.1-0.7,2.7c0,0.4-0.8,1.2-1.8,1.6c-1.5,0.6-1.6,0.4-0.7-0.8c0.8-0.9,1-1.9,0.6-2.2c-0.3-0.4-0.1-0.8,0.7-0.8c0.8,0,1-0.6,0.7-1.1C279.6,267,279.8,266.6,280.5,266.6z"/><path d="M201.9,269.5c0.3,0.2-0.3,1.3-1.5,2.5c-1.9,1.8-2,1.8-0.6-0.6C200.6,270.1,201.5,269.2,201.9,269.5z"/><path d="M322.4,273.3c0.3,0,0.9,0.4,1.2,1.1c0.3,0.6,0.1,1.1-0.4,1.1c-0.7,0-1.2-0.6-1.2-1.1C322,273.8,322.2,273.3,322.4,273.3z"/><path d="M182.7,314.1c0.6,0.6-3.1,8.4-4.4,9.1c-0.7,0.4-0.3-0.8,0.6-2.7c1-1.9,1.6-3.5,1.2-3.5c-0.3,0,0-0.7,0.8-1.6C181.7,314.6,182.5,314,182.7,314.1z"/><path d="M177.5,324.9c0.6,0,0,1.3-1.2,2.9c-1.3,1.7-2.4,3.5-2.4,4.1c0,0.6-1.9,3.6-4.1,6.7c-5.2,7-7.3,10.9-5.9,10.9c0.4,0,1.1-0.7,1.5-1.5c0.2-0.7,0.8-1,1.2-0.7c1.2,1.1-2.8,4.6-4.6,3.9c-0.9-0.3-1.2-0.1-0.9,0.4c0.3,0.6-0.3,1.7-1.6,2.4c-1.1,0.8-1.9,2.1-1.5,3c0.4,1.2-0.1,1.2-2.4-0.3c-3.5-2.2-3.7-3.1-1.5-5.3c0.8-0.9,1.8-2.7,2.2-3.9c0.4-1.3,1.7-2.8,2.7-3.1c3.3-1,9.8-7.6,13.6-13.8C174.7,327.6,176.9,324.9,177.5,324.9z"/><path d="M170,342.8c0.2,0,0.7,0.4,1,0.9c0.3,0.6-0.1,1-1,1c-0.9,0-1.3-0.4-1-1C169.3,343.3,169.8,342.8,170,342.8z"/></svg></a></footer>
+
+<script src="https://www.googletagmanager.com/gtag/js?id=UA-162600333-1"></script>
+<script src="/assets/script.widget.js"></script>
+<script src="/assets/script.data.js"></script>
+</body>
+</html>
