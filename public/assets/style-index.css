@@ -1,0 +1,73 @@
+:root {
+  --color-p05: var(--color-n05);
+  --color-p07: var(--color-n07);
+  --color-p0a: var(--color-n0b);
+}
+html[class] article :is(h1, p, ul), html[class] footer {
+  opacity: 0;
+}
+article h1 {
+  margin: 0;
+  max-width: 50rem;
+  transition: opacity .2s ease-in .1s;
+}
+article h1 text {
+  font-family: var(--font-family-title);
+}
+article h1 + p {
+  margin-block: 1.54em 7.5rem;
+  transition: opacity .2s ease-in .2s;
+}
+article p + p {
+  transition: opacity .2s ease-in .3s;
+}
+article div {
+  margin-block: 2rem;
+  font-size: .9375rem;
+}
+article ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+  transition: opacity .2s ease-in .4s;
+}
+article ul:nth-child(2) {
+  transition-delay: .5s;
+}
+article ul:nth-child(3) {
+  transition-delay: .6s;
+}
+article ul:nth-child(1) a::after {
+  content: "\f8ce";
+  margin-inline-start: .125rem;
+  font: 1rem/1 var(--font-family-icon);
+  vertical-align: -20%;
+}
+article ul li:not(:last-child)::after {
+  display: inline-block;
+  width: 1.25rem;
+  text-align: center;
+  color: var(--color-n07);
+  transition: .2s ease-in-out;
+  transition-property: color;
+}
+article ul:nth-child(2) li:not(:last-child)::after {
+  content: "|";
+}
+article ul:nth-child(3) li:not(:last-child)::after {
+  content: "·";
+}
+article a {
+  color: var(--color-n02);
+}
+article a:hover {
+  color: var(--color-n05);
+}
+
+footer {
+  transition-delay: .7s;
+}
+html[class] footer {
+  transition-delay: 0s;
+}

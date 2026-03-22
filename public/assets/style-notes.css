@@ -1,0 +1,168 @@
+:root {
+  --ch: 250;
+}
+header nav p a:nth-of-type(2)::before {
+  background: var(--color-p05);
+}
+section.layout-m {
+  margin-block-end: -3rem;
+  max-width: 50rem;
+}
+aside.layout-r {
+  margin-block-start: 12.5rem;
+}
+
+.layout-l .layout-b span:empty {
+  display: block;
+  width: 2rem;
+  height: .25rem;
+  border-radius: .0625rem;
+  background: var(--color-p07);
+  transition: .2s ease-in-out;
+  transition-property: background;
+}
+
+.post-list article {
+  display: flex;
+  align-items: flex-start;
+  margin-block-end: 3rem;
+}
+.post-list div:first-child {
+  flex: 0 0 var(--width-left);
+  color: var(--color-n04);
+  transition: .2s ease-in-out;
+  transition-property: color;
+}
+.post-list span {
+  margin-inline-end: .25rem;
+}
+.post-list a:hover {
+  color: var(--color-p04);
+}
+.post-list h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 2;
+  border: 0;
+}
+.post-list h2::after {
+  content: none;
+}
+.post-list h2 + p {
+  color: var(--color-n02);
+  transition: .2s ease-in-out;
+  transition-property: color;
+}
+
+.post-tags [data-tag]::before {
+  font: 1.125rem/1 var(--font-family-icon);
+  vertical-align: -20%;
+}
+.post-tags [data-tag="coding"]::before {
+  content: "\eb8e";
+}
+.post-tags [data-tag="gaming"]::before {
+  content: "\ea28";
+}
+
+.post-meta {
+  display: flex;
+  padding: 0;
+  color: var(--color-p04);
+  list-style: none;
+  transition: .2s ease-in-out;
+  transition-property: color;
+}
+.post-meta .post-tags::before {
+  content: "\e9ef";
+  margin: 0 0 0 1rem;
+  font: 1.125rem/1 var(--font-family-icon);
+  vertical-align: -16%;
+}
+.post-body p {
+  margin-block: 1rem;
+}
+.post-body pre {
+  margin-block: 1.5rem;
+}
+.post-body a {
+  color: var(--color-n02);
+  border-bottom: 1px solid var(--color-p08);
+}
+.post-body a:hover {
+  border-bottom: 1px solid var(--color-p05);
+}
+
+.post-page {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-block: 8rem -6rem;
+  padding: .5rem 0;
+  font-size: .9375rem;
+  line-height: 1.5;
+  text-align: start;
+  list-style: none;
+  border-top: 1px solid var(--color-n08);
+  transition: .2s ease-in-out;
+  transition-property: border-color;
+}
+.post-page li {
+  flex: 0 1 50%;
+}
+.post-page li:last-child {
+  text-align: end;
+}
+.post-page a {
+  display: block;
+  max-width: max-content;
+  color: var(--color-n02);
+  overflow: hidden;
+}
+.post-page a::before {
+  content: "← PREV";
+  display: block;
+  margin-inline: -.9375rem 0;
+  font-size: .75rem;
+  font-weight: 500;
+  line-height: 2;
+  color: var(--color-p05);
+  transition: .2s ease-in-out;
+  transition-property: margin, color;
+}
+.post-page [rel="next"] {
+  margin-inline-start: auto;
+}
+.post-page [rel="next"]::before {
+  content: "NEXT →";
+  margin-inline: 0 -.9375rem;
+}
+.post-page a:hover::before {
+  margin-inline: 0;
+}
+
+@media (max-width: 60rem) {
+  .post-list article {
+    display: block;
+  }
+  .post-list time {
+    font-size: .9375rem;
+  }
+  .post-list .post-tags {
+    display: inline-block;
+    margin: 0 0 0 1.25rem;
+  }
+}
+@media (max-width: 45rem) {
+  header nav p a:nth-of-type(2)::after {
+    content: "";
+  }
+  .page-nav:empty {
+    display: none;
+  }
+  .post-page li {
+    text-wrap: balance;
+  }
+}

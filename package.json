@@ -1,0 +1,16 @@
+{
+  "name": "site",
+  "version": "0.0.3",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "powershell -Command \"Get-ChildItem $env:APPDATA\\xdg.config\\.wrangler\\logs -File | Remove-Item -Force\" && wrangler dev --x-remote-bindings",
+    "gen": "node scripts/gen-index.js"
+  },
+  "dependencies": {
+    "hono": "^4.9.6",
+    "marked": "^16.3.0",
+    "prism-esm": "^1.29.0-fix.6"
+  }
+}

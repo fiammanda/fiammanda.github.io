@@ -1,0 +1,38 @@
+main {
+  align-items: flex-end;
+}
+article {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+article h1 {
+  margin: 0;
+  font-weight: 400;
+}
+article span {
+  font-family: var(--font-family-code);
+}
+aside {
+  flex: 1;
+  max-width: 50rem;
+}
+aside svg text {
+  font-feature-settings: "ss01", "tnum";
+  letter-spacing: -.15em;
+}
+@media (max-width: 45rem) {
+  main {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    padding-block: 0rem;
+  }
+  article {
+    flex: 0;
+    padding-block: 4rem;
+  }
+  aside {
+    display: flex;
+    align-items: flex-end;
+    margin-inline-start: -.75rem;
+  }
+}
